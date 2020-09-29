@@ -1,0 +1,167 @@
+:root {
+    --primary-color: #90be6d;
+    --secondary-color: #277da1;
+    --background-color: #FFFFF;
+    --header-background-color: #1b3525;
+    --primary-font: roboto;
+    --secondary-font: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--primary-font), var(--secondary-font);
+}
+
+p {
+    font-family: var(--secondary-font), Helvetica, sans-serif;
+}
+
+main {
+    background-color: var(--background-color);
+}
+
+.site-title {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    background-color: var(--header-background-color)
+}
+
+.site-title {
+    color: #FFFFFF;
+}
+
+img {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 8px;
+    max-height: 90%;
+}
+
+.center {
+    text-align: center;
+    padding: 10px;
+}
+
+#img-div {
+    margin: auto;
+    text-align: center;
+    height: 100%;
+}
+
+.timeline-container {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    row-gap: 20px;
+    padding: 10px 5% 10px 5%;
+}
+
+.title-box {
+    display: flex;
+    padding: 10px 10% 0 10%;
+    height: 220px;
+    align-items: center;
+    justify-content: stretch;
+    margin: 2%;
+}
+
+#tribute-info {
+    width: 50%;
+}
+
+
+/* //Card styling below */
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+    width: 100%;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
+}
+
+.card-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.date-tag {
+    background: var(--secondary-color);
+    border-radius: 20px;
+    padding: 7px;
+    text-align: center;
+    /* width: ; */
+    /* height: 20px; */
+}
+
+.card-container p {
+    width: 100%
+}
+
+.card-container h4 {
+    margin: 5px;
+}
+
+.c1 {
+    grid-area: 1/1/1/1;
+    offset: 500px, 40px;
+}
+
+.c2 {
+    grid-area: 2/2/2/2;
+}
+
+.c3 {
+    grid-area: 3/3/3/3;
+}
+
+.c4 {
+    grid-area: 4/4/4/4;
+}
+
+.c5 {
+    grid-area: 5/5/5/5;
+}
+
+.quotebox {
+    border-width: 1px 0px 0px 0px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    margin: 5px;
+    font-style: italic;
+    padding: 8px;
+}
+
+.q1 {
+    grid-area: 5/1/5/3;
+}
+
+.q2 {
+    grid-area: 1/4/3/6;
+}
+
+
+/* !cannot animate in this way apparently
+.c2-animate {
+    animation-name: c2-animate;
+    animation-duration: 5s;
+}
+
+@keyframes c2-animate {
+    0% {
+        grid-area: 1/1/1/1;
+    }
+    100% {
+        grid-area: 2/2/2/2;
+    }
+} */

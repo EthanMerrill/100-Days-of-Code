@@ -1,0 +1,111 @@
+<!-- User Story #1: My tribute page should have an element with a corresponding id="main", which contains all other elements.
+
+User Story #2: I should see an element with a corresponding id="title", which contains a string (i.e. text) that describes the subject of the tribute page (e.g. "Dr. Norman Borlaug").
+
+User Story #3: I should see a div element with a corresponding id="img-div".
+
+User Story #4: Within the img-div element, I should see an img element with a corresponding id="image".
+
+User Story #5: Within the img-div element, I should see an element with a corresponding id="img-caption" that contains textual content describing the image shown in img-div.
+
+User Story #6: I should see an element with a corresponding id="tribute-info", which contains textual content describing the subject of the tribute page.
+
+User Story #7: I should see an a element with a corresponding id="tribute-link", which links to an outside site that contains additional information about the subject of the tribute page. HINT: You must give your element an attribute of target and set it to _blank in order for your link to open in a new tab (i.e. target="_blank").
+
+User Story #8: The img element should responsively resize, relative to the width of its parent element, without exceeding its original size.
+
+User Story #9: The img element should be centered within its parent element. -->
+<!DOCTYPE html>
+<html>
+
+<main id="main">
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <title id="title">Percival Baxter</title>
+        <h3 class="site-title">A Great Maine Conservationist, Governor, and Philanthropist</h3>
+    </head>
+    <div class="title-box">
+        <div id="img-div">
+            <img src="PercivalBaxter.jpg" id="image" alt="Percival Baxter, Maine Governor">
+            <figcaption id="img-caption" class="center">Percival Baxter</figcaption>
+        </div>
+
+        <p id="tribute-info" class="center">Percival Baxter was an American Politician and Philanthropist from Maine. Percival Was the son of a cannery Owner and mayor of Portland, James Baxter. Percival Served as the 53rd Governor of Maine from 1921 to 1925. Percival Donated over 300 square
+            miles of wilderness to the state of Maine under a covenant that it be preserved for the people of Maine In perpetuity.</p>
+    </div>
+
+    <hr>
+
+    <div class="timeline-container">
+        <div class="card c1">
+            <div class="card-container">
+                <h4>Birth</h4>
+                <div class="date-tag">1876</div>
+                <p>Born in Portland Maine</p>
+            </div>
+        </div>
+
+        <div class="card c2">
+            <div class="card-container">
+                <h4>Graduated College</h4>
+                <div class="date-tag">1901</div>
+                <p>Graduated from Harvard with a law degree. Undergrad from Bowdoin College.
+                </p>
+            </div>
+        </div>
+
+        <div class="card c3">
+            <div class="card-container">
+                <h4>Governor of Maine</h4>
+                <div class="date-tag">1921-1924</div>
+                <p>Succeded Fredric Parkhurst and was re-elected for a second term </p>
+            </div>
+        </div>
+        <div class="card c4">
+            <div class="card-container">
+                <h4>Creates State Park</h4>
+                <div class="date-tag">1929</div>
+                <p>Baxter Acquired 6,000 acres of land around Mt. Katadin from great Northern Paper company for 25,000 and deeded the land to the state. </p>
+            </div>
+        </div>
+        <div class="card c5">
+            <div class="card-container">
+                <h4>Death</h4>
+                <div class="date-tag">1969</div>
+                <p>Baxter left 7 million to maintain the park. In total he donated 28 deeds to grow the park to a size of 314 square miles.</p>
+            </div>
+        </div>
+
+
+        <div class="quotebox q1">
+            <p>[the park] "shall forever be used for public park and recreational purposes, shall be forever left in the natural wild state, shall forever be kept as a sanctuary for wild beasts and birds, that no road or ways for motor vehicles shall hereafter
+                ever be constructed thereon or therein."</p>
+        </div>
+        <div class="quotebox q2">
+            <p>Maine is famous for its twenty-five hundred miles of seacoast, with its countless islands; for its myriad lakes and ponds; and for its forests and rivers. But Mount Katahdin Park will be the state’s crowning glory, a worthy memorial to commemorate
+                the end of the first and the beginning of the second century of Maine’s statehood. This park will prove a blessing to those who follow us, and they will see that we built for them more wisely than our forefathers did for us.
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+    </div>
+
+
+    <footer>
+        <a id="tribute-link" href="https://en.wikipedia.org/wiki/Percival_P._Baxter#:~:text=Percival%20Proctor%20Baxter%20(November%2022,served%20from%201921%20to%201925." target="_blank">
+            <h3 class="center">More Information About Percival Baxter</h3>
+        </a>
+    </footer>
+
+</main>
+
+</html>
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
