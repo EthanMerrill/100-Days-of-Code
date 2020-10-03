@@ -136,3 +136,12 @@ locally declared variables take precidence over root declared variables
 |autofill| can be inserted into a repeat function like so: ``repeat(auto-fill, minmax(20px, 1fr))``. it inserts as many rows or columns as possible given the desired size( the second argument in the repeat function)|
 |auto-fit| instead of adding more elements, like auto fill, auto-fit will stretch items to fit the container. If all the items do not fit in one row it will move them down to a new one. |
 |
+
+# Free Code Camp design livestream notes
+<a href="https://www.youtube.com/watch?v=r-GpCakJjxc">video here</a>
+
+- [7:47] Need Whitespace in navbars
+- [8:45] *call to action* make it obvious
+- [11:46] Viewport widths and whitespace. Target all resolutions
+- [19:29] use a two column layout when designing desktop versions. Make it possible to expand to a three column layout
+- 

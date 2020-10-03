@@ -1,0 +1,95 @@
+<!-- User Story #1: I can see a title with id="title" in H1 sized text.
+
+User Story #2: I can see a short explanation with id="description" in P sized text.
+
+User Story #3: I can see a form with id="survey-form".
+
+User Story #4: Inside the form element, I am required to enter my name in a field with id="name".
+
+User Story #5: Inside the form element, I am required to enter an email in a field with id="email".
+
+User Story #6: If I enter an email that is not formatted correctly, I will see an HTML5 validation error.
+
+User Story #7: Inside the form, I can enter a number in a field with id="number".
+
+User Story #8: If I enter non-numbers in the number input, I will see an HTML5 validation error.
+
+User Story #9: If I enter numbers outside the range of the number input, which are defined by the min and max attributes, I will see an HTML5 validation error.
+
+User Story #10: For the name, email, and number input fields inside the form I can see corresponding labels that describe the purpose of each field with the following ids: id="name-label", id="email-label", and id="number-label".
+
+User Story #11: For the name, email, and number input fields, I can see placeholder text that gives me a description or instructions for each field.
+
+User Story #12: Inside the form element, I can select an option from a dropdown that has a corresponding id="dropdown".
+
+User Story #13: Inside the form element, I can select a field from one or more groups of radio buttons. Each group should be grouped using the name attribute.
+
+User Story #14: Inside the form element, I can select several fields from a series of checkboxes, each of which must have a value attribute.
+
+User Story #15: Inside the form element, I am presented with a textarea at the end for additional comments.
+
+User Story #16: Inside the form element, I am presented with a button with id="submit" to submit all my inputs. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css" type="text/css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Survey on Pets</title>
+
+</head>
+
+<body>
+    <section class="title-section">
+        <h1 id="title">A Survey on Pets</h1>
+        <p id="description">This is a quick survey about pets</p>
+    </section>
+
+    <form id="survey-form">
+        <label id="name-label" for="name">Please Enter Your Name</label>
+        <input id="name" required placeholder="John Doe">
+        <label id="email-label" for="email">Please Enter Your Email</label>
+        <input id="email" type="email" required placeholder="coolcat@hotmail.com">
+        <label id="number-label" for="number">Please Rank How you feel today on a scale of 1-10</label>
+        <input id=number type="number" min="0" max="10" placeholder="5">
+        <label id="dropdown-label">what is your favorite pet?</label>
+        <select id="dropdown">
+            <option value="cats">cats</option>
+            <option value="dogs">dogs</option>
+            <option value="alpacas">alpacas</option>
+            <option value="alpacas">Reptiles</option>
+            <option value="alpacas">Fish</option>
+            <option value="alpacas">birds</option>
+            <option value="alpacas">alpacas</option>
+        </select>
+        <label id="radio-buttons-label">How much do you spend on pets per month (USD)?</label>
+        <ul>
+            <label for="0-10">5-10</label>
+            <input type="radio" name="monthlyspend" value="0-10">
+            <label for="10-25">5-10</label>
+            <input type="radio" name="monthlyspend" value="10-25">
+            <label for="25-50">25-50</label>
+            <input type="radio" name="monthlyspend" value="25-50">
+        </ul>
+        <label id="checkboxes-label" for="checkboxes">What pet(s) do you have now?</label>
+        <ul>
+            <li><input type="checkbox" name="checkbox" value="No Pet">No Pet</li>
+            <li><input type="checkbox" name="checkbox" value="Cat<">Cat</li>
+            <li><input type="checkbox" name="checkbox" value="Dog<">Dog</li>
+            <li><input type="checkbox" name="checkbox" value="Alpaca">Alpaca</li>
+            <li><input type="checkbox" name="checkbox" value="Rept">Reptile</li>
+            <li><input type="checkbox" name="checkbox" value="Fish">Fish</li>
+            <li><input type="checkbox" name="checkbox" value="Bird">Bird</li>
+            <li><input type="checkbox" name="checkbox" value="Stegosaurus">Stegosaurus</li>
+        </ul>
+        <label for="additional-comments-textarea">Do you have any other thoughts on pets?</label>
+        <textarea name="additional-comments-textarea"></textarea>
+        <button id="submit">Submit</button>
+    </form>
+
+</body>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</html>

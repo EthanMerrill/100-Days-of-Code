@@ -1,0 +1,39 @@
+:root {
+    --background-color: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));
+    --survey-color: white;
+    --form-radius: 10px;
+}
+
+#survey-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    border-radius: var(--form-radius);
+    background-color: var(--survey-color);
+    padding: 10px
+}
+
+label {
+    padding: 5px 0px 5px 0px;
+}
+
+body {
+    background-color: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));
+}
+
+.title-section {
+    margin: auto;
+    width: 50%;
+    background-color: var(--survey-color);
+    border-radius: var(--form-radius);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#submit {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}

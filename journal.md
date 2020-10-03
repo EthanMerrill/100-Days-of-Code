@@ -36,3 +36,7 @@ Finished the lessons for the responsive web design certification. Today I spent 
 - Started Tribute page challenge
 
 # Day 7
+
+
+# Day 9 
+Took notes on Design video stream on the FreeCodeCamp Youtube channel. I did this because I am really no happy with how my sites turn out. 
