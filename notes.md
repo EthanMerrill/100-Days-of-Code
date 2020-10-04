@@ -55,7 +55,11 @@ locally declared variables take precidence over root declared variables
 |px|absolute| |
 |in|absolute| |
 |mm|absolute| |
-|em|relative| size pf elements font|
+|em|relative| size of elements font|
+|rem|relative| relative to the font size of the root element|
+|vw|relative| relative to 1% of the width of the viewport|
+|vh|relative| relative to 1% of the height of the viewport|
+|vmin|relative| relative to 1% of the viewports smaller dimesion|
 
 ---
 
@@ -144,4 +148,24 @@ locally declared variables take precidence over root declared variables
 - [8:45] *call to action* make it obvious
 - [11:46] Viewport widths and whitespace. Target all resolutions
 - [19:29] use a two column layout when designing desktop versions. Make it possible to expand to a three column layout
+- [24:10] have a primary call to action 
+- [25:10] use cards -- I have this down!
+- [25:00] *visual hierarchy* place emphasis on the most importat elements and to seperate elements from one another. Ex. Seperation between the title. can use bold, size, color to seperate items.
+- [27:30] *floating labels* never rely on just placeholder values. People forget what the text input is about. solve this with dedicated labels or floating labels
+- [31:30] Carosels on hero sections are bad. (oof) 
+- [34:26] Make animations the right speed.
+- [37:41] Don't put progress bars on skills (DUH)
+- [38:54] *Borders* Don't use borders to break up sections like ```<hr>```, its an artifact of ye old web. :( ok.
+- [41:21] Form width, don't make your forms uber wide in desktop mode
+- [49:40] Theming consistency
+- [57:30] *Information Architecture* what does it make sense for the primary call to action to do?
+- [57:69] How to give cards seperation. change the **HUE** not the actual color. 
+- [1:04:00] *drop shadow* make it very subtle. Hardly noticable. People don't really care about your shadows. 
+- [1:10:10] make buttons, particularly call to action have solid fill
 - 
+
+
+
+### resources:
+<a href="dribbble.com">Dribbble.com</a>
+<a href="behance.net">behance.net</a>

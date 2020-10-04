@@ -1,7 +1,25 @@
 :root {
-    --background-color: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));
+    --background-color: linear-gradient(90deg, rgba(0, 100, 116, 0.2), rgba(146, 2, 2, 0.644));
     --survey-color: white;
     --form-radius: 10px;
+}
+
+
+/* Animation experiment */
+
+
+/* GRADIENTS CANNOT BE ANIMATED! Fact of the day */
+
+@keyframes animation1 {
+    0% {
+        background-color: linear-gradient(90deg, rgba(0, 100, 116, 0.2), rgba(146, 2, 2, 0.644));
+    }
+    50% {
+        background-color: linear-gradient(90deg, rgba(146, 2, 2, 0.644), rgba(0, 100, 116, 0.2));
+    }
+    100% {
+        background-color: linear-gradient(90deg, rgba(0, 100, 116, 0.2), rgba(146, 2, 2, 0.644));
+    }
 }
 
 #survey-form {
@@ -11,15 +29,27 @@
     margin: auto;
     border-radius: var(--form-radius);
     background-color: var(--survey-color);
-    padding: 10px
+    padding: 20px;
 }
 
 label {
     padding: 5px 0px 5px 0px;
+    font-family: ;
 }
 
 body {
-    background-color: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));
+    background: var(--background-color);
+    animation-name: animation1;
+    animation-duration: 10s;
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.pet_spend label {
+    padding-left: 2rem;
 }
 
 .title-section {
@@ -27,7 +57,7 @@ body {
     width: 50%;
     background-color: var(--survey-color);
     border-radius: var(--form-radius);
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
