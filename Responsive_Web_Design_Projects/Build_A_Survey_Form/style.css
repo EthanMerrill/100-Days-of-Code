@@ -34,7 +34,7 @@
 
 label {
     padding: 5px 0px 5px 0px;
-    font-family: ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -66,4 +66,16 @@ ul {
     margin-left: auto;
     margin-right: auto;
     width: 100px;
+    background: lightgray;
+    color: black;
+    border-style: outset;
+    border-color: gray;
+    height: 30px;
+    width: 100px;
+    font: bold 15px arial, sans-serif;
+    text-shadow: none;
+}
+
+#submit:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
 }

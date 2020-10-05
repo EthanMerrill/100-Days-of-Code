@@ -40,3 +40,12 @@ Finished the lessons for the responsive web design certification. Today I spent 
 
 # Day 9 
 Took notes on Design video stream on the FreeCodeCamp Youtube channel. I did this because I am really no happy with how my sites turn out. 
+
+# Day 10 
+Finished the Survey page
+
+# Day 11
+Started the Landing page challenge
+
+# Day 12
+Started a different project to scrape data from glassdoor.com
