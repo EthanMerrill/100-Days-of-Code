@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'K22 didoni';
+    src: url('assets/k22_didoni.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "K22 didoni swash";
+    src: url('assets/k22_didoni_swash.ttf') format('truetype');
+}
+
+:root {
+    --secondary-color: rgba(0, 90, 180, .3)
+}
+
+h1 {
+    font-family: "K22 didoni swash";
+    color: black;
+}
+
+h2 {
+    font-family: "ubuntu";
+    font-weight: 500;
+}
+
+h4 {
+    font-family: "ubuntu";
+    font-weight: 200;
+}
+
+p {
+    font-family: "spartan";
+    font-weight: 200;
+}
+
+.main-section {
+    text-align: center;
+}
+
+.pricing-container {
+    display: flex;
+    row-gap: 20px;
+    padding: 10px 5% 10px 5%;
+    justify-content: center;
+}
+
+.card {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2); */
+    width: 400px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
+}
+
+.card-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.card-container p {
+    width: 100%
+}
+
+.card-container h4 {
+    margin: 5px;
+}
+
+.price-tag {
+    background: var(--secondary-color);
+    border-radius: 20px;
+    padding: 7px;
+    text-align: center;
+    /* width: ; */
+    /* height: 20px; */
+}

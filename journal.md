@@ -48,4 +48,19 @@ Finished the Survey page
 Started the Landing page challenge
 
 # Day 12
-Started a different project to scrape data from glassdoor.com
+Started a project to scrape data from glassdoor.com. I got the basics down in 6 hours. So far The program scrapes the reviews on the page and prints them in the terminal. The goal is to get all of the data into a pandas dataframe then visualize it with plotly or possibly d3. 
+
+# Day 13
+Worked on the parser for the Glassdoor Scraper. I asked by first question on Stack overflow! I don't think anyone has answered yet, but I figured it out, so I may answer it myself tomorrow. 
+
+# Day 14
+Finally got the scraper to work (mostly) I decided I am going to do the visualization in PowerBI because this project is taking longer than expected. I can do the d3 later. Things left to do are: Make the date formatting compatible with PowerBI which will involve working with strptime in python, and making the sub rankings scraper work. Hopefully I can finish those up tomorrow and get back to FCC. I need to finish the React certification by the end of this!
+
+# Day 15
+The Scraper is Good Enough! I tooled around in PowerBI to get a few pretty charts. I think I would need an additional two days to make the data cleaner and PowerBI laid out in a usable manner, however I want to keep up a good pace on the FCC Challenges. I also just found the visual on Free Code Camp that shows your current streak. I pushed anything to the site in over a week! (looking at my time records, I last worked on a Free Code camp challenge 4 days ago) Maybe I can get a quick and dirty product page working tonight.
+
+# Day 16 
+Half day today. I want to get the skeleton of the Product page finished by eod. 
+- read up on font pairings
+- added a local font 
+- 
