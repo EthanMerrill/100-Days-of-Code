@@ -169,3 +169,7 @@ locally declared variables take precidence over root declared variables
 ### resources:
 <a href="dribbble.com">Dribbble.com</a>
 <a href="behance.net">behance.net</a>
+
+# Javascript
+
+## Basic Javascript

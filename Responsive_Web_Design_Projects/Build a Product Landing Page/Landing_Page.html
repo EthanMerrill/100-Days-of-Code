@@ -41,33 +41,42 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
 
 <body>
     <header id="header">
-        <img src="assets/Logo.PNG" id="header-img">
+
         <nav id="nav-bar">
+            <img src="assets/Logo.PNG" id="header-img">
             <a href="#features" class="nav-link">Features</a>
             <a href="#lifestyle" class="nav-link">The Lifestyle</a>
             <a href="#pricing" class="nav-link">Pricing</a>
         </nav>
     </header>
-    <h1>Sample Title</h1>
+
     <section id="promo">
+        <!-- autoplay=1& -->
         <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/pJ8HVWAOTEk?start=4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
     <h4> We donate <i><b>.03%</b></i> of profits to providing bowls to those in need</h4>
     <section id="features" class="main-section">
         <h2>Features</h2>
-        <p>At Oyster & Toot we build bowls from the table up to last a lifetime. From our locally sourced, free range timber to our precision lathe process, you can invest with confidence.</p>
+        <img src="assets\giorgio-trovato-NXtLEXOprZ4-unsplash.jpg" class="inline-image crop1">
+        <p>At Oyster & Toot we build bowls from the table up to last a lifetime. From our locally sourced, free range timber to our precision lathe process, you can invest with the confidence that your bowl will be an heirloom for generations to come.</p>
         <ul>
             <li>Hand Lathed by Master Craftspeople</li>
             <li>100% responsible wood sourcing</li>
             <li>Volume Optimized with Machine Learning and AI</li>
 
         </ul>
+
     </section>
 
     <h4> If you dont like your bowl, just send it back!</h4>
 
     <section id="lifestyle" class="main-section">
+
         <h2>The Lifestyle</h2>
+        <!-- <div class="crop1"> -->
+        <img src="assets\drica-pinotti-QP-udFdEcoo-unsplashR.jpg" class="inline-image crop1">
+        <figcaption><span class="unsplash-credit">Photo by <a href="https://unsplash.com/@dricapinotti?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Drica Pinotti</a> on <a href="https://unsplash.com/s/photos/bowls?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></figcaption>
+        <!-- </div> -->
         <p>Go beyond the everyday and experience what a modern bowl has to offer. Elevate your cereals, soups, and dips to new heights. We know you are always on the move -- so don't let your old bowls tie you down. Spice up your style with new bowls every
             month, week or day! Plus, as a Freedom Bowl Member you will have access to your own personal bowl shopper who will curate your daily bowl selection</p>
     </section>
@@ -79,31 +88,31 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
             <div class="card-container">
                 <div class="card">
                     <h3>Casual Bowler</h3>
-                    <div class="price-tag">25</div>
-                    <ul>
-                        <hr>
-                        <li>1 small bowl per Month</li>
-                    </ul>
+
+                    <hr>
+                    <li>1 small bowl per Month</li>
+
+                    <div class="price-tag">$25</div>
                 </div>
             </div>
             <div class="card-container">
-                <div class="card">
+                <div class="card-border-label">
+                    <h4>Best Value</h4>
+                </div>
+                <div class="best-value card">
                     <h3>Just Right</h3>
-                    <div class="price-tag">49</div>
-                    <ul>
-                        <hr>
-                        <li>1 Bowl per week</li>
-                        <hr>
-                        <li>priority customer support</li>
-                        <hr>
-                        <li>exclusive access to new designs</li>
-                    </ul>
+                    <hr>
+                    <li>1 Bowl per week</li>
+                    <hr>
+                    <li>priority customer support</li>
+                    <hr>
+                    <li>exclusive access to new designs</li>
+                    <div class="price-tag">$49</div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
                     <h3>Super Bowls</h3>
-                    <div class="price-tag">79</div>
                     <hr>
                     <li>1 Bowl Per day</li>
                     <hr>
@@ -111,8 +120,9 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
                     <hr>
                     <li>exclusive access to new designs</li>
                     <hr>
-                    <li><i>Freedom Bowl</i> member with input in new bowl designs, welcome to the next level</li>
+                    <li><i>Freedom Bowl</i> member, welcome to the next level</li>
                     </ul>
+                    <div class="price-tag">$79</div>
                 </div>
             </div>
         </div>
@@ -125,7 +135,7 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
     <section class="survey-container">
         <form id="form" action="https://www.freecodecamp.com/email-submit">
 
-            <input id="email" type="email" placeholder="example@email.com">
+            <input id="email" name="email" type="email" placeholder="example@email.com">
             <input id="submit" type="submit">
 
         </form>

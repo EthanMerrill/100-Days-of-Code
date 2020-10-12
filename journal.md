@@ -63,4 +63,13 @@ The Scraper is Good Enough! I tooled around in PowerBI to get a few pretty chart
 Half day today. I want to get the skeleton of the Product page finished by eod. 
 - read up on font pairings
 - added a local font 
-- 
+
+## Skip Day
+
+# Day 17 
+Tweaked styling of the page. 
+
+# Day 18 
+
+- Got the Navbar styled
+- photo crop and rotation
