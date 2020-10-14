@@ -173,3 +173,11 @@ locally declared variables take precidence over root declared variables
 # Javascript
 
 ## Basic Javascript
+
+|thing|Description |
+|---|---|
+|+= operator, -=, *=, /= | perform mathmatical operation and assignment in one step, example ><br> ```myVar += 5 ``` |
+|Escape Quotes | In JavaScript, you can escape a quote from considering it as an end of string quote by placing a backslash (\) in front of the quote. ```var sampleStr = "Alan said, \"Peter is learning JavaScript\".";```|
+|Escape Characters | /n /t // |
+|```.length```| counts the number of characters in the string it is appended to |
+|

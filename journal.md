@@ -73,3 +73,13 @@ Tweaked styling of the page.
 
 - Got the Navbar styled
 - photo crop and rotation
+- 
+# Day 19
+This product page needs to be done. As of this Morning it passes all but the navbar tests, but I still want to make links change color in the navbar, improve the Card styling, and adjust the Features section. Also the navbar behaves as described in the User Story, but still doesn't pass the test, I'll have to look into that. I am having some trouble with the link hover transition in the navbar at the moment. 
+
+The navbar was just 10 pixels too low! The test exceptions are written very well. 
+
+- [X] Make navbar test pass
+- [ ] Make navbar hover transition work
+- [ ] Clean up the Survey
+- 
