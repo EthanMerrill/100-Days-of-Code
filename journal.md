@@ -82,4 +82,11 @@ The navbar was just 10 pixels too low! The test exceptions are written very well
 - [X] Make navbar test pass
 - [ ] Make navbar hover transition work
 - [ ] Clean up the Survey
-- 
+
+# Day 20
+Cleaned up the card on the bottom of the page. I am about halfway through the basic Javascript exercises. I am quite happy with how the fake product site works. I might tweet it to College Humor and see if they reply. I just have to make the survey and make the navbar work how I want it to.  
+
+# Day 21 
+
+- [X] Make navbar hover transition work
+- [ ] Clean up the Survey

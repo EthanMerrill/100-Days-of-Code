@@ -38,6 +38,7 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" integrity="sha384-9/D4ECZvKMVEJ9Bhr3ZnUAF+Ahlagp1cyPC7h5yDlZdXs4DQ/vRftzfd+2uFUuqS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="script/script.js"></script>
     <title>Oyster&Toot</title>
 </head>
 
@@ -46,9 +47,15 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
 
         <nav id="nav-bar">
             <img src="assets/Logo.PNG" id="header-img">
-            <a href="#features" class="nav-link">Features</a>
-            <a href="#lifestyle" class="nav-link">The Lifestyle</a>
-            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#features" class="nav-link">
+                <h1>Features</h1>
+            </a>
+            <a href="#lifestyle" class="nav-link">
+                <h1>Lifestyle</h1>
+            </a>
+            <a href="#pricing" class="nav-link">
+                <h1>Pricing</h1>
+            </a>
         </nav>
     </header>
 
@@ -79,7 +86,7 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
 
     </section>
 
-    <h4 class="callout"> If you dont like your bowl, just send it back!</h4>
+    <h4 class="callout"> if your bowl doesn't fit, just send it back!</h4>
 
     <section id="lifestyle" class="main-section">
 
@@ -91,12 +98,46 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
         <p>Go beyond the everyday and experience what a modern bowl has to offer. Elevate your cereals, soups, and dips to new heights. We know you are always on the move -- so don't let your old bowls tie you down. Spice up your style with new bowls every
             month, week or day! Plus, as a Freedom Bowl Member you will have access to your own personal bowl shopper who will curate your daily bowl selection</p>
     </section>
+    <section class="survey-container">
+        <h2>Lets Get to Know You!</h2>
+        <form id="form" action="https://www.freecodecamp.com/email-submit">
+            <div class="miniflex">
+                <label for="first-name">First Name</label>
+                <input id=first-name name="first-name" type="text">
+            </div>
+            <div class="miniflex">
+                <label for="last-name">Last Name</label>
+                <input for="last-name" name="last-name" type="text">
+            </div>
+            <label for="inspire-multiselect">When Do Bowls Inspire You most?</label>
+            <ul>
+                <li><input type="checkbox" name="checkbox" value="Morning">Morning</li>
+                <li><input type="checkbox" name="checkbox" value="With Friends">With Friends</li>
+                <li><input type="checkbox" name="checkbox" value="Near Water">Near Water</li>
+            </ul>
+            <label for="favorite-curve">What is your favorite curve?</label>
+            <ul>
+                <li><input type="radio" name="radio" value="clean">Clean</li>
+                <li><input type="radio" name="radio" value="modern">Modern</li>
+                <li><input type="radio" name="radio" value="sexy">Sexy</li>
+            </ul>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="example@email.com">
+            <input id="submit" type="submit">
+        </form>
+    </section>
+    <div class="activities-box">
+        <i class="far fa-plus-square" id="expand-btn" data-toggle="collapse" data-target=".collapse.first" data-text="Collapse"></i>
+        <h3>Worcester Polytechnic Institute (WPI), Worcester Massachusetts</h3>
 
+    </div>
+    <p class="hidden-description collapse first" id="hidden-desc" data-toggle="collapse">Bachelor of Science in Engineering Management: Operations Concentration, Computer Science Minor May 2020 GPA: 3.34
+    </p>
     <section id="pricing" class="main-section">
         <h2>Pricing</h2>
         <p>Because we don't have to pay for stores, we can pass this savings directly on to you. We have a subscription tier for every bowl need.</p>
         <div class="pricing-container">
-            <div class="card-container ">
+            <div class="card-container">
                 <div class="card">
                     <h3>Casual Bowler</h3>
 
@@ -139,18 +180,19 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
         </div>
     </section>
 
-    <span class="unsplash-credit">Photo by <a href="https://unsplash.com/@jadoca?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jade Scarlato</a> on <a href="https://unsplash.com/s/photos/bowls?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>\
-    <span class="unsplash-credit">Photo by <a href="https://unsplash.com/@dricapinotti?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Drica Pinotti</a> on <a href="https://unsplash.com/s/photos/bowls?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
+    <!-- Survey Questions
+Bowl profile
+When do Bowls Inspire you most?
+-Morning
+-With Friends
+-Near Water
+What is your favorite Curve?
+-Clean
+-Modern
+-Sexy
+-->
 
-    <section class="survey-container">
-        <form id="form" action="https://www.freecodecamp.com/email-submit">
-
-            <input id="email" name="email" type="email" placeholder="example@email.com">
-            <input id="submit" type="submit">
-
-        </form>
-    </section>
 </body>
 
 </html>

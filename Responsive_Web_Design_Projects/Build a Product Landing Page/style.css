@@ -45,7 +45,7 @@
     }
     
     h1 {
-        font-family: "K22 didoni swash";
+        font-family: "K22 didoni";
         color: black;
     }
     
@@ -93,19 +93,25 @@
         box-shadow: 0 10px 8px rgba(159, 162, 177, 0.3);
         z-index: 9999;
         height: 6%;
+        text-decoration: none;
     }
     
-    #nav-bar .nav-link {
+    #nav-bar .nav-link h1 {
         color: rgba(240, 240, 240, .8);
         font-family: "K22 didoni";
         font-size: 30px;
         text-decoration: none;
+        padding: 0px;
         /* border: 4px, solid, white; */
     }
     
-    .nav-link :hover {
-        color: rgba(240, 240, 0, 1);
-        text-decoration: underline !important;
+    header a {
+        text-decoration: none;
+    }
+    
+    #nav-bar a :hover {
+        color: rgba(240, 240, 240, 1);
+        /* text-decoration: underline; */
     }
     
     #header-img {
@@ -155,7 +161,7 @@
     }
     
     .call-to-action svg {
-        width: 60px;
+        /* width: 60px; */
         animation-iteration-count: infinite;
     }
     
@@ -256,7 +262,7 @@
         /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2); */
         width: 350px;
         border-radius: 5px;
-        padding: 20px 0 50px 0;
+        padding: 20px 20px 50px 20px;
         text-align: center;
         position: relative;
         z-index: 1;
@@ -313,4 +319,70 @@
         transform: translatex(-50%);
         /* width: ; */
         /* height: 20px; */
+    }
+    /* Survey Styling */
+    
+    form .miniflex {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin: auto;
+        padding: 50px;
+    }
+    
+    form li {
+        font-size: 1em;
+    }
+    
+    form input {
+        margin-top: 10px;
+    }
+    
+    #email,
+    #submit {
+        width: 70%;
+    }
+    
+    label {
+        font-family: "ubuntu";
+        font-weight: 100;
+        font-size: 1.5em;
+        padding: 10px;
+    }
+    /* Hidden items */
+    
+    .hidden-description {
+        display: none;
+        overflow: hidden;
+        padding-left: 40px;
+    }
+    
+    .activities-box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    /* Apply to all things within the activites box */
+    
+    .activities-box * {
+        margin: 5px;
+    }
+    /* TESTONG */
+    
+    .collapse {
+        display: block;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height .9s cubic-bezier(0, 1, 0, 1);
+        ;
+    }
+    
+    .show {
+        max-height: 99em;
+        transition: max-height .5s ease-in-out;
     }
