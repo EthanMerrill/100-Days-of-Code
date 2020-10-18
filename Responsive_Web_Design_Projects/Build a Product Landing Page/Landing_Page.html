@@ -36,9 +36,10 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" integrity="sha384-9/D4ECZvKMVEJ9Bhr3ZnUAF+Ahlagp1cyPC7h5yDlZdXs4DQ/vRftzfd+2uFUuqS" crossorigin="anonymous"></script>
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" integrity="sha384-9/D4ECZvKMVEJ9Bhr3ZnUAF+Ahlagp1cyPC7h5yDlZdXs4DQ/vRftzfd+2uFUuqS" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/374cfc1460.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="script/script.js"></script>
+
     <title>Oyster&Toot</title>
 </head>
 
@@ -65,7 +66,7 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
         <img src="assets\angele-kamp-IJZY2yXYsp8-unsplash.jpg" class="inline-image crop2">
         <figcaption><span class="unsplash-credit">Photo by <a href="https://unsplash.com/@angelekamp?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Angèle Kamp</a> on <a href="https://unsplash.com/s/photos/bowls?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></figcaption>
 
-        <div class="call-to-action"><i class="far fa-arrow-alt-circle-down fa-2x animate__pulse animate__animated"></i>
+        <div class="call-to-action"><i class="far fa-arrow-alt-circle-down fa-3x animate__pulse animate__animated"></i>
             <p>Scroll down for more information</p>
         </div>
     </section>
@@ -98,41 +99,45 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
         <p>Go beyond the everyday and experience what a modern bowl has to offer. Elevate your cereals, soups, and dips to new heights. We know you are always on the move -- so don't let your old bowls tie you down. Spice up your style with new bowls every
             month, week or day! Plus, as a Freedom Bowl Member you will have access to your own personal bowl shopper who will curate your daily bowl selection</p>
     </section>
-    <section class="survey-container">
-        <h2>Lets Get to Know You!</h2>
-        <form id="form" action="https://www.freecodecamp.com/email-submit">
-            <div class="miniflex">
-                <label for="first-name">First Name</label>
-                <input id=first-name name="first-name" type="text">
-            </div>
-            <div class="miniflex">
-                <label for="last-name">Last Name</label>
-                <input for="last-name" name="last-name" type="text">
-            </div>
-            <label for="inspire-multiselect">When Do Bowls Inspire You most?</label>
-            <ul>
-                <li><input type="checkbox" name="checkbox" value="Morning">Morning</li>
-                <li><input type="checkbox" name="checkbox" value="With Friends">With Friends</li>
-                <li><input type="checkbox" name="checkbox" value="Near Water">Near Water</li>
-            </ul>
-            <label for="favorite-curve">What is your favorite curve?</label>
-            <ul>
-                <li><input type="radio" name="radio" value="clean">Clean</li>
-                <li><input type="radio" name="radio" value="modern">Modern</li>
-                <li><input type="radio" name="radio" value="sexy">Sexy</li>
-            </ul>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="example@email.com">
-            <input id="submit" type="submit">
-        </form>
-    </section>
-    <div class="activities-box">
-        <i class="far fa-plus-square" id="expand-btn" data-toggle="collapse" data-target=".collapse.first" data-text="Collapse"></i>
-        <h3>Worcester Polytechnic Institute (WPI), Worcester Massachusetts</h3>
 
-    </div>
-    <p class="hidden-description collapse first" id="hidden-desc" data-toggle="collapse">Bachelor of Science in Engineering Management: Operations Concentration, Computer Science Minor May 2020 GPA: 3.34
-    </p>
+    <section class="survey-container">
+        <div class="survey-title-block">
+            <h2>Let's Get to Know You!</h2>
+            <div class="dropdown-button miniflex-horizontal">
+                <p>Take the Survey!</p>
+                <i class="far fa-plus-square fa-2x" id="expand-btn" data-toggle="collapse" data-target=".collapse.first" data-text="Collapse"></i>
+            </div>
+        </div>
+        <div class="hidden-description collapse first" id="hidden-desc" data-toggle="collapse">
+            <form id="form" action="https://www.freecodecamp.com/email-submit">
+                <div class="miniflex">
+                    <label for="first-name">First Name</label>
+                    <input id=first-name name="first-name" type="text">
+                </div>
+                <div class="miniflex">
+                    <label for="last-name">Last Name</label>
+                    <input for="last-name" name="last-name" type="text">
+                </div>
+                <label for="inspire-multiselect">When Do Bowls Inspire You most?</label>
+                <ul>
+                    <li><input type="checkbox" name="checkbox" value="Morning">Morning</li>
+                    <li><input type="checkbox" name="checkbox" value="With Friends">With Friends</li>
+                    <li><input type="checkbox" name="checkbox" value="Near Water">Near Water</li>
+                </ul>
+                <label for="favorite-curve">What is your favorite curve?</label>
+                <ul>
+                    <li><input type="radio" name="radio" value="clean">Clean</li>
+                    <li><input type="radio" name="radio" value="modern">Modern</li>
+                    <li><input type="radio" name="radio" value="sexy">Sexy</li>
+                </ul>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="example@email.com">
+                <input id="submit" type="submit">
+            </form>
+
+        </div>
+    </section>
+
     <section id="pricing" class="main-section">
         <h2>Pricing</h2>
         <p>Because we don't have to pay for stores, we can pass this savings directly on to you. We have a subscription tier for every bowl need.</p>
@@ -179,7 +184,19 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
             </div>
         </div>
     </section>
-
+    <footer>
+        <div>
+            <p>©2020 Oyster&Toot Company. All Rights Reserved.</p>
+        </div>
+        <div>
+            <p>323 Somewhere Rd in San Francisco </p>
+        </div>
+        <div>
+            <a href="blank"></a>
+            <p>Contact</p>
+            </a>
+        </div>
+    </footer>
 
     <!-- Survey Questions
 Bowl profile
@@ -195,5 +212,8 @@ What is your favorite Curve?
 
 </body>
 
+
 </html>
+
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+<script src="script.js" defer></script>

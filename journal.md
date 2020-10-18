@@ -90,3 +90,23 @@ Cleaned up the card on the bottom of the page. I am about halfway through the ba
 
 - [X] Make navbar hover transition work
 - [ ] Clean up the Survey
+
+# Day 22 
+
+- [ ] Make dropdown work/clean up the survey
+
+To make this work I needed find elements on the page, then add event listeners. For this to work properly the script had to be executed after the page loaded. According to stack overflow, the proper way to do this is: ```window.onload=function```, so that is how I implemented it.
+
+This site is *not* going to be mobile optimized, because I already spent a week on it. I can't even make the media query(which does exist) work properly, or at all. 
+
+# Day 23 Got Distracted 
+
+I started playing around with another project in d3, which I probly will never finish. I didn't even make a Github Repo for it. 
+
+# Day 24 
+
+FINISH IT! Almost a quarter of the way through and I'm not even finished with basic web! Cmon! Today I NEED to finish the promo website. Its been passing the tests all week I just need to clean up the survey and add a quick footer--Nothing else! No Mission Creep!
+
+- [x] Clean up Survey Expansion Box
+- [x] add a quick n dirty footer
+- [ ] MAYBE Add more filler text as a result of the Bloomberg blands article
