@@ -101,7 +101,7 @@ This site is *not* going to be mobile optimized, because I already spent a week 
 
 # Day 23 Got Distracted 
 
-I started playing around with another project in d3, which I probly will never finish. I didn't even make a Github Repo for it. 
+I started playing around with another project in d3, which I probly will never finish. I didn't even make a Github Repo for it. It is a visualization for 
 
 # Day 24 
 
@@ -109,4 +109,13 @@ FINISH IT! Almost a quarter of the way through and I'm not even finished with ba
 
 - [x] Clean up Survey Expansion Box
 - [x] add a quick n dirty footer
-- [ ] MAYBE Add more filler text as a result of the Bloomberg blands article
+- [x] MAYBE Add more filler text as a result of the Bloomberg blands article
+- [x] Submit Product Landing Page
+{done in 1st Hour, its amazing what focus can do!}
+
+- [x] Finish & Submit Documentation Challenge
+
+
+- [ ] Start Portfolio Challenge
+- [ ] Do more Javascript Exercises
+- [ ] Work on Electric Vehicle Visualization in D3 (Make working Scale for year)

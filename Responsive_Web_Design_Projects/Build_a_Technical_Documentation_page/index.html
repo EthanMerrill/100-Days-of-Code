@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css" type="text/css">
+<nav id="navbar" class="">
+    <header>Navigation</header>
+    <a class="nav-link" href="#basic_html_and_html5">Basic Html and HTML5</a>
+    <a class="nav-link" href="#basic_css">Basic CSS</a>
+    <a class="nav-link" href="#applied_visual_design">Applied Visual Design</a>
+    <a class="nav-link" href="#applied_accessibility">Applied Accessibility</a>
+    <a class="nav-link" href="#css_flexbox_and_grid">CSS Flexbox and Grid</a>
+</nav>
+<main id="main-doc">
+    <section id="basic_html_and_html5" class="main-section">
+        <header>
+            <h1 id="basic-html-and-html5">Basic Html and HTML5</h1>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>main</p>
+                    </td>
+                    <td>
+                        <p>most content in the page. Contains the body. does not contain Header, footer, navigation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>a tags that go places in the page</p>
+                    </td>
+                    <td>
+                        <p>set the href to &quot;#elementid&quot; to link them</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>target</p>
+                    </td>
+                    <td>
+                        <p>target is an anchor tag attribute that specifies to open the link in a new tab.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>dead links</p>
+                    </td>
+                    <td>
+                        <p>replace the href with a #. This is useful when manipulating the link using Javascript</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>input elements</p>
+                    </td>
+                    <td>
+                        <p>Input types: Text Required, just add required in plaintext no quotes to the tag</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>label elements</p>
+                    </td>
+                    <td>
+                        <p>use a label when nesting radio elements (input type = radio) can add the for attribute to associate it with the id of a nested input tag. For is used by screen readers.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>checked</p>
+                    </td>
+                    <td>
+                        <p>just add checked inside a checkbox element to make it checked by default</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>DOCTYPE for HTML5</p>
+                    </td>
+                    <td>
+                        <p>Looks like <code>&lt;!DOCTYPE html&gt;</code></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="basic_css" class="main-section">
+        <header>
+            <h1 id="basic-css">Basic CSS</h1>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>CSS Classes</p>
+                    </td>
+                    <td>
+                        <p>```.example-class{}``</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>backup fonts</p>
+                    </td>
+                    <td>
+                        <p><code>font-family: lobster, monospace</code> will cause the font to be monospace if lobster is not found</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>ID Selector</p>
+                    </td>
+                    <td>
+                        <p><code>#idbeingselected</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>clockwise notation</p>
+                    </td>
+                    <td>
+                        <p><code>padding:toppx, rightpx, bottompx, leftpx</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>type attribute selector</p>
+                    </td>
+                    <td>
+                        <p><code>[type='radio']</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>class hierarchy</p>
+                    </td>
+                    <td>
+                        <p>the order of the classes in the html tag is what deTermines which class has priority</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Short hex Codes</p>
+                    </td>
+                    <td>
+                        <p>only 4,000 possiblities. EX <code>FFF0000</code> can be shortened to <code>#F00</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>RGB Values</p>
+                    </td>
+                    <td>
+                        <p><code>rgb(0,0,0)</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>:Root Element</p>
+                    </td>
+                    <td>
+                        <p>Used for declaring variables in css. its a pseudo class selector. This means that variables will be available globally if they are created in the root.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>media Queries</p>
+                    </td>
+                    <td>
+                        <p><code>@media (max-width:350px){} </code> defines other variables to use for mobile devices</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="variables">Variables</h3>
+        <p>declaration: <code>--IAMVARIABLE</code> usage: <code>background-color: var(--penguin-skin, fallbackvalue);</code></p>
+        <pre class="hljs"><code><div>:root {
+    --red-color: red;
+  }
+</div></code></pre>
+        <p>locally declared variables take precidence over root declared variables</p>
+
+        <h3 id="media-queries">Media Queries</h3>
+        <h3 id="hierarchy-of-style-declaraton">Hierarchy of style declaraton</h3>
+        <ol start="0">
+            <li>!important</li>
+            <li>inline style</li>
+            <li>id</li>
+            <li>class</li>
+            <li>2nd class listed</li>
+        </ol>
+        <h3 id="basic-css-units">Basic CSS: Units</h3>
+        <p>|unit|absolute or relative| relative to what| |px|absolute| | |in|absolute| | |mm|absolute| | |em|relative| size of elements font| |rem|relative| relative to the font size of the root element| |vw|relative| relative to 1% of the width of the viewport|
+            |vh|relative| relative to 1% of the height of the viewport| |vmin|relative| relative to 1% of the viewports smaller dimesion|</p>
+        <hr>
+    </section>
+    <section id="applied_visual_design" class="main-section">
+        <header>
+            <h1 id="applied-visual-design">Applied Visual Design</h1>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>hr Tag</p>
+                    </td>
+                    <td>
+                        <p>Makes a horizontal line -- Useful!</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>rgba</p>
+                    </td>
+                    <td>
+                        <p>like RGB, But the a is for opacity.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>box-shadow</p>
+                    </td>
+                    <td>
+                        <p>takes values for: offset-x, offset-y, blur-radius, spread-radius, color(in that order)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>opacity</p>
+                    </td>
+                    <td>
+                        <p>a useful tag</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>text-transform</p>
+                    </td>
+                    <td>
+                        <p>takes args: uppercase, lowercase, capitalize, initial, inherit, none.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>line-height</p>
+                    </td>
+                    <td>
+                        <p>changes the height of each line in the paragraph</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Offsets</p>
+                    </td>
+                    <td>
+                        <p>DO NOT USE Offset-left, just say <code>left:10px;</code> and this will move it 10px to the right</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>position:fixed</p>
+                    </td>
+                    <td>
+                        <p>wont move when the user scrolls</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Float</p>
+                    </td>
+                    <td>
+                        <p>Can float :left and right for a two column layout or Content::sidebar layout. Quite useful</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>linear-gradient</p>
+                    </td>
+                    <td>
+                        <p><code>background: linear-gradient(90deg, red, yellow, rgb(204, 204, 255));</code> can also be a <code>repeating-linear-gradient</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>set background as photo</p>
+                    </td>
+                    <td>
+                        <p>simply use url(urlgoeshere)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>scale</p>
+                    </td>
+                    <td>
+                        <p>increases the size of the element by the factor specified, I imagine this would be used for animations</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>skew</p>
+                    </td>
+                    <td>
+                        <p>another function of the transorm property. <code>transform:skewX(32deg)</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Before and After</p>
+                    </td>
+                    <td>
+                        <p>::Before and ::After are pseudo elements used to add someTerm before or after the selected element. for them to work, a content property must be defined:<code> .heart::before {content: &quot;&quot;;}</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Keyframes</p>
+                    </td>
+                    <td>
+                        <p>@keyframes name {0%{red} 100%{blue}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>animation-fill-mode:</p>
+                    </td>
+                    <td>
+                        <p>set this property to forwards to keep an item highlighted when hovering. If this is not set, it might be on a time interval and snap back to its original state after the interval is over</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>animation-iteration-count</p>
+                    </td>
+                    <td>
+                        <p>the number of times for the animation to occur. Can be set to infinite</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>animation-timing=function</p>
+                    </td>
+                    <td>
+                        <p>deTermines how the animation occurs, can ease in ease out, linear, ease</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="applied_accessibility" class="main-section">
+        <header>
+            <h1 id="applied-accessibility">Applied Accessibility</h1>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>audio Controls</p>
+                    </td>
+                    <td>
+                        <p>expose hardware audio control to the browser by adding the attribute: controls to an audio tag.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Audio Embed</p>
+                    </td>
+                    <td>
+                        <p><code>&lt;audio&gt;&lt;source src=&quot;URLHERE&quot; type=&quot;audio/mpeg&quot;&gt;</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Figure tags</p>
+                    </td>
+                    <td>
+                        <p>Used to show figures, like charts 'n Terms</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>figure caption tag</p>
+                    </td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>fieldset tag</p>
+                    </td>
+                    <td>
+                        <p>a tag surounds a grouping of radio buttons which binds them together for screen readers</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>legend tag</p>
+                    </td>
+                    <td>
+                        <p>a tag used to describe the contents of a fieldset radio button array</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time tag</p>
+                    </td>
+                    <td>
+                        <p>a tag used totell a screen reader that the enclosed text is a time takes a datetime attribute which takes the numeric time, as opposed to the one written in plain text in between the tag</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>sup tag</p>
+                    </td>
+                    <td>
+                        <p>used to add a super script, common in the 'th' of dates</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>sr-only class</p>
+                    </td>
+                    <td>
+                        <p>can make a css class that only shares content with the screen reader (will be hidden on the page). display non and visibility hidden hide content from all users, so you must just move the element very far from the viewport.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>accesskey attribute</p>
+                    </td>
+                    <td>
+                        <p>used for keyboard only users. This is what makes it possible to tab through a webpage.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>tabindex attribute</p>
+                    </td>
+                    <td>
+                        <p>indicates an element can be focused on. if 0 then it can be focused on by the user and is reachable by the keyboard. if set to 1, that element is brought to focus first.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="css_flexbox_and_grid" class="main-section">
+        <header>CSS Flexbox and Grid</header>
+        <h1 id="css-flexbox">CSS Flexbox</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>Flex-basis</p>
+                    </td>
+                    <td>
+                        <p>Specifies the original size of the item before it is adjusted by css</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>flex</p>
+                    </td>
+                    <td>
+                        <p>Shorthand for the flex-grow, flex-shrink, flex-basis, DO not put commas between the attributes when listing them!</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>order</p>
+                    </td>
+                    <td>
+                        <p>used to re-arrange elements in a flexbox</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Align-self</p>
+                    </td>
+                    <td>
+                        <p>accepts the same argument as align-items and will override any value set by the align-items property. this allows the adjustment of each items alignment individually as opposed to setting them all at once. This is a useful property
+                            because float, clear, and vertical align do not work on flex items</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h1 id="css-grid">CSS Grid</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>Display:grid;</p>
+                    </td>
+                    <td>
+                        <p>creates a grid</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>grid-template-columns</p>
+                    </td>
+                    <td>
+                        <p>50px 50px would be a two column grid with columns 50 pixels wide. fr sets the unit to a fraction of the available space. auto sets it to the height of content automatically. % adjusts to the percent width of its container.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>grid-template-rows</p>
+                    </td>
+                    <td>
+                        <p>works the same way as columns.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>grid-column-gap</p>
+                    </td>
+                    <td>
+                        <p>sets the gap in the columns</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>grid-gap</p>
+                    </td>
+                    <td>
+                        <p>shorthand for row and column gap. if given one value it sets both as the same, if given two, the first is row and 2nd is column</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>grid-column</p>
+                    </td>
+                    <td>
+                        <p>example: <code>grid-column:1/3;</code> this creates an item which will use two columns. Think of the numbers as column lines. this item goes from column line 1 to column line 3.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>grid-template-areas</p>
+                    </td>
+                    <td>
+                        <p>groups cells together in an area and then gives them a name. sort of strange looking. Basically a long formatted string. <code>grid-template-areas: &quot;header header header</code> usually assigned to a class called a container</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>grid-area:</p>
+                    </td>
+                    <td>
+                        <p>places a element in whatever is defined in the grid template areas. can also take the <code>1/3</code> lines format as mentioned in the grid columns definition. THe placement is the same. example: <code>grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>: repeat function</p>
+                    </td>
+                    <td>
+                        <p><code>grid-tempalate-row:repeat(100, 50px)</code> creates a 100 row grid with row heights of 50px. repeat is a function that can be inserted in most places in the grid ecosystem its format is repeat(number of times, attribute)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>minmax() function</p>
+                    </td>
+                    <td>
+                        <p>defines a min, max which gives some scalability to the element</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>autofill</p>
+                    </td>
+                    <td>
+                        <p>can be inserted into a repeat function like so: <code>repeat(auto-fill, minmax(20px, 1fr))</code>. it inserts as many rows or columns as possible given the desired size( the second argument in the repeat function)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>auto-fit</p>
+                    </td>
+                    <td>
+                        <p>instead of adding more elements, like auto fill, auto-fit will stretch items to fit the container. If all the items do not fit in one row it will move them down to a new one.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p></p>
+                    </td>
+                    <td>
+                        <p></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+
+</body>
+
+</html>
+
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
