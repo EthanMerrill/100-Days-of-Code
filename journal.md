@@ -39,7 +39,7 @@ Finished the lessons for the responsive web design certification. Today I spent 
 
 
 # Day 9 
-Took notes on Design video stream on the FreeCodeCamp Youtube channel. I did this because I am really no happy with how my sites turn out. 
+Took notes on Design video stream on the FreeCodeCamp YouTube channel. I did this because I am really no happy with how my sites turn out. 
 
 # Day 10 
 Finished the Survey page
@@ -54,7 +54,7 @@ Started a project to scrape data from glassdoor.com. I got the basics down in 6 
 Worked on the parser for the Glassdoor Scraper. I asked by first question on Stack overflow! I don't think anyone has answered yet, but I figured it out, so I may answer it myself tomorrow. 
 
 # Day 14
-Finally got the scraper to work (mostly) I decided I am going to do the visualization in PowerBI because this project is taking longer than expected. I can do the d3 later. Things left to do are: Make the date formatting compatible with PowerBI which will involve working with strptime in python, and making the sub rankings scraper work. Hopefully I can finish those up tomorrow and get back to FCC. I need to finish the React certification by the end of this!
+Finally got the scraper to work (mostly) I decided I am going to do the visualization in PowerBI because this project is taking longer than expected. I can do the d3 later. Things left to do are: Make the date formatting compatible with PowerBI which will involve working with `strptime` in python, and making the sub rankings scraper work. Hopefully I can finish those up tomorrow and get back to FCC. I need to finish the React certification by the end of this!
 
 # Day 15
 The Scraper is Good Enough! I tooled around in PowerBI to get a few pretty charts. I think I would need an additional two days to make the data cleaner and PowerBI laid out in a usable manner, however I want to keep up a good pace on the FCC Challenges. I also just found the visual on Free Code Camp that shows your current streak. I pushed anything to the site in over a week! (looking at my time records, I last worked on a Free Code camp challenge 4 days ago) Maybe I can get a quick and dirty product page working tonight.
@@ -84,7 +84,7 @@ The navbar was just 10 pixels too low! The test exceptions are written very well
 - [ ] Clean up the Survey
 
 # Day 20
-Cleaned up the card on the bottom of the page. I am about halfway through the basic Javascript exercises. I am quite happy with how the fake product site works. I might tweet it to College Humor and see if they reply. I just have to make the survey and make the navbar work how I want it to.  
+Cleaned up the card on the bottom of the page. I am about halfway through the basic JavaScript exercises. I am quite happy with how the fake product site works. I might tweet it to College Humor and see if they reply. I just have to make the survey and make the navbar work how I want it to.  
 
 # Day 21 
 
@@ -99,23 +99,28 @@ To make this work I needed find elements on the page, then add event listeners. 
 
 This site is *not* going to be mobile optimized, because I already spent a week on it. I can't even make the media query(which does exist) work properly, or at all. 
 
-# Day 23 Got Distracted 
+# Day 23 
 
-I started playing around with another project in d3, which I probly will never finish. I didn't even make a Github Repo for it. It is a visualization for 
+I started playing around with another project in d3, which I probably will never finish. I didn't even make a Github Repo for it. It is a visualization for the availability of electric vehicles. 
 
 # Day 24 
 
-FINISH IT! Almost a quarter of the way through and I'm not even finished with basic web! Cmon! Today I NEED to finish the promo website. Its been passing the tests all week I just need to clean up the survey and add a quick footer--Nothing else! No Mission Creep!
+FINISH IT! Almost a quarter of the way through and I'm not even finished with basic web! C'mon! Today I NEED to finish the promo website. Its been passing the tests all week I just need to clean up the survey and add a quick footer--Nothing else! No Mission Creep!
 
 - [x] Clean up Survey Expansion Box
 - [x] add a quick n dirty footer
-- [x] MAYBE Add more filler text as a result of the Bloomberg blands article
+- [x] MAYBE Add more filler text as a result of the Bloomberg Blands article
 - [x] Submit Product Landing Page
 {done in 1st Hour, its amazing what focus can do!}
 
 - [x] Finish & Submit Documentation Challenge
 
-
+future:
 - [ ] Start Portfolio Challenge
-- [ ] Do more Javascript Exercises
+- [ ] Do more JavaScript Exercises
 - [ ] Work on Electric Vehicle Visualization in D3 (Make working Scale for year)
+
+# Day 25 
+
+Continued the Basic JavaScript exercises. I also left my first feedback on other people projects using the FCC Forum. Getting involved with the community remains a priority during this 100 days challenge. I would like to contribute to open source or non profit projects as well, perhaps when I have slightly more experience. Overall Quite productive considering the time spent coding today.
+

@@ -180,4 +180,7 @@ locally declared variables take precidence over root declared variables
 |Escape Quotes | In JavaScript, you can escape a quote from considering it as an end of string quote by placing a backslash (\) in front of the quote. ```var sampleStr = "Alan said, \"Peter is learning JavaScript\".";```|
 |Escape Characters | /n /t // |
 |```.length```| counts the number of characters in the string it is appended to |
+| === operator | this is a strict equality operator. It does not perform a type conversion. for example '3' =/= 3 |
+| && operator | One condition && another|
+| || operator | *logical or operator* returns true if either of the **operands** are true|
 |
