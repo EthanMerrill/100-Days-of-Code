@@ -57,7 +57,7 @@ Worked on the parser for the Glassdoor Scraper. I asked by first question on Sta
 Finally got the scraper to work (mostly) I decided I am going to do the visualization in PowerBI because this project is taking longer than expected. I can do the d3 later. Things left to do are: Make the date formatting compatible with PowerBI which will involve working with `strptime` in python, and making the sub rankings scraper work. Hopefully I can finish those up tomorrow and get back to FCC. I need to finish the React certification by the end of this!
 
 # Day 15
-The Scraper is Good Enough! I tooled around in PowerBI to get a few pretty charts. I think I would need an additional two days to make the data cleaner and PowerBI laid out in a usable manner, however I want to keep up a good pace on the FCC Challenges. I also just found the visual on Free Code Camp that shows your current streak. I pushed anything to the site in over a week! (looking at my time records, I last worked on a Free Code camp challenge 4 days ago) Maybe I can get a quick and dirty product page working tonight.
+The Scraper is Good Enough! I tooled around in PowerBI to get a few pretty charts. I think I would need an additional two days to make the data cleaner and PowerBI laid out in a usable manner, however I want to keep up a good pace on the FCC Challenges. I also just found the visual on Free Code Camp that shows your current streak. I pushed anything to the site in over a week! (looking at my time records, I last worked on a Free Code Camp challenge 4 days ago) Maybe I can get a quick and dirty product page working tonight.
 
 # Day 16 
 Half day today. I want to get the skeleton of the Product page finished by eod. 
@@ -73,7 +73,7 @@ Tweaked styling of the page.
 
 - Got the Navbar styled
 - photo crop and rotation
-- 
+
 # Day 19
 This product page needs to be done. As of this Morning it passes all but the navbar tests, but I still want to make links change color in the navbar, improve the Card styling, and adjust the Features section. Also the navbar behaves as described in the User Story, but still doesn't pass the test, I'll have to look into that. I am having some trouble with the link hover transition in the navbar at the moment. 
 
@@ -124,3 +124,26 @@ future:
 
 Continued the Basic JavaScript exercises. I also left my first feedback on other people projects using the FCC Forum. Getting involved with the community remains a priority during this 100 days challenge. I would like to contribute to open source or non profit projects as well, perhaps when I have slightly more experience. Overall Quite productive considering the time spent coding today.
 
+# Day 26
+
+99% of the way through basic Javascript, just stuck on the last 2 recursion problems. I'm resisting the urge to cheat, but I think I need to find some other resources on recursion to get a better grip on the subject. The loops section had me wanting to write python all afternoon. 
+
+*Goals*
+- [ ] Finish Basic Javascript
+- [ ] Fix wrap on header in product page 
+- [ ] Cost product page on github correctly
+- [ ] Post product page and ask for feedback!
+
+# Day 27
+
+
+- [ ] Finish Basic Javascript
+- [ ] Fix wrap on header in product page 
+- [ ] Cost product page on github correctly
+- [ ] Post product page and ask for feedback!
+- [ ] Start ES6
+
+# Day 28 
+
+- [ ] Finish ES6
+- [ ] Start Regular Expressions

@@ -180,7 +180,12 @@ locally declared variables take precidence over root declared variables
 |Escape Quotes | In JavaScript, you can escape a quote from considering it as an end of string quote by placing a backslash (\) in front of the quote. ```var sampleStr = "Alan said, \"Peter is learning JavaScript\".";```|
 |Escape Characters | /n /t // |
 |```.length```| counts the number of characters in the string it is appended to |
-| === operator | this is a strict equality operator. It does not perform a type conversion. for example '3' =/= 3 |
+| === operator | this is a strict equality operator. It does not perform a type conversion. for example '3' =/= 3 returns true or false. use this instead of a big if else statement ``` return val === 4 ``` |
 | && operator | One condition && another|
 | || operator | *logical or operator* returns true if either of the **operands** are true|
+|Switch Case | Uses strict equality . ```switch(arg){case "a": do thing break; case "b" etc}```|
+|delete object property |```delete mydog.tail```|
+|```.hasOwnProperty("propertyName")``` | checks to see if the property exists|
+| Recusion | Recursion is the concept that a function can be expressed in terms of itself. |
+|Conditional or Ternary Operator |```condition ? expression-if-true : expression-if-false|
 |
