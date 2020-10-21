@@ -13,12 +13,10 @@ Where I track what I accomplish each day during the 100 Days of Code Challenge
 Notes from Free Code Camp Exercises.
 
 
-# Projects:
+## Projects:
 
-## Responsive Web Design:
-<a href="Responsive_Web_Design_Projects\Build_A_Personal_Portfolio_Webpage\PersonalPortfolioPage.html">**Personal Portfolio**</a> A portfolio linking to the other projects from the responsive web design module. 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-<a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." /></a>
+### Responsive Web Design:
+<a href="Responsive_Web_Design_Projects\Build_A_Personal_Portfolio_Webpage\PersonalPortfolioPage.html">**Personal Portfolio**</a> A portfolio linking to the other projects from the responsive web design module. <a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." /></a>
 
 <a href="Responsive_Web_Design_Projects\Build a Product Landing Page\Landing_Page.html">**Product Landing Page**</a>
 This is a Parody Landing Page based on a college Humor Skit for an online Bowl Store. It is a riff on "Blands" and the idea that everything can be a chic startup selling basic goods directly to consumers. 
