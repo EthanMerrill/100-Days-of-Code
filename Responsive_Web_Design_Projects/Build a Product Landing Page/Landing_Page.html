@@ -48,15 +48,21 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
 
         <nav id="nav-bar">
             <img src="assets/Logo.PNG" id="header-img">
+
             <a href="#features" class="nav-link">
                 <h1>Our Bowls</h1>
             </a>
+
+
             <a href="#lifestyle" class="nav-link">
                 <h1>Lifestyle</h1>
             </a>
+
+
             <a href="#pricing" class="nav-link">
                 <h1>Pricing</h1>
             </a>
+
         </nav>
     </header>
 
@@ -109,9 +115,11 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
     <h4 class="callout"> We donate <i><b>.03%</b></i> of profits to providing bowls to those in need</h4>
     <section class="survey-container">
         <div class="survey-title-block">
-            <h2>Let's Get to Know You!</h2>
-            <div class="dropdown-button miniflex-horizontal">
-                <p>Take the Survey!</p>
+            <div class="survey-title-text">
+                <h2>Let's Get to Know You!</h2>
+            </div>
+            <div class="dropdown-button miniflex-horizontal" id="expand-btn" data-toggle="collapse" data-target=".collapse.first" data-text="Collapse">
+                <p id="expand-btn" data-toggle="collapse" data-target=".collapse.first" data-text="Collapse">Take the Survey!</p>
                 <i class="far fa-plus-square fa-2x" id="expand-btn" data-toggle="collapse" data-target=".collapse.first" data-text="Collapse"></i>
             </div>
         </div>
