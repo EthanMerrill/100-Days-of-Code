@@ -174,7 +174,7 @@ locally declared variables take precidence over root declared variables
 
 ## Basic Javascript
 
-|thing|Description |
+|Thing|Description |
 |---|---|
 |+= operator, -=, *=, /= | perform mathmatical operation and assignment in one step, example ><br> ```myVar += 5 ``` |
 |Escape Quotes | In JavaScript, you can escape a quote from considering it as an end of string quote by placing a backslash (\) in front of the quote. ```var sampleStr = "Alan said, \"Peter is learning JavaScript\".";```|
@@ -188,4 +188,28 @@ locally declared variables take precidence over root declared variables
 |```.hasOwnProperty("propertyName")``` | checks to see if the property exists|
 | Recusion | Recursion is the concept that a function can be expressed in terms of itself. |
 |Conditional or Ternary Operator |```condition ? expression-if-true : expression-if-false|
-|
+
+# ES6
+
+ECMA Script is a standardized version of JavaScript. ES6 is the latest version of this script and includes:
+- Arrow Functions
+- Classes
+- Module
+- Promises
+- Generators
+- Let and Const
+
+|Thing| Description|
+|let | can only be declared once. So when you want to change it, an error is thrown...|
+|const| Const Variables are *read-only* |
+|Immutable Values| values which cannot be changed, such as using const. Commonly UPPERCASE is used to identify these value types ```IMMUTABLEVARIABLE```|
+|```.Object.freeze(obj)```| Locks the object so it cannot be added to, read, or deleted. )|
+|Arrow Functions| ```const myFunc = () => {}``` Used when a function is often passed as an argument to another function. THey can also have parameters. You add parameters between the empty parentheses. |
+|Default Parameters| A LOT Like Python: ```const myfunction (argument = 1) => ```|
+|Rest Parameter | ```myFunction(...args)``` creates an array of arguments which can have other functions such as ```map()```,```filter()```, and ```reduce()```. |
+|Spread Operator | Think of it as a way of looking at an array all at once. Ex: ```Math.max(..array)``` this would yield the largest item in an array regardless of its position | 
+|Destructuring |Neatly assigns values taken directly from an object ```const { name, age } = user;``` this works if user has the properties of `user.name`, `user.age`. <br> Variables can also be assigned this way. `const{varName:varValue, var2Name:var2Value}` |
+|Destructuring in funct args| `const profileUpdate = ({ name, age, nationality, location }) => {`<br>`/* do something with these fields */}`|
+|template literal | Love these things. `"some normal text ${var} Woah, what is that?"`|
+|Object Literal Declarations| `const getMousePosition = (x, y) => ({ x, y });` This means you don't need to say `return {x:x,y:y}|
+|Declarative Functions| 

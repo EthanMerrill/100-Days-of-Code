@@ -39,27 +39,35 @@ Finished the lessons for the responsive web design certification. Today I spent 
 
 
 # Day 9 
+
 Took notes on Design video stream on the FreeCodeCamp YouTube channel. I did this because I am really no happy with how my sites turn out. 
 
 # Day 10 
+
 Finished the Survey page
 
 # Day 11
+
 Started the Landing page challenge
 
 # Day 12
+
 Started a project to scrape data from glassdoor.com. I got the basics down in 6 hours. So far The program scrapes the reviews on the page and prints them in the terminal. The goal is to get all of the data into a pandas dataframe then visualize it with plotly or possibly d3. 
 
 # Day 13
+
 Worked on the parser for the Glassdoor Scraper. I asked by first question on Stack overflow! I don't think anyone has answered yet, but I figured it out, so I may answer it myself tomorrow. 
 
 # Day 14
+
 Finally got the scraper to work (mostly) I decided I am going to do the visualization in PowerBI because this project is taking longer than expected. I can do the d3 later. Things left to do are: Make the date formatting compatible with PowerBI which will involve working with `strptime` in python, and making the sub rankings scraper work. Hopefully I can finish those up tomorrow and get back to FCC. I need to finish the React certification by the end of this!
 
 # Day 15
+
 The Scraper is Good Enough! I tooled around in PowerBI to get a few pretty charts. I think I would need an additional two days to make the data cleaner and PowerBI laid out in a usable manner, however I want to keep up a good pace on the FCC Challenges. I also just found the visual on Free Code Camp that shows your current streak. I pushed anything to the site in over a week! (looking at my time records, I last worked on a Free Code Camp challenge 4 days ago) Maybe I can get a quick and dirty product page working tonight.
 
 # Day 16 
+
 Half day today. I want to get the skeleton of the Product page finished by eod. 
 - read up on font pairings
 - added a local font 
@@ -67,6 +75,7 @@ Half day today. I want to get the skeleton of the Product page finished by eod.
 ## Skip Day
 
 # Day 17 
+
 Tweaked styling of the page. 
 
 # Day 18 
@@ -75,6 +84,7 @@ Tweaked styling of the page.
 - photo crop and rotation
 
 # Day 19
+
 This product page needs to be done. As of this Morning it passes all but the navbar tests, but I still want to make links change color in the navbar, improve the Card styling, and adjust the Features section. Also the navbar behaves as described in the User Story, but still doesn't pass the test, I'll have to look into that. I am having some trouble with the link hover transition in the navbar at the moment. 
 
 The navbar was just 10 pixels too low! The test exceptions are written very well. 
@@ -84,6 +94,7 @@ The navbar was just 10 pixels too low! The test exceptions are written very well
 - [ ] Clean up the Survey
 
 # Day 20
+
 Cleaned up the card on the bottom of the page. I am about halfway through the basic JavaScript exercises. I am quite happy with how the fake product site works. I might tweet it to College Humor and see if they reply. I just have to make the survey and make the navbar work how I want it to.  
 
 # Day 21 
@@ -126,24 +137,32 @@ Continued the Basic JavaScript exercises. I also left my first feedback on other
 
 # Day 26
 
-99% of the way through basic Javascript, just stuck on the last 2 recursion problems. I'm resisting the urge to cheat, but I think I need to find some other resources on recursion to get a better grip on the subject. The loops section had me wanting to write python all afternoon. 
+99% of the way through basic JavaScript, just stuck on the last 2 recursion problems. I'm resisting the urge to cheat, but I think I need to find some other resources on recursion to get a better grip on the subject. The loops section had me wanting to write python all afternoon. 
 
 *Goals*
-- [ ] Finish Basic Javascript
+- [ ] Finish Basic JavaScript
 - [ ] Fix wrap on header in product page 
 - [ ] Cost product page on github correctly
 - [ ] Post product page and ask for feedback!
 
 # Day 27
 
+I got through the basic Javascript, and am halfway through ES6. I find ES6 to be pretty annoying. To me its a bunch of shortcuts for things I already don't really know how to use. Its cute these shortcuts are called syntactic sugar. I also finally posted my Product page for feedback :<a href="https://forum.freecodecamp.org/t/product-landing-page-looking-for-any-and-all-feedback/426531/2">Product Page</a>.  I figured out how to use Github pages with multiple html pages to do this.
 
-- [ ] Finish Basic Javascript
-- [ ] Fix wrap on header in product page 
-- [ ] Cost product page on github correctly
-- [ ] Post product page and ask for feedback!
-- [ ] Start ES6
+I did a little more research on algorithmic trading this morning. I might start poking around with that tomorrow morning. 
+
+- [x] Finish Basic JavaScript
+- [x] Fix wrap on header in product page 
+- [x] Host product page on github correctly
+- [x] Post product page and ask for feedback!
+{All before lunch!}
+- [x] Start ES6
+- [x] Make list of questions for Sam Wheeler (FullStack Academy Grad) & Contact
 
 # Day 28 
 
+
+- [ ] Start Portfolio Website
 - [ ] Finish ES6
 - [ ] Start Regular Expressions
+- [ ] Tweet the site at College Humor?
