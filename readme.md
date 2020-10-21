@@ -1,7 +1,8 @@
 FreeCodeCamp Challenges, Notes, and Log
 
 ## Current Progress:
-https://img.shields.io/github/last-commit/EthanMerrill/100-Days-of-Code
+<img src="https://img.shields.io/github/last-commit/EthanMerrill/100-Days-of-Code"/>
+
 I'm working on Javascript Data Structures and Algorithms certification. 
 I need to finish the portfolio project to complete the Responsive Web Design Certification.
 
@@ -18,7 +19,7 @@ Notes from Free Code Camp Exercises.
 ### Responsive Web Design:
 <a href="https://ethanmerrill.github.io/100-Days-of-Code/Responsive_Web_Design_Projects/Build_A_Personal_Portfolio_Webpage/PersonalPortfolioPage.html">**Personal Portfolio**</a> A portfolio linking to the other projects from the responsive web design module. <a href="https://www.repostatus.org/#wip"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." /></a>
 
-<a href="https://ethanmerrill.github.io/100-Days-of-Code/Responsive_Web_Design_Projects/Build_a_product_Landing_Page/Landing_Page.html">**Product Landing Page**</a>
+<a href="https://ethanmerrill.github.io/100-Days-of-Code/Responsive_Web_Design_Projects/Build_a_Product_Landing_Page/Landing_Page.html">**Product Landing Page**</a>
 This is a Parody Landing Page based on a college Humor Skit for an online Bowl Store. It is a riff on "Blands" and the idea that everything can be a chic startup selling basic goods directly to consumers. 
 
 <a href="https://ethanmerrill.github.io/100-Days-of-Code/Responsive_Web_Design_Projects/Build_A_Survey_Form/SurveyForm.html">**Survey Form**</a> Survey Form for Pet owners. The Background Gradient is an interesting feature to this project
