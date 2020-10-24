@@ -161,8 +161,19 @@ I did a little more research on algorithmic trading this morning. I might start 
 
 # Day 28 
 
+Hit a solid brick wall trying to work within a virtual environment this morning. I somehow figured it out before lunch, not quite sure what I did. Having a virtual environment will be useful for when I containerize this algorithm in a Docker container later. This afternoon I Setup the Finnhub api and yfinance api I acquire ticker data. I also sketched out the basic architecture of the program. The plan is to have a strategy which uses the relative strength index. The strategy will be backtested and the parameters will be grid optimized on each stock in a universe of US common stock with a price in a range and over a specific market capitalization. I'll be using the following python packages: fastquant(built largely on backtester), alpaca, and the common Python data science stuff such as pandas and numpy.
 
+Later....
 - [ ] Start Portfolio Website
 - [ ] Finish ES6
 - [ ] Start Regular Expressions
 - [ ] Tweet the site at College Humor?
+
+# Day 29
+A most of the morning was spent messing around with a host of APIs to try to get the mkt cap and other information in the most efficient way possible. Finnhub has rate limit which meant that it took over an hour to get the data. It worked but wasn't ideal. It turns out that funded Alpaca accounts have access to the Polygon API Which provides a ton of information with no rate limits. It took a few hours of poking around to find the correct endpoint, but eventually I was able to get all US Common stock between a price and over a certain volume threshhold. This gave me a universe of approximately 1000 equities. 
+
+Next, I set up a grid optimization script which tests various combinations of RSI period, and upper/lower bounds. This is interesting because it creates a 3d array to test these parameters. A real challenge going forward is the speed of this backtest. I need to figure out how far back to backtest to generate the optimized parameters, and how many different parameters to test. Longer term I may look at a more efficient way of optimizing these parameters. right now I am basically brute forcing it. 
+
+# Day 30
+
+First on the agenda today is cleanup. I have a few hundred lines of random strings, hardly in functions. So I need to clean up!
