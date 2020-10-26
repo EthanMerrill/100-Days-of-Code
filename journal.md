@@ -177,3 +177,15 @@ Next, I set up a grid optimization script which tests various combinations of RS
 # Day 30
 
 First on the agenda today is cleanup. I have a few hundred lines of random strings, hardly in functions. So I need to clean up!
+
+It is modularized, but as it turns out, running over 100,000 tests does not go smoothly, particularly on a single core. Additionally, the more I read the more it seems I am going about this the wrong way. The consensus seems to be that optimization isn't terribly useful for these algorithms. Great. 
+
+# Day 31
+Most of this day was spend untangling existing code from fastquant so that I can just use the package its based on called This goes straight to the source, and using a package I will need anyway, I can source all data from the Polygon api, instead of half yahoo, half polygon. Although backtrader is feature rich, its also incredibly object oriented and thoroughly documented. The documentation is great, but frankly I'm just not used to working so deeply with OOB concepts in Python yet. 
+
+# Day 32
+
+Back to free code camp a little. I've decided I want to implement the live trading algorithm without an external library, I think it will be faster if I do it quick and dirty instead of trying to slog through a rudementary understanding of backtrader.
+
+- [x] Finish ES6
+- [ ] Start Regular Expressions 

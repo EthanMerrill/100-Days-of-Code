@@ -212,4 +212,17 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 |Destructuring in funct args| `const profileUpdate = ({ name, age, nationality, location }) => {`<br>`/* do something with these fields */}`|
 |template literal | Love these things. `"some normal text ${var} Woah, what is that?"`|
 |Object Literal Declarations| `const getMousePosition = (x, y) => ({ x, y });` This means you don't need to say `return {x:x,y:y}|
-|Declarative Functions| 
+|Declarative Functions| when defining functions in objects you can remove the function keyword. woppdee do|
+|Class syntax | not an actual class, just a simplified way of making a constructor. `calss SpaceShuttle { constructor(targetPlanet)}}`|
+|Promises | Promise is a constructor function, so the new keyword must be used ex: `const myPromise = new Promise((resolve, reject)=> {})`|
+
+# Regular Expressions
+
+||Thing| Description|
+|`/thing/`|this is the typical regular expression, no frills, just what you are looking for between two forward slashes|
+|`/Thing/i`| the `i` means that the case should be `i`gnored|
+|`matches = somestr.match(/thing/)`| this will return all the matches found|
+|`/thing/g`|will search for a thing in the string more than once, for example is there were two 'things' in a sentence|
+|Chaining flags | `/thing/gi` : looks for thing ignoring case and multiple matches|
+|Wildcard Character | `/thin./` the period  will look for any character|
+|`th[aeio]ng/`| Match anything in the brackets. Also using brackets, you can look for items between a range of letters or numbers ex: `[a-e0-9]`|
