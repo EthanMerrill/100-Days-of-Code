@@ -185,7 +185,20 @@ Most of this day was spend untangling existing code from fastquant so that I can
 
 # Day 32
 
-Back to free code camp a little. I've decided I want to implement the live trading algorithm without an external library, I think it will be faster if I do it quick and dirty instead of trying to slog through a rudementary understanding of backtrader.
+Back to free code camp a little. I've decided I want to implement the live trading algorithm without an external library, I think it will be faster if I do it quick and dirty instead of trying to slog through a rudimentary understanding of Backtrader.
 
 - [x] Finish ES6
-- [ ] Start Regular Expressions 
+- [x] Start Regular Expressions 
+
+
+# Day 33
+A lot accomplished today. The backtester now passes the buy and hold as a benchmark which I use to calculate alpha. On a run of 1000 stocks, my optimized rsi generated alpha 93% of the time. 10% of the time it was 100 percentage points better than the return of the stock over the same period. There is no way these results would be replicated in a real test, but this is quite promising. Part of it is the volatility calculated stop loss. 
+
+Going forward I have a plan to implement live trading which will not use backtrader, except for selection of trades.
+
+I also did an exercise in free code camp. Gotta keep the streak alive!
+
+# Skip Day
+
+# Day 34
+Continued work on the algorithm. Finished the entry and exit evaluation functions. All thats left to do is hook it up to alpaca and watch it loose money! Also I will need to write some basic allocation logic, but that should be fairly simple
