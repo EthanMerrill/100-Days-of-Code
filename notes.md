@@ -189,7 +189,7 @@ locally declared variables take precidence over root declared variables
 | Recusion | Recursion is the concept that a function can be expressed in terms of itself. |
 |Conditional or Ternary Operator |```condition ? expression-if-true : expression-if-false|
 
-# ES6
+## ES6
 
 ECMA Script is a standardized version of JavaScript. ES6 is the latest version of this script and includes:
 - Arrow Functions
@@ -216,13 +216,35 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 |Class syntax | not an actual class, just a simplified way of making a constructor. `calss SpaceShuttle { constructor(targetPlanet)}}`|
 |Promises | Promise is a constructor function, so the new keyword must be used ex: `const myPromise = new Promise((resolve, reject)=> {})`|
 
-# Regular Expressions
+## Regular Expressions
 
-||Thing| Description|
+|Thing| Description|
 |`/thing/`|this is the typical regular expression, no frills, just what you are looking for between two forward slashes|
 |`/Thing/i`| the `i` means that the case should be `i`gnored|
 |`matches = somestr.match(/thing/)`| this will return all the matches found|
 |`/thing/g`|will search for a thing in the string more than once, for example is there were two 'things' in a sentence|
-|Chaining flags | `/thing/gi` : looks for thing ignoring case and multiple matches|
-|Wildcard Character | `/thin./` the period  will look for any character|
+|`/thing/i` Chaining flags | `/thing/gi` : looks for thing ignoring case and multiple matches|
+|`/a|b/` Or character | Matches a or b
+| `/t./`Wildcard Character | `/thin./` the period  will look for any character|
 |`th[aeio]ng/`| Match anything in the brackets. Also using brackets, you can look for items between a range of letters or numbers ex: `[a-e0-9]`|
+|`^` Inverse Match| `[^thingsthatwillnotbematched]|
+|`+` Flag | match a character that appears more than once in a row. |
+| `?` Lazy Match | finds the smallest part of the string that satisfies that pattern. |
+|`/^thing/` Start Match| Finds all matches that start with `thing`|
+|`/thing$/` End Match | match a string that ends with x: `this is something`|
+|`/\w/` All Alphanumeric character match | matches all alphanumeric characters in a given string includes underscores but not spaces. |
+|`/\W/` All Non-alphanumeric Match| Matches all non-alphanumeric characters in a string|
+|`/\d/` Digit Character match | Matches all digits. `/\D/` is the inverse|
+|`/\s/` Whitespace | searches for spaces, will reutrn an array with all spaces matching length `\S` is the inverse|
+|`/a{3,5}/` Set number match | match a thing the range listed between the curly brackets times. A minimum or maximum number of times can also be specified: `{2,} {,3}`|
+|`/th?ings/` optional Character | This example would match things, as well as tings| 
+|``4(?=u), 4(!=u)`` Positive & Negative lookahead| looks for characters before or after the character preceeding the parenthese| 
+|`regexstr.test(teststr)` Boolean Test | returns True or False |
+
+
+## Debugging
+
+|Thing| Description|
+|`console.clear()`|Clears the console |
+|`typeof thing`| outputs the type of thing, must be logged to the console to appear|
+|

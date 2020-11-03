@@ -201,4 +201,21 @@ I also did an exercise in free code camp. Gotta keep the streak alive!
 # Skip Day
 
 # Day 34
-Continued work on the algorithm. Finished the entry and exit evaluation functions. All thats left to do is hook it up to alpaca and watch it loose money! Also I will need to write some basic allocation logic, but that should be fairly simple
+Continued work on the algorithm. Finished the entry and exit evaluation functions. All thats left to do is hook it up to alpaca and watch it loose money! Also I will need to write some basic allocation logic, but that should be fairly simple.
+
+# Day 35
+Re-diagrammed the algorithm I have a better idea of how to build it now. I also worked on integrating the Alpaca API. An hour was spent troubleshooting only to find I didn't have the correct API secret key. 
+
+# Day 36
+Theoretically, I have a very unstable live-capable version finished. Not sure, the backtest portion will run overnight. Next steps are more bug fixes, and containerization! I also should run through and clean up the code a bit at some point
+
+# Day 37 
+This morning I added a class to organize order types. Going to head back to FCC for at least 50% of the time again. The halfway mark is within sight and I need to finish react by the end of this. 
+
+EOD: I finished the Regex and debugging modules on free code camp. On the trading algo, I got started setting up docker, organized the ordering methods, and added the oco (one cancels other) order type. Also in the trading algo I made the paths more portable. Pathing in Python is easy, but its not something I've done before. The trading algo saves and reads 'pickled' pandas dataframes in multiple places so its important that those places are consistent no matter how the program is run. 
+
+I also re-organized the repo which involved some git shenanigans. 
+
+Tomorrow I'd like to complete basic data structures on free code camp, and implement the oco ordering in the algo. I also will try to make more progress on the dockerization of the algo. Today I ran into an issue with the versioning in one of the 63 requirements.
+
+
