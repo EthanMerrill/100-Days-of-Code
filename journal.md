@@ -218,4 +218,45 @@ I also re-organized the repo which involved some git shenanigans.
 
 Tomorrow I'd like to complete basic data structures on free code camp, and implement the oco ordering in the algo. I also will try to make more progress on the dockerization of the algo. Today I ran into an issue with the versioning in one of the 63 requirements.
 
+# Day 38
 
+The container works! I can't be sure, but it's running a full backtest right now without issues. Containerization makes my algorithm much more portable, and by that I mean I don't have to leave my laptop running 24/5 to pick stocks and update orders. Running the script in the container means I can just shove the script in the *cloud*. Right now the container is just running on my laptop, cloud implementation will have to wait for another day. Reflecting on what I said I'd accomplish yesterday, I did mostly the opposite. As of 16:53 I am less than halfway though data structures and still haven't added the One Order Cancels Other to the algo. I'll spend the next hour on basic data structures to see how far I can get. 
+
+This docker thing has me excited! eventually it will be running in the cloud and updating every time I commit to my github repo!
+
+
+# Day 39
+
+Today I realized I'm writing a program which puts pickles in a blob in a bucket in the cloud using a container. Weird. There are so many strange names for things. A big challenge today was setting up the Google Cloud Storage. This is just a way to dump files in the cloud instead of on the local machine. I need to do this because when the script is running in the cloud, there will be no local filesystem (or at least not one that is persistent). I went in circles when reading the documentation for how to upload or download files for python. I wanted to totally avoid saving anything locally, however I kept running into issues with the codec or mime type of the files I'm working with. I am saving pickle files/objects  which are pythons way of packing objects very small. Eventually I relented and do a temporary local save, then that file is uploaded to the cloud, not as elegant, but I got it to work in a test. Tomorrow I need to implement it in the program. 
+
+I also changed some column types in the backtester to int16 from int64. THis hopefully will help the problem I've had with ram usage. 
+
+# Day 40 
+
+CI/ CD Almost works! I just found out that I can't build from the current github repo because I hid my keys file... so I guess this will force me to handle keys better. I'll need to do research on how to deal with a public girhub repo, docker container build from it and a private key file. Its late, and I am so close, but I need to call it a night. THat is also why this may make less sense than usual. 
+
+
+# Day 41
+
+Things to figure out:
+
+1. How to pass environment vars on build
+    How to pass environment variables on run..?
+https://binx.io/blog/2020/07/01/how-to-get-secrets-from-the-google-secret-manager-into-your-container/
+2. How to get secrets in the yml.
+3. what are yml files.
+4. what is a .yaml file
+    stands for YAML Ain't Markup Language *eyeroll*. Its a flexible,data oriented language. Its a superset of JSON, and is better because it has extra features like comments, comlex datatypes, is more readable, etc. Used for configuration management, in the context I'm learning it in, this is configuration of a docker image. 
+    
+    These YAML Files are really darn particular about their formatting. I did a tab instead of three spaces and the cloudbuild had no idea what was going on. 
+
+# Day 42
+
+# Day 43
+<a href = "https://www.youtube.com/watch?v=_xkSvufmjEs">https://www.youtube.com/watch?v=_xkSvufmjEs</a>
+Spent the morning surfing around looking for bootstrap tips. I made a skeleton site which satisfies all the requirements. I still don't really have a concept for how I want this portfolio site to look. I am tempted to add a d3 network chart, like I always wanted...
+
+# Day 44 
+*STILL* bugs in the algo trader. I didn't account for getting positions on a Monday ::eyeroll::. I fixed that (I think). THe rest of the day I worked on getting a force directed chart together for the site. I got my old prototype working in about 3 hours EXCEPT for scaling. I want the chart to dynamically change size for different screen sized, this chart also needs to have the center of the canvas after resizing. this is a real challenge so far. I'll figure it out tomorrow, how hard can it be! 
+
+I am going to run the algo locally today, hopefully it goes off without a hitch. 

@@ -1,0 +1,43 @@
+/* Navbar */
+
+:root {}
+
+#navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+
+/* Welcome Section */
+
+#welcome-section {
+    position: relative;
+    height: 100vh;
+    border: 1px black solid;
+    overflow: none;
+}
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    /* padding-bottom: 100%; */
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#projects {
+    border: 1px black solid;
+}
+
+#profile-links {
+    border: 1px black solid;
+}
