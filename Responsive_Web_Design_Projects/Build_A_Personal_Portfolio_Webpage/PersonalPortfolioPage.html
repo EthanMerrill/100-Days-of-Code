@@ -125,13 +125,15 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 
     // new ResizeObserver(outputsize).observe(chart)
 
-    var svg = d3.select('svg')
+    // var svg = d3.select('svg')
+
+
 
 
     drag = simulation => {
 
         function dragstarted(event) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
+            if (!event.active) simulation.alphaTarget(0.2).restart();
             event.subject.fx = event.subject.x;
             event.subject.fy = event.subject.y;
         }
@@ -153,7 +155,13 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             .on("end", dragended);
     }
 
+
+
     function buildNetwork(data) {
+
+
+
+
         const links = data.links.map(d => Object.create(d));
         const nodes = data.nodes.map(d => Object.create(d));
         const labelsNodes = data.nodes.map(d => Object.create(d))
@@ -164,17 +172,18 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             // width = +svg.attr("width"),
             // height = +svg.attr("height");
 
+        var attractForce = d3.forceManyBody().strength(10).distanceMax(100).distanceMin(10);
+        var repelForce = d3.forceManyBody().strength(-100).distanceMax(400).distanceMin(10);
 
         const simulation = d3.forceSimulation(nodes)
-            .force("link", d3.forceLink(links).id(d => d.id))
+            .force("link", d3.forceLink(links).id(d => d.id).distance(function(d) {
+                return 120;
+            }).strength(0.7))
             .force("charge", d3.forceManyBody())
+            .force("attractForce", attractForce)
+            .force("repelForce", repelForce);
 
         // .force("center", d3.forceCenter(100 / 2, 100 / 2));
-
-
-        var color = 'grey';
-
-
 
         const link = svg.append("g")
             .attr("class", "links")
@@ -186,6 +195,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             .attr("stroke-width", d => Math.sqrt(d.value));
 
         const node = svg.append('g')
+            .attr('class', "nodes")
             .selectAll(".node")
             .data(nodes)
             .join('g')
@@ -198,10 +208,10 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         const circle = node.append("circle")
             // .data(data.nodes)
             .attr("class", "circle")
-            .attr("stroke", "#fff")
+            .attr("stroke", d => border(d.group))
             .attr("stroke-width", 1.5)
-            .attr("r", 5)
-            .attr("fill", color)
+            .attr("r", d => radius(d.group))
+            .attr("fill", d => color(d.group))
 
 
         // console.log(link)
@@ -218,20 +228,24 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         //     .style('font-size', '12px')
         //     .attr('x', 6)
         //     .attr('y', 3)
+        // var div = node.append('div')
+        //     .attr("text-align", "center")
         var hyperlink = node.append("svg:a")
             // .text(function(d) {
             //     return d.id;
             // })
             .attr("xlink:href", function(d) {
                 return ("xlink:href", d.url)
-            }).append('text')
+            })
+            .append('text')
             .text(function(d) {
                 return d.id;
             })
             .style('fill', '#000')
             .style('font-size', '12px')
-            .attr('x', 6)
-            .attr('y', 3)
+            .attr("text-anchor", "middle")
+            .attr('x', -(d => radius(d.group) / 2))
+            .attr('y', (d => radius(d.group) + 12))
             // .append("text")
             // .attr('x', 6)
             // .attr('y', 3)
@@ -251,11 +265,11 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             link
 
                 .attr("x1", d => Math.max(80, Math.min(width - 80, d.source.x)))
-                .attr("y1", d => Math.max(5, Math.min(height, d.source.y)))
+                .attr("y1", d => Math.max(radius(d.group), Math.min(height, d.source.y)))
                 .attr("x2", d => Math.max(80, Math.min(width - 80, d.target.x)))
-                .attr("y2", d => Math.max(5, Math.min(height, d.target.y)));
+                .attr("y2", d => Math.max(radius(d.group), Math.min(height, d.target.y)));
             node
-                .attr("transform", d => `translate(${Math.max(80, Math.min(width-80,d.x))}, ${Math.max(5, Math.min(height,d.y))})`);
+                .attr("transform", d => `translate(${Math.max(radius(d.group), Math.min(width-radius(d.group),d.x))}, ${Math.max(radius(d.group), Math.min(height-radius(d.group),d.y))})`);
 
         });
 
@@ -273,5 +287,15 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 
         return svg.node();
     };
+
+    color = d3.scaleOrdinal(d3.schemeCategory10)
+    radius = d3.scaleOrdinal([30, 20, 8])
+
+    function border(group) {
+        if (group == 'page') {
+            return 'red'
+        }
+        return "blue"
+    }
     // https://bl.ocks.org/mbostock/3355967
 </script>
