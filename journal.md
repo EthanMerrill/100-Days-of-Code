@@ -260,3 +260,17 @@ Spent the morning surfing around looking for bootstrap tips. I made a skeleton s
 *STILL* bugs in the algo trader. I didn't account for getting positions on a Monday ::eyeroll::. I fixed that (I think). THe rest of the day I worked on getting a force directed chart together for the site. I got my old prototype working in about 3 hours EXCEPT for scaling. I want the chart to dynamically change size for different screen sized, this chart also needs to have the center of the canvas after resizing. this is a real challenge so far. I'll figure it out tomorrow, how hard can it be! 
 
 I am going to run the algo locally today, hopefully it goes off without a hitch. 
+
+# Day 45
+
+GAH. This automated trader is killing me. I am still having issues with it. I added a lot of features to make it more robust, and by that I mean capable of handling edge cases, like...Mondays ::eyeroll::. I also gave it the ability to start without a template positions file, well actually that's the part that still doesn't work. driving me nuts. Furthermore, the editor/ide started getting a little buggy, so I ended the day on a sour note. 
+
+# Day 46
+
+More debugging stuff today, its running now, somewhat confident the program will work today.
+
+# 47 
+
+The program worked! bought 5 stocks. Most of the things it bought were etfs. I'm not sure if I should filter them out. theoretically if the RSI strategy works on them better than anything else, they should work too, but it just gives me pause. I am especially concerned because it seems to have a penchant for highly leveraged etfs.  I added the caching feature today, I am testing it now. This feature minimizes the amount of ram used at a given time. although the way I've written it now, the Maximum ram used does not decrease; just the amount of time that the max ram occurs.
+
+I'm going to put a little more time into the d3 on the porfolio website. I finished the datastructures lessons in FCC today. 

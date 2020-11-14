@@ -32,7 +32,9 @@ User Story #11: The navbar should always be at the top of the viewport. -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Font Awesome for social icons -->
     <script src="https://kit.fontawesome.com/374cfc1460.js" crossorigin="anonymous"></script>
+    <!-- local stylesheet -->
     <link rel="stylesheet" href="style.css">
 
     <title>Hello, world!</title>
@@ -77,8 +79,8 @@ User Story #11: The navbar should always be at the top of the viewport. -->
     </nav>
 
     <section id="welcome-section">
-        <!-- <svg width="900" height="600" xmlns:xlink="http://www.w3.org/1999/xlink"></svg> -->
         <div id="container" class="svg-container">
+            <svg id='chart' xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
         </div>
         <h1>Hi, I'm Ethan</h1> <a>HGELLO</a>
     </section>
@@ -99,6 +101,8 @@ User Story #11: The navbar should always be at the top of the viewport. -->
     <section id="profile-links">
         <a id="profile-link" href="https://github.com/EthanMerrill" target="_blank"><i class="fab fa-github fa-3x"></i></a>
     </section>
+    <!-- Width: <output id="width">0</output><br> Height: <output id="height">0</output><br>
+    <textarea id="textbox">Resize me</textarea><br> -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
@@ -112,6 +116,16 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         console.log(data)
         buildNetwork(data)
     })
+
+    // function outputsize() {
+    //     width.value = chart.width.animVal.value
+    //     height.value = chart.height.animVal.value
+    // }
+    // outputsize()
+
+    // new ResizeObserver(outputsize).observe(chart)
+
+    var svg = d3.select('svg')
 
 
     drag = simulation => {
@@ -144,42 +158,23 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         const nodes = data.nodes.map(d => Object.create(d));
         const labelsNodes = data.nodes.map(d => Object.create(d))
 
-
-        const vbox = d3.select("#container")
-            .append("svg")
-            .attr("preserveAspectRatio", "xMinYMin meet")
-            .attr("viewBox", `0 0 600 600`)
-            .classed("svg-content-responsive", true)
-
+        var width = document.getElementById('chart').width.animVal.value;
+        var height = document.getElementById('chart').height.animVal.value;
         var svg = d3.select('svg')
             // width = +svg.attr("width"),
             // height = +svg.attr("height");
 
-        console.log(vbox.width)
 
         const simulation = d3.forceSimulation(nodes)
             .force("link", d3.forceLink(links).id(d => d.id))
             .force("charge", d3.forceManyBody())
-            .force("center", d3.forceCenter(600 / 2, 600 / 2));
+
+        // .force("center", d3.forceCenter(100 / 2, 100 / 2));
 
 
         var color = 'grey';
 
-        // svg.append("circle")
-        //     .attr('cx', 50)
-        //     .attr('cy', 100)
-        //     .attr('r', 50)
-        //     .style('fill', d3.color('steelblue'))
 
-
-        // var force = d3.layout.forceSimulation()
-        //     .nodes(d3.values(nodes))
-        //     // .link(link)
-        //     .size([width, height])
-        //     // .linkDistance(60)
-        //     .charge(-300)
-        //     .on("tick", tick)
-        //     //.start();
 
         const link = svg.append("g")
             .attr("class", "links")
@@ -198,8 +193,6 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             .call(drag(simulation));
         // .attr("class", "nodes-base")
         // .attr("class", "nodes")
-
-
 
 
         const circle = node.append("circle")
@@ -256,46 +249,29 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 
         simulation.on("tick", () => {
             link
-                .attr("x1", d => d.source.x)
-                .attr("y1", d => d.source.y)
-                .attr("x2", d => d.target.x)
-                .attr("y2", d => d.target.y);
 
+                .attr("x1", d => Math.max(80, Math.min(width - 80, d.source.x)))
+                .attr("y1", d => Math.max(5, Math.min(height, d.source.y)))
+                .attr("x2", d => Math.max(80, Math.min(width - 80, d.target.x)))
+                .attr("y2", d => Math.max(5, Math.min(height, d.target.y)));
             node
-                .attr("transform", d => `translate(${d.x}, ${d.y})`);
-        });
-        // simulation.force("link")
-        //     .links(data.links);
+                .attr("transform", d => `translate(${Math.max(80, Math.min(width-80,d.x))}, ${Math.max(5, Math.min(height,d.y))})`);
 
-        // var node_drag = d3.behavior.drag()
-        //     .on("dragstart", dragstart)
-        //     .on("drag", dragmove)
-        //     .on("dragend", dragend);
+        });
+
+        width, height = resize();
+        d3.select(window).on("resize", resize);
+
+
+        function resize() {
+            width = window.innerWidth, height = window.innerHeight;
+            svg.attr("width", width).attr("height", height);
+            console.log(width, height)
+            simulation.force("center", d3.forceCenter(width / 2, height / 2)).restart();
+            return svg.attr("width"), svg.attr('height')
+        }
 
         return svg.node();
     };
-    /*
-    var dragDrop = d3.drag().on('start',function(node) {
-      if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-
-    })*/
-
-    /*
-    var dragDrop = d3.drag().on('start', function(node) {
-if (!d3.event.active) simulation.alphaTarget(0.7).restart()
-svg.selectAll("circle").each(function(d){
-d.fx = d.x
-d.fy = d.y
-})
-}).on('drag', function(node) {
-node.fx = d3.event.x
-node.fy = d3.event.y
-}).on('end', function(node) {
-if (!d3.event.active) {
-simulation.alphaTarget(0)
-}
-node.fx = null
-node.fy = null
-})
-*/
+    // https://bl.ocks.org/mbostock/3355967
 </script>
