@@ -44,7 +44,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Ethan Merrill</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -52,24 +52,16 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Introduction <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    <a class="nav-link" href="#projects">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="#profile-links">Profile Links</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -107,6 +99,11 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         <div class="profile-links-container">
             <a id="profile-link" href="https://github.com/EthanMerrill" target="_blank"><i class="fab fa-github fa-3x"></i></a>
         </div>
+    </section>
+
+    <section id="contact">
+        <h1>Contact</h1>
+        <div></div>
     </section>
     <!-- Width: <output id="width">0</output><br> Height: <output id="height">0</output><br>
     <textarea id="textbox">Resize me</textarea><br> -->
@@ -166,13 +163,34 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 
     function buildNetwork(data) {
 
-        const root = d3.hierarchy(data);
-        //   const links = root.links();
-        //   const nodes = root.descendants();
+        const links2 = function(data) {
+            node_links = []
+            nodes.forEach(function linkMaker(nodes) {
+                // console.log(nodes.links)\
+                if (typeof nodes.links !== 'undefined') {
+                    // node_links.push(nodes.links)
+                    // console.log(typeof nodes)
+                    (nodes.links).forEach(links => node_links.push(links))
+                }
+            })
+            console.log(node_links)
 
-        const links = data.links.map(d => Object.create(d));
+            return node_links.map(d => Object.create(d))
+        }
+
+
         const nodes = data.nodes.map(d => Object.create(d));
-        const labelsNodes = data.nodes.map(d => Object.create(d))
+
+        const links = links2()
+        const labelsNodes = data.nodes.map(d => Object.create(d));
+
+
+        // console.log(data.links.map(d => Object.create(d)))
+        // console.log(links2().map(d => Object.create(d)))
+        // console.log(links)
+
+
+
 
         var width = document.getElementById('chart').width.animVal.value;
         var height = document.getElementById('chart').height.animVal.value;
@@ -252,14 +270,14 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         //     });
         const circles = hyperlink.append("circle")
             .filter(function(d) {
-                return d.group == "page"
+                return ((d.group == "page") || (d.group == "Ethan"))
             })
             .attr("class", "circle")
-            // .attr("stroke", d => border(d.group))
+            .attr("stroke", d => border(d.group))
             .attr("stroke-width", 1.5)
             .attr("r", d => radius(d.group))
-            // .attr("fill", d => color(d.group))
-            .attr("fill", "red")
+            .attr("fill", d => color(d.group))
+            // .attr("fill", "red")
             .attr("opacity", .5)
             .on("mouseover", mouseOver)
             .on("mouseleave", mouseLeave)
@@ -309,7 +327,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 
 
 
-    color = d3.scaleOrdinal(['White', "Blue", "Red", "green", "orange"])
+    color = d3.scaleOrdinal(["Blue", "Red", "green", "orange"])
 
     radius = d3.scaleOrdinal([50, 25, 20, 8])
 

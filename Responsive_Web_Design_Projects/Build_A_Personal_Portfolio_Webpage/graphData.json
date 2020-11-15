@@ -1,7 +1,7 @@
 {
     "nodes": [{
             "id": "Ethan Merrill",
-            "url": "NaN",
+            "url": "#",
             "group": "Ethan",
             "links": [{ "source": "Ethan Merrill", "target": "Marine", "value": 20 },
                 { "source": "Ethan Merrill", "target": "Mechanical Design", "value": 20 },
@@ -11,7 +11,19 @@
                 { "source": "Ethan Merrill", "target": "Entrepeneurship", "value": 20 }
             ]
         },
-        { "id": "Marine", "url": "https://hello.com", "group": "category", "icon": "fas fa-water" },
+        {
+            "id": "Marine",
+            "url": "https://hello.com",
+            "group": "category",
+            "icon": "fas fa-water",
+            "links": [{ "source": "Ethan Merrill", "target": "Marine", "value": 20 },
+                { "source": "Marine", "target": "Mechanical Design", "value": 20 },
+                { "source": "Marine", "target": "Coding", "value": 20 },
+                { "source": "Marine", "target": "Environmentalism", "value": 20 },
+                { "source": "Marine", "target": "Alternative Energy", "value": 20 },
+                { "source": "Marine", "target": "Entrepeneurship", "value": 20 }
+            ]
+        },
         { "id": "Mechanical Design", "url": "https://hello.com", "group": "category", "icon": "fas fa-cogs" },
         { "id": "Coding", "url": "https://hello.com", "group": "category", "icon": "fas fa-code" },
         { "id": "Environmentalism", "url": "https://hello.com", "group": "category", "icon": "fas fa-leaf" },
@@ -55,7 +67,7 @@
         { "source": "Wind Turbine", "target": "Environmentalism", "value": 10 },
         { "source": "Wind Turbine", "target": "Alternative Energy", "value": 10 },
 
-        { "source": "CS480x: Data Visualization", "target": "Coding", "value": 10 },
+        { "source": "CS480x: Data Visualization", "target": "Data Visualization", "value": 10 },
 
         { "source": "Trading Algorithm", "target": "Coding", "value": 10 },
         { "source": "Trading Algorithm", "target": "Business & Finance", "value": 10 }

@@ -278,3 +278,10 @@ I'm going to put a little more time into the d3 on the porfolio website. I finis
 # 48
 
 I worked towards completing the force directed chart on the personal portfolio website today. I added color, sizes, more nodes and links. Tommorrow I plan to add icons to the categories and subcategories. 
+Personal Portfolio agenda:
+ - [x] Make navbar relevant
+ - [x] Nest links in nodes
+ - [ ] Choose background colors for each section
+ - [ ] add projects to cards
+ - [ ] add media query 
+ - [ ] make site mobile optimized
