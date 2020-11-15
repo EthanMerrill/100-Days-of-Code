@@ -64,10 +64,6 @@ User Story #11: The navbar should always be at the top of the viewport. -->
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
         </div>
     </nav>
 
@@ -137,7 +133,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
     drag = simulation => {
 
         function dragstarted(event) {
-            if (!event.active) simulation.alphaTarget(0.2).restart();
+            if (!event.active) simulation.alphaTarget(.5).restart();
             event.subject.fx = event.subject.x;
             event.subject.fy = event.subject.y;
         }
@@ -163,25 +159,43 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 
     function buildNetwork(data) {
 
-        const links2 = function(data) {
+        function linkFinder(data) {
             node_links = []
             nodes.forEach(function linkMaker(nodes) {
-                // console.log(nodes.links)\
-                if (typeof nodes.links !== 'undefined') {
-                    // node_links.push(nodes.links)
-                    // console.log(typeof nodes)
-                    (nodes.links).forEach(links => node_links.push(links))
-                }
-            })
-            console.log(node_links)
+                    // console.log(nodes.id)
 
-            return node_links.map(d => Object.create(d))
+                    if (typeof nodes.links !== 'undefined') {
+                        // node_links.push(nodes.links)
+                        // console.log(nodes.links[0].source)
+                        nodes.links.forEach(function linkchecker(onelink) {
+                            if (typeof onelink.source == 'undefined') {
+                                onelink.source = nodes.id
+                            }
+                            if (typeof onelink.value == 'undefined') {
+                                if (nodes.group == 'page') {
+                                    onelink.value = 10;
+                                } else if (nodes.group == 'subcategory') {
+                                    onelink.value = 14;
+                                } else {
+                                    onelink.value = 20;
+                                }
+                            }
+                            console.log(onelink.source)
+                            node_links.push(onelink)
+                        })
+
+                    }
+                })
+                // console.log(node_links)
+
+            return node_links
         }
 
 
         const nodes = data.nodes.map(d => Object.create(d));
 
-        const links = links2()
+        const links = linkFinder().map(d => Object.create(d))
+
         const labelsNodes = data.nodes.map(d => Object.create(d));
 
 
@@ -198,11 +212,11 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             // width = +svg.attr("width"),
             // height = +svg.attr("height");
 
-        var attractForce = d3.forceManyBody().strength(10).distanceMax(200).distanceMin(10);
-        var repelForce = d3.forceManyBody().strength(-250).distanceMax(600).distanceMin(1);
+        var attractForce = d3.forceManyBody().strength(1).distanceMax(200).distanceMin(10);
+        var repelForce = d3.forceManyBody().strength(-150).distanceMax(600).distanceMin(1);
 
         const simulation = d3.forceSimulation(nodes)
-            .force("link", d3.forceLink(links).id(d => d.id).distance(function(d) {
+            .force("link", d3.forceLink(linkFinder()).id(d => d.id).distance(function(d) {
                 return (d.value) ** 1.8;
             }).strength(0.4))
             .force("charge", d3.forceManyBody())
