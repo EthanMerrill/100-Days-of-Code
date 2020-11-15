@@ -274,3 +274,7 @@ More debugging stuff today, its running now, somewhat confident the program will
 The program worked! bought 5 stocks. Most of the things it bought were etfs. I'm not sure if I should filter them out. theoretically if the RSI strategy works on them better than anything else, they should work too, but it just gives me pause. I am especially concerned because it seems to have a penchant for highly leveraged etfs.  I added the caching feature today, I am testing it now. This feature minimizes the amount of ram used at a given time. although the way I've written it now, the Maximum ram used does not decrease; just the amount of time that the max ram occurs.
 
 I'm going to put a little more time into the d3 on the porfolio website. I finished the datastructures lessons in FCC today. 
+
+# 48
+
+I worked towards completing the force directed chart on the personal portfolio website today. I added color, sizes, more nodes and links. Tommorrow I plan to add icons to the categories and subcategories. 

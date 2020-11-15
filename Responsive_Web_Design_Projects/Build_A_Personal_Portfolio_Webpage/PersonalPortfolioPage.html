@@ -34,6 +34,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- Font Awesome for social icons -->
     <script src="https://kit.fontawesome.com/374cfc1460.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- local stylesheet -->
     <link rel="stylesheet" href="style.css">
 
@@ -82,24 +83,30 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         <div id="container" class="svg-container">
             <svg id='chart' xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
         </div>
-        <h1>Hi, I'm Ethan</h1> <a>HGELLO</a>
+        <h1>Hi, I'm Ethan</h1>
     </section>
 
     <section id="projects">
-        <a href="link.com">
-            <div class="card project-tile" style="width: 18rem;">
-                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                <div class="card-body">
-                    <h5 class="card-title project-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h1>Projects</h1>
+        <div class="project-links-container">
+            <a href="link.com">
+                <div class="card project-tile" style="width: 18rem;">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        <h5 class="card-title project-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
     </section>
 
     <section id="profile-links">
-        <a id="profile-link" href="https://github.com/EthanMerrill" target="_blank"><i class="fab fa-github fa-3x"></i></a>
+        <h1>Profile Links</h1>
+        <div class="profile-links-container">
+            <a id="profile-link" href="https://github.com/EthanMerrill" target="_blank"><i class="fab fa-github fa-3x"></i></a>
+        </div>
     </section>
     <!-- Width: <output id="width">0</output><br> Height: <output id="height">0</output><br>
     <textarea id="textbox">Resize me</textarea><br> -->
@@ -113,7 +120,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 </html>
 <script>
     d3.json("graphData.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
         buildNetwork(data)
     })
 
@@ -159,8 +166,9 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 
     function buildNetwork(data) {
 
-
-
+        const root = d3.hierarchy(data);
+        //   const links = root.links();
+        //   const nodes = root.descendants();
 
         const links = data.links.map(d => Object.create(d));
         const nodes = data.nodes.map(d => Object.create(d));
@@ -172,16 +180,17 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             // width = +svg.attr("width"),
             // height = +svg.attr("height");
 
-        var attractForce = d3.forceManyBody().strength(10).distanceMax(100).distanceMin(10);
-        var repelForce = d3.forceManyBody().strength(-100).distanceMax(400).distanceMin(10);
+        var attractForce = d3.forceManyBody().strength(10).distanceMax(200).distanceMin(10);
+        var repelForce = d3.forceManyBody().strength(-250).distanceMax(600).distanceMin(1);
 
         const simulation = d3.forceSimulation(nodes)
             .force("link", d3.forceLink(links).id(d => d.id).distance(function(d) {
-                return 120;
-            }).strength(0.7))
+                return (d.value) ** 1.8;
+            }).strength(0.4))
             .force("charge", d3.forceManyBody())
             .force("attractForce", attractForce)
-            .force("repelForce", repelForce);
+            .force("repelForce", repelForce)
+            .velocityDecay(.2);
 
         // .force("center", d3.forceCenter(100 / 2, 100 / 2));
 
@@ -201,35 +210,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             .join('g')
             .attr("class", "node")
             .call(drag(simulation));
-        // .attr("class", "nodes-base")
-        // .attr("class", "nodes")
 
-
-        const circle = node.append("circle")
-            // .data(data.nodes)
-            .attr("class", "circle")
-            .attr("stroke", d => border(d.group))
-            .attr("stroke-width", 1.5)
-            .attr("r", d => radius(d.group))
-            .attr("fill", d => color(d.group))
-
-
-        // console.log(link)
-        // var circles = node.append("circle")
-        //     .attr("r", 5)
-        //     .attr("fill", function(d) {
-        //         return color('red');
-        //     })
-        // const labels = node.append('text')
-        //     .text(function(d) {
-        //         return d.id;
-        //     })
-        //     .style('fill', '#000')
-        //     .style('font-size', '12px')
-        //     .attr('x', 6)
-        //     .attr('y', 3)
-        // var div = node.append('div')
-        //     .attr("text-align", "center")
         var hyperlink = node.append("svg:a")
             // .text(function(d) {
             //     return d.id;
@@ -237,28 +218,66 @@ User Story #11: The navbar should always be at the top of the viewport. -->
             .attr("xlink:href", function(d) {
                 return ("xlink:href", d.url)
             })
-            .append('text')
+            .attr('class', "hyperlink")
+
+
+        const text = hyperlink.append('text')
             .text(function(d) {
                 return d.id;
             })
             .style('fill', '#000')
-            .style('font-size', '12px')
+            .style('font-size', '14px')
             .attr("text-anchor", "middle")
-            .attr('x', -(d => radius(d.group) / 2))
-            .attr('y', (d => radius(d.group) + 12))
-            // .append("text")
-            // .attr('x', 6)
-            // .attr('y', 3)
-            // .text(function(d) {
-            //     return d.id;
-            // })
-            //     .append("circle")
-            //     .attr("r", 4)
-            //     .style("fill", "#666")
-            //     .style("opacity", 0.5)
+            .attr('x', 0)
+            .attr('y', (d => radius(d.group) + 21))
 
-        // node.append("title")
-        //     .text(d => d.id);
+        // const circleOrIcon = hyperlink.append('text')
+        //     .attr("class", function(d) {
+        //         console.log(d.icons)
+        //         if (typeof(d.icon) !== "undefined") {
+        //             return icon(d)
+        //         } else {
+        //             return circle(d)
+        //         }
+        //     })
+
+        // const icon = node.append('text')
+        //     .attr('font-family', 'FontAwesome')
+        //     // .attr("class", "fab fa-accessible-icon")
+        //     .attr("text-anchor", "middle")
+        //     .attr('alignment-baseline', "middle")
+        //     .attr('font-size', 25)
+        //     .text(function(d) {
+        //         return '\uf159'
+        //     });
+        const circles = hyperlink.append("circle")
+            .filter(function(d) {
+                return d.group == "page"
+            })
+            .attr("class", "circle")
+            // .attr("stroke", d => border(d.group))
+            .attr("stroke-width", 1.5)
+            .attr("r", d => radius(d.group))
+            // .attr("fill", d => color(d.group))
+            .attr("fill", "red")
+            .attr("opacity", .5)
+            .on("mouseover", mouseOver)
+            .on("mouseleave", mouseLeave)
+
+
+
+        const icons = hyperlink.append('icon')
+            // .attr('class', 'handle')
+            .attr('font-family', 'FontAwesome')
+            .attr("text-anchor", "middle")
+            .attr('alignment-baseline', "middle")
+            .attr('width', 28)
+            .attr('height', 28)
+            .attr('x', -10)
+            .attr('y', -10)
+            .attr("class", d => d.icon)
+
+
 
 
         simulation.on("tick", () => {
@@ -280,7 +299,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         function resize() {
             width = window.innerWidth, height = window.innerHeight;
             svg.attr("width", width).attr("height", height);
-            console.log(width, height)
+            // console.log(width, height)
             simulation.force("center", d3.forceCenter(width / 2, height / 2)).restart();
             return svg.attr("width"), svg.attr('height')
         }
@@ -288,8 +307,11 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         return svg.node();
     };
 
-    color = d3.scaleOrdinal(d3.schemeCategory10)
-    radius = d3.scaleOrdinal([30, 20, 8])
+
+
+    color = d3.scaleOrdinal(['White', "Blue", "Red", "green", "orange"])
+
+    radius = d3.scaleOrdinal([50, 25, 20, 8])
 
     function border(group) {
         if (group == 'page') {
@@ -297,5 +319,22 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         }
         return "blue"
     }
+
+    let mouseOver = function(d) {
+        // console.log(this.getAttribute('r'))
+        // Use D3 to select element, change color and size
+        d3.select(this).attr(
+            "r", (this.getAttribute('r') * 1.1)
+        );
+    }
+
+    let mouseLeave = function(d) {
+        // console.log(this.getAttribute('r'))
+        // Use D3 to select element, change color and size
+        d3.select(this).attr(
+            "r", (this.getAttribute('r') * .9)
+        );
+    }
+
     // https://bl.ocks.org/mbostock/3355967
 </script>
