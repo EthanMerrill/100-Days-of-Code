@@ -285,3 +285,12 @@ Personal Portfolio agenda:
  - [ ] add projects to cards
  - [ ] add media query 
  - [ ] make site mobile optimized
+ - 
+ 
+# 49 
+
+Added icons, restructured the json file to add the links inside the node objects. Started to adjust colors . I also fixed a new bug I made in the trading algo. Longer term, the next algo feature should be correlation analysis.
+
+# 50 
+
+I can finish the portfolio project today, day 50!

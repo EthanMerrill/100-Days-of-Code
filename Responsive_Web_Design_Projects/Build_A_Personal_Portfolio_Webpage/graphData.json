@@ -68,13 +68,13 @@
             "id": "Growbox",
             "url": "https://hello.com",
             "group": "page",
-            "links": [{ "target": "Entrepeneurship" }]
+            "links": [{ "target": "Entrepeneurship" }, { "target": "Business & Finance" }]
         },
         {
             "id": "Wind Turbine",
             "url": "https://hello.com",
             "group": "page",
-            "links": [{ "target": "Mechanical Design" }]
+            "links": [{ "target": "Mechanical Design" }, { "target": "Alternative Energy" }]
         },
         {
             "id": "Trading Algorithm",
