@@ -294,3 +294,55 @@ Added icons, restructured the json file to add the links inside the node objects
 # 50 
 
 I can finish the portfolio project today, day 50!
+
+Update. Portfolio is complete. I'm going to run the algo on the vm tonight.
+
+# 51
+
+I had to fix another issue with the algo and stored portfolio values. It turns out dataframe.update doesn't behave the way I expected it to. I replaced that operation with combine first which seems to do the trick, however this means that I have to reset the portfolio and therefore the api keys again. 
+
+# skip day :)
+
+# 52
+
+# 53
+
+# 54
+
+# 55
+
+
+
+# 56
+
+Basic algorithm scripting work. like banging my head against a wall
+
+# 57
+
+Worked on he basic algorithm scripting challenges. Not for very long. I hate this module. 
+
+# 58
+
+1 day project! I created the JustGoes page to display GOES images from the GOES NOAA satellite on a minimal webpage. These are images of earth updated every 10 minutes and on a 1/2 hour delay, which is as good as live for me. I bought a square 19' monitor for 10$ on facebook marketplace, pulled up the page on a raspberry pi, and viola! I have a live satellite photo of earth to decorate my office. Now I just need to make a frame for the monitor. <a href="https://github.com/EthanMerrill/JustGOES">JustGOES repository.  
+
+# 59
+
+Worked through some object oriented programming problems. I also made the raspberry pi load the JustGOES page fullscreen on boot. 
+
+# 60 
+
+a few minutes on the algo today
+
+# 61
+
+Setup chron function to launch the algorithm every weekday at 8pm. I got it to work, but I am still frustrated by how convoluted the process was. In gcloud I had to use 3 different apis to make the thing work: Chron (some sort of unix command thing) triggers => function (a serverless cloud script, like AWS lambda) launches => A Virtual Machine (Google cloud compute). Seems like one should be able to schedule a cloud function without a whole other api. However this must all be in the name of modularity. I have played with the idea of running the whole script from gcloud functions, but didn't get very far (it would be cheaper).    
+
+# 62
+
+Working through most of functional programming. Glad to be moving right along again
+
+# 63 11/29/2020
+
+Finished Functional Programming. This module was a breeze. I use functional programming in all my python code. Seems like its a sanctioned structure, so I don't feel as guilty not adhering to OOB concepts. 
+
+goal for tomorrow: finish Javascript section!

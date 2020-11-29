@@ -216,6 +216,7 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 |Class syntax | not an actual class, just a simplified way of making a constructor. `calss SpaceShuttle { constructor(targetPlanet)}}`|
 |Promises | Promise is a constructor function, so the new keyword must be used ex: `const myPromise = new Promise((resolve, reject)=> {})`|
 
+
 ## Regular Expressions
 
 |Thing| Description|
@@ -247,4 +248,35 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 |Thing| Description|
 |`console.clear()`|Clears the console |
 |`typeof thing`| outputs the type of thing, must be logged to the console to appear|
-|
+
+
+## Object Oriented Programming
+
+
+|Thing| Description|
+|`instanceof`| every time an object is created it is made to be an instance of its constructor. You can verify that an object is in fact from the constructor with the instance of method. |
+|own properties| can check own properties using the `.hasOwnProperty` operator. |
+|Prototypes | properties in the prototype are shared by ALL instances of the object. EX: `Thing.prototype.attribute = 4` all attributes of the thing now have the value of 2. When setting prototypes, you can also make properties equal to functions. However when creating objects using the protype, set the constructor as a property, so that the instanceof method still works. |
+|`isPrototypeOf`| shows what the object is a prototype of. `Dog.prototype.isPrototypeOf(beagle)`|
+|Supertypes AKA Parent| make a type a level above the other types with shared attributes, in accordance with the DRY methodology|
+|inheritance| There is an object hierarchy. Properties can be inherited from the higher level supertypes| 
+|Object Hierarchy| Just look at this example (Highest to lowest): object -> animal -> bird -> duck.|
+| Mixins | Functions what when passed an object, add a function to the object. Like passing a bird to a fly mixin grants it the ability to fly|
+|immediately invoked function expression| does what it says on the tin. indicated by two parentheses at the end of the function. I have used this before. Often used to group related functionality into **modules**. `motionModule.glideMixin(duck)`. this code looks at the motion module, gets the glide mixin, then adds that mixin to the object passed to it.|
+
+
+## Functional Programming
+
+|Thing| Description|
+|callbacks|functions that are passed into another function that decide the invocation of that function|
+|Don't alter variable or object| take the variable or object as an argument and return modified copies of them. |
+|Declare function parameters| any computation inside a function relies exclusively upon these declared, internal variables|
+|arr.map method| Iterates over each item in an array and returns a new array containing the results of calling the callback function on each element. It does this without mutating the original array|
+|arr.reduce | iterates over each item in an array and returns a single value. There is a callback function that accepts 4 arguments: 1. accumulator: assigned the reuturn value of the callback from the previous iteration 2. current element being processed 3. index od that element 4. array which reduce is being called on. |
+| .every | checks every element in an array against a condition, it every element passes, it returns true|
+| .some | if *any* element in an array passes a test, true is returned|
+| .arity | the number of arguments required by  a function.|
+|*Currying* | basically a way to make functions that can take arguments like this: `curried(1)(2)` Useful if you can't give a function all of the arguments at once. *partial application* is when you apply a few arguments to a function, and then another function that is applied to more arguments (WHAT?) `impartial.bind(this, 1, 2);`|
+
+
+## Intermediate Algorithm Scripting
