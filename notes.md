@@ -280,3 +280,44 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 
 
 ## Intermediate Algorithm Scripting
+
+# Front End Frameworks
+
+## Bootstrap
+
+|Thing| Description|
+|`img-responsive` class | makes images responsive |
+|`btn-primary` | uses the primary color of the application. Good for highlighting actions you want the user to take. |
+|`btn-info` | color used for information| 
+|`btn-danger`| warn buttons|
+|span to target inline elements| wrap text in span and add a class to modify its appearance. This seems bulky to me. |
+|`col-xs-1`| this class is added to a div to create columns. The number on the end can be 1-12 depending on the size of the column. |
+|`text-center`| a bootstrap class for centering text, seems useful|
+|`well`| A class that creates a visual sense of depth. |
+
+## JQuery
+JQuery is an older Javascript in between. It is pre es6, and well written, but somewhat obsolete at this point. However many legacy pages still use it, so it is good to know. 
+
+
+|Thing| Description|
+|make elements bounce |   `$("button").addClass("animated bounce");` Also requires the anumate.css library |
+|change element properties | `$("#target1").prop("disabled",true)` |
+|change CSS of elements | `$("#target1").css("color", "red");` |
+|Change html of elements | `$(".target").html("innerHtmlText here" )`|
+|Append element to div | `$("button").appendTo("#someElement")`|
+|Clone Element | `$("button"}).clone()` |
+|target a parent Element | ``$("element").parent()` |
+|Target children of an element| `$("element").children()` | 
+| target number of children down the tree | `$(".target:nth-child(3)").addClass("animated bounce");` |
+
+## SASS
+*Syntactically Awesome Stylesheets* 
+A language extension of CSS. Makes it easier to simplify and maintain stylesheets. It is a css preprocessor. SCSS is the more modern edition. requires EOL `;` characters. 
+|Thing | Description | 
+|setting variables| vairables start with a `$` and are then followed by the variable name.  then `:` and the initial variable value | 
+|nesting CSS| place elements inside of other elements with curly braces. | 
+|*mixin* | essentially functions which can return whatever is applicable I suppose? `@mixin border-radius($radius){`<br>`-webkit-border-radius: $radius;`<br>`}`|
+| logic in stylesheets | `@if`, `@else` followed by curly braces. |
+| for loops | `@for i 1 through 12{}` 'start through end' or 'to end' use. Start to end excludes the end number as a part of the count and start through end does not.  | 
+|Extending classes | `@extend: className` in the body of a class will copy all of the properties of the extended class into the new class. |
+

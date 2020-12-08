@@ -346,3 +346,38 @@ Working through most of functional programming. Glad to be moving right along ag
 Finished Functional Programming. This module was a breeze. I use functional programming in all my python code. Seems like its a sanctioned structure, so I don't feel as guilty not adhering to OOB concepts. 
 
 goal for tomorrow: finish Javascript section!
+
+# 64
+
+I spent some time today re-writing the backtester to use the backtrader parameter optimization, as it turns out this method of optimizing parameters can only use one core, and as a result is 5x slower than the method I was already using (~30 hours per backtest!). So I guess I'll roll it back tomorrow. I also did a challenge on FCC.
+
+# 65 
+
+Spent the day rolling back the work I did yesterday. I found some of it could be kept. I found I could replace the grid optimization with a lambda function, so that probly shaved a few seconds off processing time
+
+# 66 
+
+I added a shutdown trigger in gcloud, so finally, the algo is running entirely unattended. It also looks like it will cost about 15$ a month to run on the vm, so ehhh. I'll forget about it for a bit and see how it does.
+
+# 67
+
+All these Javascript challenges are really wearing me down. I am trying my best to refocus today, I keep reminding myself that react and shiny frameworks are just around the corner! I found a tutorial for launching an react app on AWS, I think this will be useful: <a href="https://aws.amazon.com/getting-started/hands-on/build-react-app-amplify-graphql/#:~:text=Deploy%20and%20Host%20a%20React,)%3A%20Create%20a%20GraphQL%20API.">React App Tutorial</a>
+
+# 68
+More Algorithms today! AHHHH. I finally found some videos I like, so I started following along with someone ele doing the challenges I got stuck on. This has been a good way to lift my head, and prevent it from banging on my desktop incessantly while I try to work my way through these challenges. 
+
+# 69
+
+I used more of those videos today from the Usedful programmer on youtube. I also stalked the guy who makes them, Seems like he is a digital nomad with slightly right leaning political views, and a fan of Ray Dalio. Interesting! Only 2 challenges left in the Javascript section!
+
+# 70 
+
+Finished Javascript challenges. It was awful. I do know JS slightly better though, I might reatain and understand about 20% of what was presented. Still a victory.
+
+# 71
+
+Started the bootstrap section. I am flying through this section so far. Didn't spend too much time today. Working in my room and the power is out
+
+# 72
+
+I Made It! I arrived at the React Section. I kind of want to save it till tomorrow actually. After spending so much time in Javascript, this front end libraries certification is flying by so far. 
