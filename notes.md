@@ -321,3 +321,43 @@ A language extension of CSS. Makes it easier to simplify and maintain stylesheet
 | for loops | `@for i 1 through 12{}` 'start through end' or 'to end' use. Start to end excludes the end number as a part of the count and start through end does not.  | 
 |Extending classes | `@extend: className` in the body of a class will copy all of the properties of the extended class into the new class. |
 
+## React
+
+A frontend Javascript framework build by Facebook
+
+|Thing|Description|
+|JSX| syntax extension of js. JSX funcction always require a wrapper div Ex: `const jsx=<div> <p>p1</p><p>p2</p></div>`|
+|Comments| `{/*comment*/}`|
+|Rendering Elements|`ReactDOM.render(JSX_element, Document.getElementById("someElementID"))`|
+|classes | class is a reserved word in javascript, so to add classes to elements, use the word `classname`|
+|self closing tags | Everything can be a self closing tag! |
+|Stateless Functional Component | *accepts Props and returns JSX* A component that can receive data and render it, but does not manage or track changes to the data. |
+|Stateless Compoment AKA *React Components*| Extends  React.Component, does not use internal state.| 
+|Class Components | `Class SomeComponent extends React.Component {constructor(props) {super(props);} render() {return(<div><p>fthisd</p></div>)}}`|
+|Child Components | components rendered within other components simply look like `<ChildComponent/>` | 
+|Props | as long as you have a constructor with a super, props are passed to a class component like so: `<ClassComponent someProp="thePropValue"/>` this prop is then accessed in the component like so: `return(<div><p>the value of the passed property is: {props.someProp}</p></div>)` this syntax only works in functional components, not class components.|
+|States| Any data the application needs to know about that can change over time. Create a state by declaring a state property on the component class in its constructor. (below super).  Do not rely on previous state value to set new one. States are asynchronous. Most application structures have one parent component with state that passes various priops down to stateless child components|
+|bind to method constructor |If you have a method in the React Component you will need to bind it: `this.toggleVisibility = this.toggleVisibility.bind(this);`|
+|Lifecycle Methods| These methods provide opportunities to perform actions at specific points in the lifecycle of each component:`componentDidMount(), shouldComponentUpdate(), componentDidUpdate, componentWillUnmount()`. |
+|`componentDidMount()`| place all api calls or calls to server in this method. Also a good place to attach event listeners |
+|`shouldComponentUpdate()`|This method is useful to optimize performance. It allows you to declare if child components should update or not. The default behavior is for the component to always update when new props or state is received. This function can prevent that. The method takes nextProps and nextState as parameters. Add this method to your react component and if it returns true, it will re-render. Can use if statements based on props to lead to true to true or false returns. Chick if the component actually updated using `componentDidUpdate()` |
+|Inline Styles | Set the style tag equal to a javascript object when writing in JSX. Like so: `<div style={{color: "yellow", fontSize: 16}}>Mellow Yellow</div>`|
+|JSX Inline Conditionals | this code will display the h1 only if the this.state.display is true: `{this.state.display&&<h1>Displayed!</h1>}`|
+|Ternary expressions | `condition ? expressionIfTrue : expressionIfFalse;` |
+|`renderToString()` | Method used for rendering React on the server. 
+
+
+## Redux
+
+Treat the state as a global immutable object. the flow is action->reducer->store this is a loop. all components should be stateless. 
+
+|thing|Description|
+|reducer| a function that takes the current state and the action then returns the next state. `const reducer = (state=5) => {return state;}`|
+|redux store | the single source of truth for the state of the application `const store = Redux.createStore(reducer)`|
+|updating state| State updates are triggered by dispatching *actions* to the store. Actions can also carry a payload such as a username and password. Actions are just Javascript objects: `const action = {type:'LOGIN'}`. After the action is defined, it has to be sent to the store. To send it to the store, define an *action creator*.: `const actionCreator = () => {` <br/>  `return action` <br/>`}`|
+|Action Creators | return an object with a type property that specifies that the action has occurred| 
+|Dispatch| A method used to dispatch actions to the redux store. call `store.dispatch(actionCreator())` with the action creator as the argument. |
+|Const Action types | best practice is to use Const when declaring action types, then reference these types whenever used |
+|Store listeners | ``store.subscribe()` allows you to subscribe listener functions to the store. |
+|`combineReducers()`|good practice is to create a reducer for each unique application state. Example: a note taking app which has Authenication would have one reducer for auth, and one for the text and notes. In this example combine reducers would look like so: <code>const rootReducer Redux.combineReducers({auth: authenticationReducer,notes: notesReducer});</code>|
+|Asynchronous actions | Use reduc thunk middleware. pass agrument to `Redux.applyMiddleware(ReduxThunk.default)`

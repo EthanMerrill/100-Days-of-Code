@@ -380,4 +380,37 @@ Started the bootstrap section. I am flying through this section so far. Didn't s
 
 # 72
 
-I Made It! I arrived at the React Section. I kind of want to save it till tomorrow actually. After spending so much time in Javascript, this front end libraries certification is flying by so far. 
+I Made It! I arrived at the React Section. I kind of want to save it till tomorrow actually. After spending so much time in Javascript, this front end libraries certification is flying by so far. Attended a react conference as an intro to react this afternoon. 
+
+# 73
+
+Working my way through the react module. So far things are fairly easy. I also listened to a presentation from the founder of next.js at the react conference. His talk was thoroughly over my head. 
+
+# 74 
+
+Kept trucking on React. State is very confusing. It seems like a lot of steps to bind a function and modify state. 
+
+# 75 
+
+Today I plan to: 
+- [x] finish React Module
+- [ ] debug trading algo
+
+Finished today off with some intro videos on Redux. Its a state management system which is *really* confusing.
+
+# 76
+
+
+
+- [ ] finish the Redux module
+- [x] debug trading algo
+
+# 77
+ I switched over to degugging the trading also again. It was overwritting the record of the portfolio with nan values. It is a real pain to fix and debug at this point. I also spent a lot of time trying to get the vm to automativally use the latest docker image in my repository. This is the last part of my CI/CD toolchain, and I just couldn't make it work. In the vm options (google compute) I set the directory of the built docker image like so: `gcr.io/backtestalgov1/github.com/ethanmerrill/tradingalgoexperimentation@sha256:xyzxyzxyzxyz` in the container image field of the compute engine instance. I should be able to use the latest image in the `gcr.io/backtestalgov1/github.com/ethanmerrill/tradingalgoexperimentation` directory by appending a `:latest` tag. the script for building the docker images automatically appends the latest tag to the most recently built image. However when I use : `tradingalgoexperimentation:latest` it doesn't work...
+- [ ] finish the redux module
+
+# 78
+I need to finish the Redux module today. Redux makes little send=se and its discouraging. 
+- [ ] finish the redux module
+    These final sections of the Redux module teach state immutability
+- [ ] finish React and Redux module (the last of the front end libraries certification!!)
