@@ -410,7 +410,9 @@ Finished today off with some intro videos on Redux. Its a state management syste
 - [ ] finish the redux module
 
 # 78
-I need to finish the Redux module today. Redux makes little send=se and its discouraging. 
-- [ ] finish the redux module
+I need to finish the Redux module today. Redux makes little sense and its discouraging. 
+- [x] finish the Redux module
     These final sections of the Redux module teach state immutability
 - [ ] finish React and Redux module (the last of the front end libraries certification!!)
+
+# 79

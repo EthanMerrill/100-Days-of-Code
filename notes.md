@@ -360,4 +360,19 @@ Treat the state as a global immutable object. the flow is action->reducer->store
 |Const Action types | best practice is to use Const when declaring action types, then reference these types whenever used |
 |Store listeners | ``store.subscribe()` allows you to subscribe listener functions to the store. |
 |`combineReducers()`|good practice is to create a reducer for each unique application state. Example: a note taking app which has Authenication would have one reducer for auth, and one for the text and notes. In this example combine reducers would look like so: <code>const rootReducer Redux.combineReducers({auth: authenticationReducer,notes: notesReducer});</code>|
-|Asynchronous actions | Use reduc thunk middleware. pass agrument to `Redux.applyMiddleware(ReduxThunk.default)`
+|Asynchronous actions | Use reduc thunk middleware. pass agrument to `Redux.applyMiddleware(ReduxThunk.default)`|
+|`object.assign`| For copying objects. |
+|Redux Wrapper| To Add react-redux to an app, wrap it in tags like so: `<Provider store = {store}>` <br>`<App/>`<br>`</Provider>`|
+|Presentational Components | components are typically refered to as presentational if they are not directly connected to redux.|
+|Container Components| These components are responsible for dispatching actions to the store and often pass store state to child components as props. |
+|
+
+
+# Module Bundlers Notes
+
+*what is a module bundler* take multiple js files and combine into one large file used to load the js app in the browser.
+|Thing| Description|
+|*loaders*| a way to handle any file that's not plain javascript like sass, typescript or css. |
+|*Plugins*|tap into the compilation lifecycle of webpack. |
+|*Dev Server*| Watches files and serves up files. Can configure for compression and hot module replacement. Will watch source directory for changes and will recompile if a file is saved|
+|
