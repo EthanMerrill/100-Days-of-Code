@@ -1,6 +1,12 @@
-h1 {
+p {
     background-color: blue;
     font-size: 55px;
+    text-align: center;
+}
+
+.quote-box {
+    margin: auto;
+    WIDTH: 50%;
 }
 
 div {

@@ -200,6 +200,7 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 - Let and Const
 
 |Thing| Description|
+|---|---|
 |let | can only be declared once. So when you want to change it, an error is thrown...|
 |const| Const Variables are *read-only* |
 |Immutable Values| values which cannot be changed, such as using const. Commonly UPPERCASE is used to identify these value types ```IMMUTABLEVARIABLE```|
@@ -220,6 +221,7 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 ## Regular Expressions
 
 |Thing| Description|
+|---|---|
 |`/thing/`|this is the typical regular expression, no frills, just what you are looking for between two forward slashes|
 |`/Thing/i`| the `i` means that the case should be `i`gnored|
 |`matches = somestr.match(/thing/)`| this will return all the matches found|
@@ -246,6 +248,7 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 ## Debugging
 
 |Thing| Description|
+|---|---|
 |`console.clear()`|Clears the console |
 |`typeof thing`| outputs the type of thing, must be logged to the console to appear|
 
@@ -254,6 +257,7 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 
 
 |Thing| Description|
+|---|---|
 |`instanceof`| every time an object is created it is made to be an instance of its constructor. You can verify that an object is in fact from the constructor with the instance of method. |
 |own properties| can check own properties using the `.hasOwnProperty` operator. |
 |Prototypes | properties in the prototype are shared by ALL instances of the object. EX: `Thing.prototype.attribute = 4` all attributes of the thing now have the value of 2. When setting prototypes, you can also make properties equal to functions. However when creating objects using the protype, set the constructor as a property, so that the instanceof method still works. |
@@ -268,6 +272,7 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 ## Functional Programming
 
 |Thing| Description|
+|---|---|
 |callbacks|functions that are passed into another function that decide the invocation of that function|
 |Don't alter variable or object| take the variable or object as an argument and return modified copies of them. |
 |Declare function parameters| any computation inside a function relies exclusively upon these declared, internal variables|
@@ -286,6 +291,7 @@ ECMA Script is a standardized version of JavaScript. ES6 is the latest version o
 ## Bootstrap
 
 |Thing| Description|
+|---|---|
 |`img-responsive` class | makes images responsive |
 |`btn-primary` | uses the primary color of the application. Good for highlighting actions you want the user to take. |
 |`btn-info` | color used for information| 
@@ -300,6 +306,7 @@ JQuery is an older Javascript in between. It is pre es6, and well written, but s
 
 
 |Thing| Description|
+|---|---|
 |make elements bounce |   `$("button").addClass("animated bounce");` Also requires the anumate.css library |
 |change element properties | `$("#target1").prop("disabled",true)` |
 |change CSS of elements | `$("#target1").css("color", "red");` |
@@ -314,6 +321,7 @@ JQuery is an older Javascript in between. It is pre es6, and well written, but s
 *Syntactically Awesome Stylesheets* 
 A language extension of CSS. Makes it easier to simplify and maintain stylesheets. It is a css preprocessor. SCSS is the more modern edition. requires EOL `;` characters. 
 |Thing | Description | 
+|---|---|
 |setting variables| vairables start with a `$` and are then followed by the variable name.  then `:` and the initial variable value | 
 |nesting CSS| place elements inside of other elements with curly braces. | 
 |*mixin* | essentially functions which can return whatever is applicable I suppose? `@mixin border-radius($radius){`<br>`-webkit-border-radius: $radius;`<br>`}`|
@@ -326,6 +334,7 @@ A language extension of CSS. Makes it easier to simplify and maintain stylesheet
 A frontend Javascript framework build by Facebook
 
 |Thing|Description|
+|---|---|
 |JSX| syntax extension of js. JSX funcction always require a wrapper div Ex: `const jsx=<div> <p>p1</p><p>p2</p></div>`|
 |Comments| `{/*comment*/}`|
 |Rendering Elements|`ReactDOM.render(JSX_element, Document.getElementById("someElementID"))`|
