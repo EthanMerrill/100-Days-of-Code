@@ -400,8 +400,6 @@ Finished today off with some intro videos on Redux. Its a state management syste
 
 # 76
 
-
-
 - [ ] finish the Redux module
 - [x] debug trading algo
 
@@ -416,3 +414,15 @@ I need to finish the Redux module today. Redux makes little sense and its discou
 - [ ] finish React and Redux module (the last of the front end libraries certification!!)
 
 # 79
+
+- [x] finish React and Redux module (the last of the front end libraries certification!!)
+
+# 80 
+
+# 81?
+# SOmeday dec 17
+The algo is stuck on an old distribution. I have no idea how to fix it. So I changed gears and worked on react stuff today. This morning I watched some videos about webpack, concluded it was too big for what I'm working with, and started a project using nano react. This react starter kit uses parcel instead of webpack. I found that using hooks and functional components is far easier than classes and set state stuff. I hope that this doesn't come back to bite me later. Thinking it through, I might be able to avoid redux by learning react with functional components, then learning next.js or possibly Gatsby. That's my preliminary plan at least. 
+
+# Dec 18
+
+Passed the tests on random quote machine and markdown previewer. They're both kinda ugly still, but I'll fix that later. I asked a<a href="https://forum.freecodecamp.org/t/usestate-callback-random-quote-machine/436149/4"> question </a> relating to useEffect on the Free Code Camp forum and got a good answer almost immediately. Working with functional components in react is a breeze! Its nice to be moving again. 

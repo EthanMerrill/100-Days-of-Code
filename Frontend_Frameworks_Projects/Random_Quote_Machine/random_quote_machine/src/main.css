@@ -1,14 +1,98 @@
-p {
-    background-color: blue;
+/* reset the pallete to a blank slate */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+h2 {
     font-size: 55px;
     text-align: center;
+    font-style: italic;
+    font: Times;
+}
+
+.just-quote {
+    height: 80%;
 }
 
 .quote-box {
     margin: auto;
-    WIDTH: 50%;
+    WIDTH: 60%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid red;
+    border-radius: 10px;
 }
 
-div {
-    background-color: orange;
+.quote-project {
+    height: 100vh;
+    display: flex;
+    background-color: #fff;
+}
+
+
+/* https://fdossena.com/?p=html5cool/buttons/i.frag */
+
+button {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid grey;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: grey;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+button:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+.markdown-previewer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+}
+
+.markdown-previewer>* {
+    height: 90%;
+    width: 40%;
+    padding: 10px;
+    /* background: gray; */
+}
+
+.preview-box * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-align: left;
+}
+
+.preview-box li {
+    transform: translateX(1em)
+}
+
+code {
+    background: black
 }
