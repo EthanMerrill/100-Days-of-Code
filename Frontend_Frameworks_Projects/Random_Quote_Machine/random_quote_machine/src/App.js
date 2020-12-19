@@ -39,6 +39,8 @@ function QuoteMachine(props){
   }, [quoteData])
 
     return (
+      <div>
+        <h1>Random Quote</h1>
       <div className = "quote-project">
         <div id ='quote-box' className = "quote-box">
           <div className="just-quote">
@@ -48,6 +50,7 @@ function QuoteMachine(props){
           <button id = 'new-quote' onClick = {newQuote}>New Quote</button>
           <a id = 'tweet-quote' href="twitter.com/intent/tweet"><i className="fab fa-twitter"></i></a>
         </div>
+      </div>
       </div>
     )
   }
@@ -87,12 +90,16 @@ const[markdown, setMarkdown] = useState(starterText)
   }
 
   return(
+    <div>
+      <h1>Markdown Previewer</h1>
     <div className = "markdown-previewer">
+      
       <textarea id = "editor" className = "input-textarea card" onChange={e => setMarkdown(e.target.value)} defaultValue = {starterText}>
       
       </textarea>
       <div id="preview" className="preview-box card"  dangerouslySetInnerHTML={createMarkdown(marked(markdown))}>
       </div>
+    </div>
     </div>
   )
 }
@@ -102,10 +109,11 @@ const[markdown, setMarkdown] = useState(starterText)
 function DrumMachine(props){
   // Set Display
   const[displayValue, setDisplayValue] = useState("Drumpad 2000")
-
+  
   // add keys event listener
   window.addEventListener('keydown',(e) => {
-      activateButton(e.key, setDisplayValue, e.name);
+      // console.log(padBank.keyCode(e.key))
+      activateButton(e.key, setDisplayValue, "Heater-3");
     })
     // Create each drum pad from array
     let padBank;
@@ -123,12 +131,18 @@ function DrumMachine(props){
           />
       )
     })
+    // console.log(bankOne[0])
 
   return (
   <div id="drum-machine" className="drum-machine">
-    <div id="display">{displayValue}</div>
+    <h1>Drum Machine</h1>
+    <div className="drum-machine-container">
+    <div id="display" className="display"><p className="lcd-text">{displayValue}</p></div>
+    <div className="padBankArr">
     {[...padBank]}
-  </div>
+    </div>
+    </div>
+</div>
   )
 }
 
@@ -137,17 +151,26 @@ function DrumPad(props){
 
   return (
     <div id = {props.id} className = "drum-pad" onClick={() => {activateButton(props.keyTrigger, props.displayHook, props.name);}}>
-      {props.keyTrigger}
+      <p className = "keyLabel">{props.keyTrigger}</p>
       <audio id={props.keyTrigger} className = "clip" src={props.url}></audio>
     </div>
   )
 }
 
-const activateButton = (keyTrigger, hook, name) => {
+const activateButton = (keyTrigger, hook) => {
   keyTrigger = keyTrigger.toUpperCase()
   if ((['Q','W','E','A','S','D','Z','X','C'].includes(keyTrigger))===true){
+    // locate the sound element
     const sound = document.getElementById(keyTrigger)
-    sound.play()
+    // console.log(sound)
+    //set the style to pressed by changing the class:
+    const button = sound.closest("div")
+    console.log(button)
+    button.classList.add('pressed')
+    let name = button.id
+    sound.play().then(promise => {button.classList.remove('pressed')})
+    // then after the play callback is complete reset the style
+
     hook(name)
   }
 }

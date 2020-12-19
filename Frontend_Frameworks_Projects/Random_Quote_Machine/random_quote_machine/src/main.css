@@ -95,11 +95,60 @@ button:hover {
 
 .drum-machine {
     height: 100vh;
+    margin: auto;
+    padding: 40px;
+    background: grey;
 }
 
 .drum-pad {
-    background-color: orange;
+    background-color: grey;
     border: solid black;
-    height: 10%;
-    width: 10%;
+    height: 95%;
+    width: 95%;
+    padding: 20px 30px 20px;
+    margin: auto;
+    border-radius: 3px;
+}
+
+.padBankArr {
+    height: 95%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: auto;
+}
+
+
+/* https://codepen.io/ashokgowtham/pen/akDGb */
+
+.display {
+    margin: auto;
+    margin-bottom: 30px;
+    height: 50px;
+    width: 400px;
+    background: rgb(106, 117, 70);
+    box-shadow: inset 1px 1px 7px 0px #050505, 0px 0px 4px 2px #000, 0px 0px 4px 2px #777;
+    padding: 5px;
+    align-items: center;
+}
+
+.lcd-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    text-justify: center;
+}
+
+.pressed {
+    box-shadow: 0px 0px 8px 8px rgba(100, 0, 0, .5);
+}
+
+.keyLabel {
+    font-size: 2em;
+}
+
+.drum-machine-container {
+    height: 80vh;
+    /* position: absolute; */
+    bottom: 0px;
 }
