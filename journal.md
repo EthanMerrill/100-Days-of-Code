@@ -425,4 +425,10 @@ The algo is stuck on an old distribution. I have no idea how to fix it. So I cha
 
 # Dec 18
 
-Passed the tests on random quote machine and markdown previewer. They're both kinda ugly still, but I'll fix that later. I asked a<a href="https://forum.freecodecamp.org/t/usestate-callback-random-quote-machine/436149/4"> question </a> relating to useEffect on the Free Code Camp forum and got a good answer almost immediately. Working with functional components in react is a breeze! Its nice to be moving again. 
+Passed the tests on random quote machine and markdown previewer. They're both kinda ugly still, but I'll fix that later. I asked a<a href="https://forum.freecodecamp.org/t/usestate-callback-random-quote-machine/436149/4"> question </a> relating to useEffect on the Free Code Camp forum and got a good answer almost immediately. Working with functional components in react is a breeze! Its nice to be moving again. I finished off the day by researching Content Management Systems for my personal website. I would like a system which has the following features: *Self hosted* because I don't what all my posts to be hosted on another companies servers. That company who is providing free content hosting, not out of the goodness of their heart, but because of the prospect that I might pay to have my content hosted by them in the future. *GraphQL* Admittedly, I don't know a whole lot about API protocols, but it seems like the world is moving from RESTful interfaces to graphQL as a way to retrieve content from databases/servers. *Minimal* as The Notorious BIG said: mo' features mo' problems. More features means more to maintain, and given I don't plan to pay for this service... I'm not expecting a whole lot in terms of support or even continued development, so I need something simple.*widely used* I'm going to have a ton of challenges setting this up, so I need hundreds of stack overflow answers, video tutorials, and forum posts to each problem I encounter *Open Source* Everyone knows open source is the only way...
+
+From what I can tell Strapi is the best option, it is a little too complex, and has a paid tier they would undoubtedly love for me to convert to, but it can be self hosted, is open source and uses graphql. Plus the community is quite large. 
+
+# Dec 19 
+
+Drum Machine

@@ -6,7 +6,7 @@ function App(props){
     <div>
     <QuoteMachine/>
     <MarkdownPreviewer/>
-    {/* <DrumMachine/> */}
+    <DrumMachine/>
     </div>
   )
 }
@@ -99,4 +99,125 @@ const[markdown, setMarkdown] = useState(starterText)
 
 
 
+function DrumMachine(props){
+  // Set Display
+  const[displayValue, setDisplayValue] = useState("Drumpad 2000")
 
+  // add keys event listener
+  window.addEventListener('keydown',(e) => {
+      activateButton(e.key, setDisplayValue, e.name);
+    })
+    // Create each drum pad from array
+    let padBank;
+    padBank = bankOne.map((elem, idx)=> {
+      // console.log('keycodekeyCode = {elem.keycode}')
+      return (
+        <DrumPad 
+          key = {idx}
+          id = {elem.id}
+          keycodekeyCode = {elem.keyCode}
+          name = {elem.id}
+          keyTrigger = {elem.keyTrigger}
+          url = {elem.url}
+          displayHook = {setDisplayValue}
+          />
+      )
+    })
+
+  return (
+  <div id="drum-machine" className="drum-machine">
+    <div id="display">{displayValue}</div>
+    {[...padBank]}
+  </div>
+  )
+}
+
+
+function DrumPad(props){
+
+  return (
+    <div id = {props.id} className = "drum-pad" onClick={() => {activateButton(props.keyTrigger, props.displayHook, props.name);}}>
+      {props.keyTrigger}
+      <audio id={props.keyTrigger} className = "clip" src={props.url}></audio>
+    </div>
+  )
+}
+
+const activateButton = (keyTrigger, hook, name) => {
+  keyTrigger = keyTrigger.toUpperCase()
+  if ((['Q','W','E','A','S','D','Z','X','C'].includes(keyTrigger))===true){
+    const sound = document.getElementById(keyTrigger)
+    sound.play()
+    hook(name)
+  }
+}
+
+
+// const playSound = (keyTrigger, hook) => {
+//   keyTrigger = keyTrigger.toUpperCase()
+//   if ((['Q','W','E','A','S','D','Z','X','C'].includes(keyTrigger))===true){
+//     const sound = document.getElementById(keyTrigger)
+//     sound.play()
+//     hook(keyTrigger)
+//   }
+// }
+
+
+
+
+const bankOne = [
+  {
+    keyCode: 81,
+    keyTrigger: 'Q',
+    id: 'Heater-1',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+  },
+  {
+    keyCode: 87,
+    keyTrigger: 'W',
+    id: 'Heater-2',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
+  },
+  {
+    keyCode: 69,
+    keyTrigger: 'E',
+    id: 'Heater-3',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
+  },
+  {
+    keyCode: 65,
+    keyTrigger: 'A',
+    id: 'Heater-4',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
+  },
+  {
+    keyCode: 83,
+    keyTrigger: 'S',
+    id: 'Clap',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
+  },
+  {
+    keyCode: 68,
+    keyTrigger: 'D',
+    id: 'Open-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'
+  },
+  {
+    keyCode: 90,
+    keyTrigger: 'Z',
+    id: "Kick-n'-Hat",
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
+  },
+  {
+    keyCode: 88,
+    keyTrigger: 'X',
+    id: 'Kick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
+  },
+  {
+    keyCode: 67,
+    keyTrigger: 'C',
+    id: 'Closed-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
+  }
+];

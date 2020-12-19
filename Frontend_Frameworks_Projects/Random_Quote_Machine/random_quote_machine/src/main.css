@@ -93,6 +93,13 @@ button:hover {
     transform: translateX(1em)
 }
 
-code {
-    background: black
+.drum-machine {
+    height: 100vh;
+}
+
+.drum-pad {
+    background-color: orange;
+    border: solid black;
+    height: 10%;
+    width: 10%;
 }
