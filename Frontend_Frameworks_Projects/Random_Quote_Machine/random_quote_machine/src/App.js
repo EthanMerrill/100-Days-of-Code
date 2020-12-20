@@ -7,6 +7,7 @@ function App(props){
     <QuoteMachine/>
     <MarkdownPreviewer/>
     <DrumMachine/>
+    <Calculator/>
     </div>
   )
 }
@@ -165,7 +166,7 @@ const activateButton = (keyTrigger, hook) => {
     // console.log(sound)
     //set the style to pressed by changing the class:
     const button = sound.closest("div")
-    console.log(button)
+    // console.log(button)
     button.classList.add('pressed')
     let name = button.id
     sound.play().then(promise => {button.classList.remove('pressed')})
@@ -174,19 +175,6 @@ const activateButton = (keyTrigger, hook) => {
     hook(name)
   }
 }
-
-
-// const playSound = (keyTrigger, hook) => {
-//   keyTrigger = keyTrigger.toUpperCase()
-//   if ((['Q','W','E','A','S','D','Z','X','C'].includes(keyTrigger))===true){
-//     const sound = document.getElementById(keyTrigger)
-//     sound.play()
-//     hook(keyTrigger)
-//   }
-// }
-
-
-
 
 const bankOne = [
   {
@@ -244,3 +232,75 @@ const bankOne = [
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
   }
 ];
+
+
+
+function Calculator(props){
+  const[calcDisplay, setCalcDisplay] = useState('')
+  let calculatorComponents
+  calculatorComponents = calculatorButtonArray.map((elem, idx) =>{
+    return (<CalculatorButton text={elem.text} value={elem.value} hook = {setCalcDisplay}/>)
+    
+  })
+
+  return (
+    <div className="calculator-container">
+      <h1>Calculator</h1>
+      <div className="whole-calculator">
+        <div className = "disp-clear-grid">
+        <div className = "calculator-display"><p>{calcDisplay}</p></div>
+        <CalculatorButton value="clear" text="clear"/>
+        </div>
+      <div className="button-grid">
+      {[...calculatorComponents]}
+
+      </div>
+    </div>
+    </div>
+    )
+
+}
+
+function CalculatorButton(props){
+  return (
+    <div id={props.text} className="calculator-number calc-button" dangerouslySetInnerHTML = {{__html:props.value}} onClick={() =>(props.hook(props.value))}>
+    </div>
+  )
+}
+
+
+const calculatorButtonArray = [
+  
+  {"text" :"one",
+  "value": 1},
+  {"text" :"two",
+  "value": 2},  
+  {"text" :"three",
+  "value": 3},
+  {"text" :"four",
+  "value": 4},
+  {"text" :"five",
+  "value": 5},
+  {"text" :"six",
+  "value": 6},
+  {"text" :"seven",
+  "value": 7},
+  {"text" :"eight",
+  "value": 8},
+  {"text" :"nine",
+  "value": 9},  
+  {"text" :"zero",
+  "value": 0},
+  {"text" :"decimal",
+  "value": "."},
+  {"text" :"subtract",
+  "value": "-"},
+  {"text" :"multiply",
+  "value": "**"},
+  {"text" :"divide",
+  "value": "//"},
+  {"text" :"add",
+  "value": "+"},
+  {"text" :"equals",
+  "value": "="}
+]

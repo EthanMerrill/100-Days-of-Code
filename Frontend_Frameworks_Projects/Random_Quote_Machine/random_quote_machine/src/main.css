@@ -152,3 +152,46 @@ button:hover {
     /* position: absolute; */
     bottom: 0px;
 }
+
+
+/* Calculator  */
+
+.calculator-container {
+    height: 100vh;
+}
+
+.whole-calculator {
+    height: 95%;
+    width: 90%;
+    margin: auto;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 80%;
+    width: 70%;
+}
+
+.calc-button {
+    height: 90%;
+    width: 90%;
+}
+
+.calculator-number {
+    background-color: orange;
+}
+
+.calculator-number {
+    height: 1fr;
+}
+
+.calculator-display {
+    box-shadow: inset 4px 4px 8px 0px rgba(10, 10, 10, .5), 0px 0px 0px 0px #000, 0px 0px 0px 0px #777;
+}
+
+.disp-clear-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
