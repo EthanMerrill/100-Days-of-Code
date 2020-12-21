@@ -431,4 +431,8 @@ From what I can tell Strapi is the best option, it is a little too complex, and 
 
 # Dec 19 
 
-Drum Machine
+Drum Machine Finished. 
+
+# Dec 20 
+
+I hit a wall on the calculator. I ended the day without having any idea on how to update the display and operations. However I do have half the tests passing and a working Key generator function, so it looks something like a calculator at least.

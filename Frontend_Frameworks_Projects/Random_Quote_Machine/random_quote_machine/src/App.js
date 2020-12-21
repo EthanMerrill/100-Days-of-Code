@@ -1,14 +1,63 @@
 import React, {useState, useEffect} from "react";
 import marked from "marked";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App(props){
+
   return(
-    <div>
-    <QuoteMachine/>
-    <MarkdownPreviewer/>
-    <DrumMachine/>
-    <Calculator/>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/quoteMachine">Quote Machine</Link>
+            </li>
+            <li>
+              <Link to='/markdownpreviewer'>Markdown Previewer </Link>
+            </li>
+            <li>
+              <Link to='/drummachine'>Drum Machine</Link>
+            </li>
+            <li>
+              <Link to='/calculator'>Calculator</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+      <Route path='/quoteMachine'>
+        <QuoteMachine/>
+      </Route>
+      <Route path='/markdownpreviewer'>
+        <MarkdownPreviewer/>
+        </Route>
+      <Route path='/drummachine'>
+        <DrumMachine/>
+      </Route>
+      <Route path = '/calculator'>
+        <Calculator/>
+      </Route>
+
+    </Switch>
+      </div>
+
+    </Router>
+
+
+    // <div>
+    // <QuoteMachine/>
+    // <MarkdownPreviewer/>
+    // <DrumMachine/>
+    // <Calculator/>
+    // </div>
   )
 }
 
@@ -171,7 +220,6 @@ const activateButton = (keyTrigger, hook) => {
     let name = button.id
     sound.play().then(promise => {button.classList.remove('pressed')})
     // then after the play callback is complete reset the style
-
     hook(name)
   }
 }
@@ -236,34 +284,44 @@ const bankOne = [
 
 
 function Calculator(props){
-  const[calcDisplay, setCalcDisplay] = useState('')
+  const[calcDisplay, setCalcDisplay] = useState("0")
+
   let calculatorComponents
   calculatorComponents = calculatorButtonArray.map((elem, idx) =>{
-    return (<CalculatorButton text={elem.text} value={elem.value} hook = {setCalcDisplay}/>)
+    return (<CalculatorButton key ={elem.text} text={elem.text} value={elem.value} hook={setCalcDisplay} getHook={calcDisplay}/>)
     
   })
+  const clearDisplay = (anything) => {
+    setCalcDisplay("0")
+  }
 
+  const evaluate = (string) => {
+    setCalcDisplay('EVALUATED')
+  }
+  
   return (
     <div className="calculator-container">
+          <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
       <h1>Calculator</h1>
       <div className="whole-calculator">
         <div className = "disp-clear-grid">
-        <div className = "calculator-display"><p>{calcDisplay}</p></div>
-        <CalculatorButton value="clear" text="clear"/>
+        <div id="display" className = "calculator-display"><p>{calcDisplay}</p></div>
+        <CalculatorButton value="clear" text="clear" hook={clearDisplay} setHook={calcDisplay}/>
         </div>
       <div className="button-grid">
       {[...calculatorComponents]}
-
+      
       </div>
+      <CalculatorButton text="equals" value="=" hook={evaluate} setHook={calcDisplay} />
     </div>
     </div>
     )
 
 }
 
-function CalculatorButton(props){
+function CalculatorButton({text, value, hook, getHook}){
   return (
-    <div id={props.text} className="calculator-number calc-button" dangerouslySetInnerHTML = {{__html:props.value}} onClick={() =>(props.hook(props.value))}>
+    <div id={text} className="calculator-number calc-button" dangerouslySetInnerHTML = {{__html:value}} onClick={() =>{hook(`${getHook}${value}`)}}>
     </div>
   )
 }
@@ -301,6 +359,4 @@ const calculatorButtonArray = [
   "value": "//"},
   {"text" :"add",
   "value": "+"},
-  {"text" :"equals",
-  "value": "="}
 ]

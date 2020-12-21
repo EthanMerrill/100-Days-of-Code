@@ -169,14 +169,18 @@ button:hover {
 .button-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     height: 80%;
-    width: 70%;
+    width: 100%;
 }
 
 .calc-button {
     height: 90%;
     width: 90%;
+}
+
+#equals {
+    height: 10% !important
 }
 
 .calculator-number {
@@ -189,9 +193,13 @@ button:hover {
 
 .calculator-display {
     box-shadow: inset 4px 4px 8px 0px rgba(10, 10, 10, .5), 0px 0px 0px 0px #000, 0px 0px 0px 0px #777;
+    width: 90%;
 }
 
 .disp-clear-grid {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 2fr 1fr;
+    margin-bottom: 30px;
+    height: 8%;
+    ;
 }
