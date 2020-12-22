@@ -179,9 +179,10 @@ button:hover {
     width: 90%;
 }
 
-#equals {
+
+/* #equals {
     height: 10% !important
-}
+} */
 
 .calculator-number {
     background-color: orange;
@@ -193,12 +194,12 @@ button:hover {
 
 .calculator-display {
     box-shadow: inset 4px 4px 8px 0px rgba(10, 10, 10, .5), 0px 0px 0px 0px #000, 0px 0px 0px 0px #777;
-    width: 90%;
+    width: 95%;
 }
 
 .disp-clear-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 4fr 1fr 1fr;
     margin-bottom: 30px;
     height: 8%;
     ;

@@ -11,23 +11,24 @@ function App(props){
 
   return(
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
+      <div className='navbar-expand'>
+
+        <nav className='navbar'>
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/quoteMachine">Quote Machine</Link>
+            <li className="nav-item">
+              <Link className="nav-link" to="/quoteMachine">Quote Machine</Link>
             </li>
-            <li>
-              <Link to='/markdownpreviewer'>Markdown Previewer </Link>
+            <li className="nav-item">
+              <Link className="nav-link" to='/markdownpreviewer'>Markdown Previewer </Link>
             </li>
-            <li>
-              <Link to='/drummachine'>Drum Machine</Link>
+            <li className="nav-item">
+              <Link className="nav-link" to='/drummachine'>Drum Machine</Link>
             </li>
-            <li>
-              <Link to='/calculator'>Calculator</Link>
+            <li className="nav-item">
+              <Link className="nav-link" to='/calculator'>Calculator</Link>
             </li>
           </ul>
         </nav>
@@ -52,12 +53,6 @@ function App(props){
     </Router>
 
 
-    // <div>
-    // <QuoteMachine/>
-    // <MarkdownPreviewer/>
-    // <DrumMachine/>
-    // <Calculator/>
-    // </div>
   )
 }
 
@@ -294,9 +289,72 @@ function Calculator(props){
   const clearDisplay = (anything) => {
     setCalcDisplay("0")
   }
+//THis function could difenitely be refactored...
+   async function evaluate() {
+    // multiplication
+    let multiplicationPair = calcDisplay.match(/(\d+\.\d+|\d+)(\*)(\d+\.\d+|\d+)/)
+    let tempDisplay = calcDisplay
+    while (multiplicationPair!=null){
+      if(multiplicationPair==null){
+        break
+      }
+      console.log(`Multiplication Pair: ${multiplicationPair[0]}`)
+      let multiplicationResults = operator(multiplicationPair[0])
+      tempDisplay=(tempDisplay.replace(multiplicationPair[0],multiplicationResults))
+      multiplicationPair = tempDisplay.match(/(\d+\.\d+|\d+)(\*)(\d+\.\d+|\d+)/)
+    }
+    setCalcDisplay(tempDisplay)
+    console.log(`temp display at multiplication: ${tempDisplay}`)
+    // division
+    let divisionPair = calcDisplay.match(/(\d+\.\d+|\d+)(\/)(\d+\.\d+|\d+)/)
+    while (divisionPair!=null){
+      if(divisionPair==null){
+        break
+      }
+      console.log(`Division Pair: ${divisionPair[0]}`)
+      let divisionResults = operator(divisionPair[0])
+      tempDisplay=(tempDisplay.replace(divisionPair[0],divisionResults))
+      divisionPair = tempDisplay.match(/(\d+\.\d+|\d+)(\/)(\d+\.\d+|\d+)/)
 
-  const evaluate = (string) => {
-    setCalcDisplay('EVALUATED')
+    }
+    setCalcDisplay(tempDisplay)
+    console.log(`temp display at division: ${tempDisplay}`)
+    // addition and subtraction operations
+    let additionSubtractionPair = calcDisplay.match(/(\d+\.\d+|\d+)(\+|\-)(\d+\.\d+|\d+)/)
+    while (additionSubtractionPair!=null){
+      if(additionSubtractionPair==null){
+        break
+      }
+      let additionResults = operator(additionSubtractionPair[0])
+      console.log(`Addition Subtraction Pair ${additionSubtractionPair[0]} temp display: ${tempDisplay} addition Results: ${additionResults}`)
+      tempDisplay = (tempDisplay.replace(additionSubtractionPair[0],additionResults))
+      additionSubtractionPair = tempDisplay.match(/(\d+\.\d+|\d+)(\+|\-)(\d+\.\d+|\d+)/)
+      
+    }
+    setCalcDisplay(tempDisplay)
+    console.log(`temp display at addition/subtraction: ${tempDisplay}`)
+}
+
+  const operator = (numberPair) => {
+    let operator = numberPair.match(/[^\d\w\s.]/)
+    operator = operator[0]
+    let numbers = numberPair.match(/(\d+\.\d+)|(\d+)/g)
+    numbers[0] = parseFloat(numbers[0])
+    numbers[1] = parseFloat(numbers[1])
+
+    switch(operator){
+      case "/":
+        return (numbers[0]/numbers[1])
+      case "+":
+        return (numbers[0]+numbers[1])
+      case "-":
+        return (numbers[0]-numbers[1])
+      case "*":
+        return (numbers[0]*numbers[1])
+      default:
+        console.log(`unknown operator ${operator}  type: typeof: ${typeof(operator)}`)
+
+    }
   }
   
   return (
@@ -307,12 +365,13 @@ function Calculator(props){
         <div className = "disp-clear-grid">
         <div id="display" className = "calculator-display"><p>{calcDisplay}</p></div>
         <CalculatorButton value="clear" text="clear" hook={clearDisplay} setHook={calcDisplay}/>
+        <CalculatorButton text="equals" value="=" hook={evaluate} setHook={calcDisplay} />
         </div>
       <div className="button-grid">
       {[...calculatorComponents]}
       
       </div>
-      <CalculatorButton text="equals" value="=" hook={evaluate} setHook={calcDisplay} />
+      
     </div>
     </div>
     )
@@ -321,11 +380,22 @@ function Calculator(props){
 
 function CalculatorButton({text, value, hook, getHook}){
   return (
-    <div id={text} className="calculator-number calc-button" dangerouslySetInnerHTML = {{__html:value}} onClick={() =>{hook(`${getHook}${value}`)}}>
+    <div id={text} className="calculator-number calc-button" dangerouslySetInnerHTML = {{__html:value}} onClick={() =>{
+      hook(numberParser(value, getHook))
+      
+      
+    }}>
     </div>
   )
 }
 
+function numberParser(value, getHook){
+  if (getHook=="0"){
+    return value
+  } else {
+  return(`${getHook}${value}`)
+  }
+}
 
 const calculatorButtonArray = [
   
@@ -354,9 +424,9 @@ const calculatorButtonArray = [
   {"text" :"subtract",
   "value": "-"},
   {"text" :"multiply",
-  "value": "**"},
+  "value": "*"},
   {"text" :"divide",
-  "value": "//"},
+  "value": "/"},
   {"text" :"add",
   "value": "+"},
 ]

@@ -436,3 +436,11 @@ Drum Machine Finished.
 # Dec 20 
 
 I hit a wall on the calculator. I ended the day without having any idea on how to update the display and operations. However I do have half the tests passing and a working Key generator function, so it looks something like a calculator at least.
+
+# Dec 21
+
+Ran into an issue with passing React-hooks, and the FCC tests. Somehow I fixed it, still not sure how. Someone on the FCC Discord helped me. 
+
+# Dec 22
+
+Added React-router. This tool is far easier than I remember it being. 
