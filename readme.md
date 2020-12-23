@@ -3,8 +3,7 @@ FreeCodeCamp Challenges, Notes, and Log
 ## Current Progress:
 <img src="https://img.shields.io/github/last-commit/EthanMerrill/100-Days-of-Code"/>
 
-I'm working on Javascript Data Structures and Algorithms certification. 
-I need to finish the portfolio project to complete the Responsive Web Design Certification.
+Working of the Frontend Frameworks projects in the Free Code Camp Curriculum
 
 
 <a href="journal.md">**Log**</a>

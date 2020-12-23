@@ -286,14 +286,56 @@ function Calculator(props){
     return (<CalculatorButton key ={elem.text} text={elem.text} value={elem.value} hook={setCalcDisplay} getHook={calcDisplay}/>)
     
   })
-  const clearDisplay = (anything) => {
+
+  const clearDisplay = (anything="") => {
     setCalcDisplay("0")
   }
-//THis function could difenitely be refactored...
+
+
+  useEffect(() => {
+    let updatedVal = (decimalCheck(String(calcDisplay)))
+    updatedVal = operatorCheck(updatedVal)
+    setCalcDisplay(updatedVal)
+  }, [calcDisplay])
+
+  const operatorCheck = (displayVal) => {
+    const lumpOfOperators = displayVal.match(/([\+\/\*]|(\-(?!(\d+|$)))){2,}/g)
+    if(lumpOfOperators!=null){
+      // console.log(`Operator Check found: ${lumpOfOperators.length}`)
+      let signReplacement = lumpOfOperators[0].slice(-1)
+      console.log(`Lump of Operators: ${lumpOfOperators} signReplacement: ${signReplacement} Final Value: ${displayVal.replace(lumpOfOperators, signReplacement)}`)
+      return displayVal.replace(lumpOfOperators, signReplacement)
+    } else {
+      return displayVal
+    }
+  }
+
+  const decimalCheck = (displayVal) => {
+    // check for multiple consecutive decimals
+    if (displayVal.match(/(\.{2,})/g)){
+      let replacementNumber = displayVal.replace(/(\.{2,})/g, ".")
+      console.log(`Tripped consecutive Decimal Checker: ${displayVal.match(/(\.{2,})/g)} replaced with: ${replacementNumber}`)
+      displayVal = replacementNumber;
+    }
+    //check for muliple non-consecutive decimals and keep just the first one. 
+    if (displayVal.match(/(\d+\.+){2,}/)){
+      // get everything after the first decimal:
+      let postFirstDecimal = displayVal.match(/(?<=\.)[\d\.]*/)[0].replace(".","")
+      console.log(`postFirstDecimal: ${postFirstDecimal}`)
+
+      displayVal = displayVal.match(/(?<=\.)[\d\.]*/)[0].concat(postFirstDecimal)
+      console.log(`Tripped Decimal Checker: ${displayVal}`)
+      // return displayVal
+    }
+
+    return displayVal
+  }
+//This function could definitely be refactored...
    async function evaluate() {
+    var tempDisplay = decimalCheck(calcDisplay)
     // multiplication
-    let multiplicationPair = calcDisplay.match(/(\d+\.\d+|\d+)(\*)(\d+\.\d+|\d+)/)
-    let tempDisplay = calcDisplay
+    let multiplicationPair = calcDisplay.match(/(\-?\d+\.?\d*)(\*)(\-?\d+\.?\d*)/)
+    // let tempDisplay = calcDisplay
     while (multiplicationPair!=null){
       if(multiplicationPair==null){
         break
@@ -301,12 +343,12 @@ function Calculator(props){
       console.log(`Multiplication Pair: ${multiplicationPair[0]}`)
       let multiplicationResults = operator(multiplicationPair[0])
       tempDisplay=(tempDisplay.replace(multiplicationPair[0],multiplicationResults))
-      multiplicationPair = tempDisplay.match(/(\d+\.\d+|\d+)(\*)(\d+\.\d+|\d+)/)
-    }
+      multiplicationPair = tempDisplay.match(/(\-?\d+\.?\d*)(\*)(\-?\d+\.?\d*)/)
+    } 
     setCalcDisplay(tempDisplay)
     console.log(`temp display at multiplication: ${tempDisplay}`)
     // division
-    let divisionPair = calcDisplay.match(/(\d+\.\d+|\d+)(\/)(\d+\.\d+|\d+)/)
+    let divisionPair = calcDisplay.match(/(\-?\d+\.?\d*)(\/)(\-?\d+\.?\d*)/)
     while (divisionPair!=null){
       if(divisionPair==null){
         break
@@ -314,43 +356,54 @@ function Calculator(props){
       console.log(`Division Pair: ${divisionPair[0]}`)
       let divisionResults = operator(divisionPair[0])
       tempDisplay=(tempDisplay.replace(divisionPair[0],divisionResults))
-      divisionPair = tempDisplay.match(/(\d+\.\d+|\d+)(\/)(\d+\.\d+|\d+)/)
+      divisionPair = tempDisplay.match(/(\-?\d+\.?\d*)(\/)(\-?\d+\.?\d*)/)
 
     }
     setCalcDisplay(tempDisplay)
     console.log(`temp display at division: ${tempDisplay}`)
     // addition and subtraction operations
-    let additionSubtractionPair = calcDisplay.match(/(\d+\.\d+|\d+)(\+|\-)(\d+\.\d+|\d+)/)
+    let additionSubtractionPair = calcDisplay.match(/(\-?\d+\.?\d*)(\+|\-)(\-?\d+\.?\d*)/)
     while (additionSubtractionPair!=null){
       if(additionSubtractionPair==null){
         break
       }
       let additionResults = operator(additionSubtractionPair[0])
-      console.log(`Addition Subtraction Pair ${additionSubtractionPair[0]} temp display: ${tempDisplay} addition Results: ${additionResults}`)
+      // console.log(`Addition Subtraction Pair ${additionSubtractionPair[0]} temp display: ${tempDisplay} addition Results: ${additionResults}`)
       tempDisplay = (tempDisplay.replace(additionSubtractionPair[0],additionResults))
-      additionSubtractionPair = tempDisplay.match(/(\d+\.\d+|\d+)(\+|\-)(\d+\.\d+|\d+)/)
+      additionSubtractionPair = tempDisplay.match(/(\-?\d+\.?\d*)(\+|\-)(\-?\d+\.?\d*)/)
       
     }
     setCalcDisplay(tempDisplay)
-    console.log(`temp display at addition/subtraction: ${tempDisplay}`)
-}
+    // console.log(`temp display at addition/subtraction: ${tempDisplay}`)
+    return
+
+  }
+
 
   const operator = (numberPair) => {
-    let operator = numberPair.match(/[^\d\w\s.]/)
+    let operator = numberPair.match(/(?<=\d)[^\d\w\s.](?=\d|\-)/)
     operator = operator[0]
-    let numbers = numberPair.match(/(\d+\.\d+)|(\d+)/g)
+    // console.log(`operator: ${operator}`)
+    let numbers = numberPair.match(/(?<!\d)(\-?\d+\.?\d*)/g)
     numbers[0] = parseFloat(numbers[0])
     numbers[1] = parseFloat(numbers[1])
 
     switch(operator){
       case "/":
+        console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]/numbers[1]}`)
+
         return (numbers[0]/numbers[1])
       case "+":
+        console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]+numbers[1]}`)
+
         return (numbers[0]+numbers[1])
       case "-":
+        console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]-numbers[1]}`)
+
         return (numbers[0]-numbers[1])
       case "*":
-        return (numbers[0]*numbers[1])
+        console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]*numbers[1]}`)
+        return (numbers[0]*numbers[1])  
       default:
         console.log(`unknown operator ${operator}  type: typeof: ${typeof(operator)}`)
 
