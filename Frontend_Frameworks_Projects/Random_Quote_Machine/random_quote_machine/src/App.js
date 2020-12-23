@@ -30,6 +30,9 @@ function App(props){
             <li className="nav-item">
               <Link className="nav-link" to='/calculator'>Calculator</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to='/pomodoro'>Pomodoro Clock</Link>
+            </li>
           </ul>
         </nav>
 
@@ -45,6 +48,9 @@ function App(props){
       </Route>
       <Route path = '/calculator'>
         <Calculator/>
+      </Route>
+      <Route path = '/pomodoro'>
+        <Pomodoro/>
       </Route>
 
     </Switch>
@@ -340,27 +346,27 @@ function Calculator(props){
       if(multiplicationPair==null){
         break
       }
-      console.log(`Multiplication Pair: ${multiplicationPair[0]}`)
+      // console.log(`Multiplication Pair: ${multiplicationPair[0]}`)
       let multiplicationResults = operator(multiplicationPair[0])
       tempDisplay=(tempDisplay.replace(multiplicationPair[0],multiplicationResults))
       multiplicationPair = tempDisplay.match(/(\-?\d+\.?\d*)(\*)(\-?\d+\.?\d*)/)
     } 
     setCalcDisplay(tempDisplay)
-    console.log(`temp display at multiplication: ${tempDisplay}`)
+    // console.log(`temp display at multiplication: ${tempDisplay}`)
     // division
     let divisionPair = calcDisplay.match(/(\-?\d+\.?\d*)(\/)(\-?\d+\.?\d*)/)
     while (divisionPair!=null){
       if(divisionPair==null){
         break
       }
-      console.log(`Division Pair: ${divisionPair[0]}`)
+      // console.log(`Division Pair: ${divisionPair[0]}`)
       let divisionResults = operator(divisionPair[0])
       tempDisplay=(tempDisplay.replace(divisionPair[0],divisionResults))
       divisionPair = tempDisplay.match(/(\-?\d+\.?\d*)(\/)(\-?\d+\.?\d*)/)
 
     }
     setCalcDisplay(tempDisplay)
-    console.log(`temp display at division: ${tempDisplay}`)
+    // console.log(`temp display at division: ${tempDisplay}`)
     // addition and subtraction operations
     let additionSubtractionPair = calcDisplay.match(/(\-?\d+\.?\d*)(\+|\-)(\-?\d+\.?\d*)/)
     while (additionSubtractionPair!=null){
@@ -390,19 +396,19 @@ function Calculator(props){
 
     switch(operator){
       case "/":
-        console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]/numbers[1]}`)
+        // console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]/numbers[1]}`)
 
         return (numbers[0]/numbers[1])
       case "+":
-        console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]+numbers[1]}`)
+        // console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]+numbers[1]}`)
 
         return (numbers[0]+numbers[1])
       case "-":
-        console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]-numbers[1]}`)
+        // console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]-numbers[1]}`)
 
         return (numbers[0]-numbers[1])
       case "*":
-        console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]*numbers[1]}`)
+        // console.log(`Number 0 ${numbers[0]} Number 1 ${numbers[1]} Operator: ${operator} Result: ${numbers[0]*numbers[1]}`)
         return (numbers[0]*numbers[1])  
       default:
         console.log(`unknown operator ${operator}  type: typeof: ${typeof(operator)}`)
@@ -417,8 +423,8 @@ function Calculator(props){
       <div className="whole-calculator">
         <div className = "disp-clear-grid">
         <div id="display" className = "calculator-display"><p>{calcDisplay}</p></div>
-        <CalculatorButton value="clear" text="clear" hook={clearDisplay} setHook={calcDisplay}/>
-        <CalculatorButton text="equals" value="=" hook={evaluate} setHook={calcDisplay} />
+        <CalculatorButton value="clear" text="clear" hook={clearDisplay} getHook={calcDisplay}/>
+        <CalculatorButton text="equals" value="=" hook={evaluate} getHook={calcDisplay} />
         </div>
       <div className="button-grid">
       {[...calculatorComponents]}
@@ -435,8 +441,7 @@ function CalculatorButton({text, value, hook, getHook}){
   return (
     <div id={text} className="calculator-number calc-button" dangerouslySetInnerHTML = {{__html:value}} onClick={() =>{
       hook(numberParser(value, getHook))
-      
-      
+            
     }}>
     </div>
   )
@@ -483,3 +488,69 @@ const calculatorButtonArray = [
   {"text" :"add",
   "value": "+"},
 ]
+
+
+
+function Pomodoro(props){
+  const[pBreak, setPBreak] = useState(5)
+  const[sessionLen, setSessionLen] = useState(25)
+
+  return (
+    <div>
+      <div id = "pomodoro-container">
+        <div className ="pomodoro">
+        <div id="break-label" className="break-label ">
+        “Break Length”
+        
+        </div>
+        <div id = "break-length" className="display">
+        {pBreak}
+        </div>
+        <ModButton incOrDec="increment" target="break" hook={pBreak} setHook = {setPBreak}/> 
+        <ModButton incOrDec="decrement" target="break" hook={pBreak} setHook = {setPBreak}/> 
+        <div id = "session-label" className="session-label">
+        Session Length
+        
+        </div>
+        <div id="session-length" className="display">
+        {sessionLen}
+        </div>
+        <ModButton incOrDec="increment" target="session" hook={sessionLen} setHook = {setSessionLen}/> 
+        <ModButton incOrDec="decrement" target="session" hook={sessionLen} setHook = {setSessionLen}/> 
+        
+        <div id = "timer-label">
+          Session
+        </div>
+
+        <div id="time-left">
+          3:00
+        </div>
+
+        <button id="start_stop">
+        <i class="fas fa-play"></i>
+        </button>
+        <button id="reset">
+        <i class="fas fa-redo"></i>
+        </button>
+      </div>
+      </div>
+    </div>
+  )
+}
+
+const ModButton = (props) => {
+  let crementer = 0
+
+  switch(props.incOrDec){
+    case("increment"):
+      crementer = "+"
+    case("decrement"):
+      crementer = "-"
+  }
+  console.log(props.hook+parseInt(crementer+"1"))
+  return (
+    <button id={props.target+"-"+props.incOrDec} className = "button" onClick={() =>{props.setHook(props.hook+parseInt(crementer+"1"))}}>
+    {props.target+" "+props.incOrDec}
+    </button>
+  )
+}

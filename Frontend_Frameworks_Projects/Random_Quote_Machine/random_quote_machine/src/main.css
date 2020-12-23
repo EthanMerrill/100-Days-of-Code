@@ -1,206 +1,213 @@
-/* reset the pallete to a blank slate */
-
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
-
-h2 {
-    font-size: 55px;
-    text-align: center;
-    font-style: italic;
-    font: Times;
-}
-
-.just-quote {
-    height: 80%;
-}
-
-.quote-box {
-    margin: auto;
-    WIDTH: 60%;
-    height: 400px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid red;
-    border-radius: 10px;
-}
-
-.quote-project {
-    height: 100vh;
-    display: flex;
-    background-color: #fff;
-}
-
-
-/* https://fdossena.com/?p=html5cool/buttons/i.frag */
-
-button {
-    display: inline-block;
-    padding: 0.35em 1.2em;
-    border: 0.1em solid grey;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 0.12em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    color: grey;
-    text-align: center;
-    transition: all 0.2s;
-}
-
-button:hover {
-    color: #000000;
-    background-color: #FFFFFF;
-}
-
-.markdown-previewer {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
-    width: 100%;
-}
-
-.markdown-previewer>* {
-    height: 90%;
-    width: 40%;
-    padding: 10px;
-    /* background: gray; */
-}
-
-.preview-box * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-    text-align: left;
-}
-
-.preview-box li {
-    transform: translateX(1em)
-}
-
-.drum-machine {
-    height: 100vh;
-    margin: auto;
-    padding: 40px;
-    background: grey;
-}
-
-.drum-pad {
-    background-color: grey;
-    border: solid black;
-    height: 95%;
-    width: 95%;
-    padding: 20px 30px 20px;
-    margin: auto;
-    border-radius: 3px;
-}
-
-.padBankArr {
-    height: 95%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    margin: auto;
-}
-
-
-/* https://codepen.io/ashokgowtham/pen/akDGb */
-
-.display {
-    margin: auto;
-    margin-bottom: 30px;
-    height: 50px;
-    width: 400px;
-    background: rgb(106, 117, 70);
-    box-shadow: inset 1px 1px 7px 0px #050505, 0px 0px 4px 2px #000, 0px 0px 4px 2px #777;
-    padding: 5px;
-    align-items: center;
-}
-
-.lcd-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5em;
-    text-justify: center;
-}
-
-.pressed {
-    box-shadow: 0px 0px 8px 8px rgba(100, 0, 0, .5);
-}
-
-.keyLabel {
-    font-size: 2em;
-}
-
-.drum-machine-container {
-    height: 80vh;
-    /* position: absolute; */
-    bottom: 0px;
-}
-
-
-/* Calculator  */
-
-.calculator-container {
-    height: 100vh;
-}
-
-.whole-calculator {
-    height: 95%;
-    width: 90%;
-    margin: auto;
-}
-
-.button-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    height: 80%;
-    width: 100%;
-}
-
-.calc-button {
-    height: 90%;
-    width: 90%;
-}
-
-
-/* #equals {
+        /* reset the pallete to a blank slate */
+    
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+    
+    h2 {
+        font-size: 55px;
+        text-align: center;
+        font-style: italic;
+        font: Times;
+    }
+    
+    .just-quote {
+        height: 80%;
+    }
+    
+    .quote-box {
+        margin: auto;
+        WIDTH: 60%;
+        height: 400px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid red;
+        border-radius: 10px;
+    }
+    
+    .quote-project {
+        height: 100vh;
+        display: flex;
+        background-color: #fff;
+    }
+    /* https://fdossena.com/?p=html5cool/buttons/i.frag */
+    
+    button {
+        display: inline-block;
+        padding: 0.35em 1.2em;
+        border: 0.1em solid grey;
+        margin: 0 0.3em 0.3em 0;
+        border-radius: 0.12em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        color: grey;
+        text-align: center;
+        transition: all 0.2s;
+    }
+    
+    button:hover {
+        color: #000000;
+        background-color: #FFFFFF;
+    }
+    
+    .markdown-previewer {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+        width: 100%;
+    }
+    
+    .markdown-previewer>* {
+        height: 90%;
+        width: 40%;
+        padding: 10px;
+        /* background: gray; */
+    }
+    
+    .preview-box * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+        text-align: left;
+    }
+    
+    .preview-box li {
+        transform: translateX(1em)
+    }
+    
+    .drum-machine {
+        height: 100vh;
+        margin: auto;
+        padding: 40px;
+        background: grey;
+    }
+    
+    .drum-pad {
+        background-color: grey;
+        border: solid black;
+        height: 95%;
+        width: 95%;
+        padding: 20px 30px 20px;
+        margin: auto;
+        border-radius: 3px;
+    }
+    
+    .padBankArr {
+        height: 95%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        margin: auto;
+    }
+    /* https://codepen.io/ashokgowtham/pen/akDGb */
+    
+    .display {
+        margin: auto;
+        margin-bottom: 30px;
+        height: 50px;
+        width: 400px;
+        background: rgb(106, 117, 70);
+        box-shadow: inset 1px 1px 7px 0px #050505, 0px 0px 4px 2px #000, 0px 0px 4px 2px #777;
+        padding: 5px;
+        align-items: center;
+    }
+    
+    .lcd-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5em;
+        text-justify: center;
+    }
+    
+    .pressed {
+        box-shadow: 0px 0px 8px 8px rgba(100, 0, 0, .5);
+    }
+    
+    .keyLabel {
+        font-size: 2em;
+    }
+    
+    .drum-machine-container {
+        height: 80vh;
+        /* position: absolute; */
+        bottom: 0px;
+    }
+    /* Calculator  */
+    
+    .calculator-container {
+        height: 100vh;
+    }
+    
+    .whole-calculator {
+        height: 95%;
+        width: 90%;
+        margin: auto;
+    }
+    
+    .button-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        height: 80%;
+        width: 100%;
+    }
+    
+    .calc-button {
+        height: 90%;
+        width: 90%;
+    }
+    /* #equals {
     height: 10% !important
 } */
-
-.calculator-number {
-    background-color: orange;
-}
-
-.calculator-number {
-    height: 1fr;
-}
-
-.calculator-display {
-    box-shadow: inset 4px 4px 8px 0px rgba(10, 10, 10, .5), 0px 0px 0px 0px #000, 0px 0px 0px 0px #777;
-    width: 95%;
-}
-
-.disp-clear-grid {
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr;
-    margin-bottom: 30px;
-    height: 8%;
-    ;
-}
+    
+    .calculator-number {
+        background-color: orange;
+    }
+    
+    .calculator-number {
+        height: 1fr;
+    }
+    
+    .calculator-display {
+        box-shadow: inset 4px 4px 8px 0px rgba(10, 10, 10, .5), 0px 0px 0px 0px #000, 0px 0px 0px 0px #777;
+        width: 95%;
+    }
+    
+    .disp-clear-grid {
+        display: grid;
+        grid-template-columns: 4fr 1fr 1fr;
+        margin-bottom: 30px;
+        height: 8%;
+        ;
+    }
+    /* Pomodoro Clock */
+    
+    #pomodoro-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+    }
+    
+    .pomodoro {
+        height: 50%;
+        width: 50%;
+        border: solid 2px red;
+        border-radius: 5px;

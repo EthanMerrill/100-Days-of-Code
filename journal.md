@@ -446,3 +446,9 @@ Ran into an issue with passing React-hooks, and the FCC tests. Somehow I fixed i
 
 
 # Dec 23
+
+Lots of intense focus today. I can feel the end approaching, so I know I need to pick up the pace. I spent most of the morning grinding out regular expressions on the calculator challenge. I know that the way I wrote it isn't ideal, but I finally found the right combination of regular expressions to make it work. The biggest challenge was the leading negative signs. EX: 3*-4. 
+
+Finally, I got all the tests to pass and I started on the Pomodoro clock. I have about 7 tests passing at the moment. These tests are just setting up the buttons. I feel myself getting more confident with React during each challenge. I am almost ready to move onto my own project! 
+
+I'll need to make these projects look halfway alright with CSS (they are barebones now) and I'll need to figure out how to put these challenges in a subdirectory on this Github site. I am budgeting about a day and a half for these tasks. Design is simultaneously easy and very difficult: Changes are easy, but making a site look good is very hard for me still. 
