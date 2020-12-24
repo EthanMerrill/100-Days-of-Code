@@ -451,4 +451,8 @@ Lots of intense focus today. I can feel the end approaching, so I know I need to
 
 Finally, I got all the tests to pass and I started on the Pomodoro clock. I have about 7 tests passing at the moment. These tests are just setting up the buttons. I feel myself getting more confident with React during each challenge. I am almost ready to move onto my own project! 
 
-I'll need to make these projects look halfway alright with CSS (they are barebones now) and I'll need to figure out how to put these challenges in a subdirectory on this Github site. I am budgeting about a day and a half for these tasks. Design is simultaneously easy and very difficult: Changes are easy, but making a site look good is very hard for me still. 
+I'll need to make these projects look halfway alright with CSS (they are barebones now) and I'll need to figure out how to put these challenges in a subdirectory on this Github site. I am budgeting about a day and a half for these tasks. Design is simultaneously easy and very difficult: Changes are easy, but making a site look good is very hard for me still. \
+
+# dec 24
+
+Stylin'

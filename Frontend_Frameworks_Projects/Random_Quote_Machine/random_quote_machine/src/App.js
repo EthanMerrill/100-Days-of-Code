@@ -90,18 +90,24 @@ function QuoteMachine(props){
   }, [quoteData])
 
     return (
-      <div>
-        <h1>Random Quote</h1>
-      <div className = "quote-project">
-        <div id ='quote-box' className = "quote-box">
-          <div className="just-quote">
-          <h2 id = 'text'>{quote}</h2>
+      <div  >
+        
+        <div className = "quote-project">
+          <div className="background-image-container">
+          <img  className="random-background" src="https://source.unsplash.com/random"></img>
           </div>
-          <h3 id = 'author'>~ {author}</h3>
-          <button id = 'new-quote' onClick = {newQuote}>New Quote</button>
-          <a id = 'tweet-quote' href="twitter.com/intent/tweet"><i className="fab fa-twitter"></i></a>
+          <h1>Random Quote</h1>
+          <div className="quotebox-vert-center">
+            <div id ='quote-box' className = "quote-box card">
+            <div className="just-quote">
+              <h2 id = 'text'>{quote}</h2>
+            </div>
+            <h3 id = 'author'>~ {author}</h3>
+            <button id = 'new-quote' className = "btn btn-outline-primary" onClick = {newQuote}>New Quote</button>
+            <a id = 'tweet-quote' href="twitter.com/intent/tweet"><i className="fab fa-twitter"></i></a>
+            </div>
+          </div>
         </div>
-      </div>
       </div>
     )
   }
@@ -142,16 +148,22 @@ const[markdown, setMarkdown] = useState(starterText)
 
   return(
     <div>
-      <h1>Markdown Previewer</h1>
-    <div className = "markdown-previewer">
-      
+    {/* <h1>Markdown Previewer</h1> */}
+    <div className="markdown-previewer">
+    <div><h3>Input Text</h3>
       <textarea id = "editor" className = "input-textarea card" onChange={e => setMarkdown(e.target.value)} defaultValue = {starterText}>
-      
       </textarea>
+      </div>
+      <div className="fa-font-size">
+      <i class="fas fa-arrow-right fa-xs"></i>
+      </div>
+      <div><h3>Markdown Output</h3>
       <div id="preview" className="preview-box card"  dangerouslySetInnerHTML={createMarkdown(marked(markdown))}>
+      </div>
       </div>
     </div>
     </div>
+    
   )
 }
 
@@ -186,9 +198,10 @@ function DrumMachine(props){
 
   return (
   <div id="drum-machine" className="drum-machine">
-    <h1>Drum Machine</h1>
+    {/* <h1>Drum Machine</h1> */}
     <div className="drum-machine-container">
     <div id="display" className="display"><p className="lcd-text">{displayValue}</p></div>
+    <h2>AudioSlayer 640</h2>
     <div className="padBankArr">
     {[...padBank]}
     </div>
@@ -220,8 +233,7 @@ const activateButton = (keyTrigger, hook) => {
     button.classList.add('pressed')
     let name = button.id
     sound.play().then(promise => {button.classList.remove('pressed')})
-    // then after the play callback is complete reset the style
-    hook(name)
+
   }
 }
 
@@ -422,11 +434,12 @@ function Calculator(props){
       <h1>Calculator</h1>
       <div className="whole-calculator">
         <div className = "disp-clear-grid">
-        <div id="display" className = "calculator-display"><p>{calcDisplay}</p></div>
-        <CalculatorButton value="clear" text="clear" hook={clearDisplay} getHook={calcDisplay}/>
-        <CalculatorButton text="equals" value="=" hook={evaluate} getHook={calcDisplay} />
+
         </div>
       <div className="button-grid">
+      <div id="display" className = "calculator-display"><p>{calcDisplay}</p></div>
+        <CalculatorButton value="clear" text="clear" hook={clearDisplay} getHook={calcDisplay}/>
+        <CalculatorButton text="equals" value="=" hook={evaluate} getHook={calcDisplay} />
       {[...calculatorComponents]}
       
       </div>
@@ -499,11 +512,14 @@ function Pomodoro(props){
     <div>
       <div id = "pomodoro-container">
         <div className ="pomodoro">
+        <div id = "timer-label">
+          Session
+        </div>
         <div id="break-label" className="break-label ">
         “Break Length”
         
         </div>
-        <div id = "break-length" className="display">
+        <div id = "break-length" className="pomo-display">
         {pBreak}
         </div>
         <ModButton incOrDec="increment" target="break" hook={pBreak} setHook = {setPBreak}/> 
@@ -512,26 +528,20 @@ function Pomodoro(props){
         Session Length
         
         </div>
-        <div id="session-length" className="display">
+        <div id="session-length" className="pomo-display">
         {sessionLen}
         </div>
         <ModButton incOrDec="increment" target="session" hook={sessionLen} setHook = {setSessionLen}/> 
         <ModButton incOrDec="decrement" target="session" hook={sessionLen} setHook = {setSessionLen}/> 
         
-        <div id = "timer-label">
-          Session
-        </div>
+
 
         <div id="time-left">
           3:00
         </div>
 
-        <button id="start_stop">
-        <i class="fas fa-play"></i>
-        </button>
-        <button id="reset">
-        <i class="fas fa-redo"></i>
-        </button>
+        <StartStop/>
+        <Reset/>
       </div>
       </div>
     </div>
@@ -552,5 +562,27 @@ const ModButton = (props) => {
     <button id={props.target+"-"+props.incOrDec} className = "button" onClick={() =>{props.setHook(props.hook+parseInt(crementer+"1"))}}>
     {props.target+" "+props.incOrDec}
     </button>
+  )
+}
+
+const Reset = (props) =>{
+  return(
+    <div>
+        <button id="reset">
+          <i class="fas fa-redo"></i>
+        </button>
+    </div>
+  )
+}
+
+
+const StartStop = (props)  => {
+
+  return(
+  <div>        
+    <button id="start_stop">
+      <i class="fas fa-play"></i>
+    </button>
+  </div>
   )
 }
