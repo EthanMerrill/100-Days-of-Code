@@ -456,3 +456,9 @@ I'll need to make these projects look halfway alright with CSS (they are barebon
 # dec 24
 
 Stylin'
+
+# skip day 
+
+# dec 26
+
+Working through the timer project -- last one! 12/29 tests passing

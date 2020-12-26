@@ -91,12 +91,10 @@ function QuoteMachine(props){
 
     return (
       <div  >
-        
         <div className = "quote-project">
           <div className="background-image-container">
           <img  className="random-background" src="https://source.unsplash.com/random"></img>
           </div>
-          <h1>Random Quote</h1>
           <div className="quotebox-vert-center">
             <div id ='quote-box' className = "quote-box card">
             <div className="just-quote">
@@ -431,31 +429,27 @@ function Calculator(props){
   return (
     <div className="calculator-container">
           <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-      <h1>Calculator</h1>
-      <div className="whole-calculator">
-        <div className = "disp-clear-grid">
 
-        </div>
       <div className="button-grid">
       <div id="display" className = "calculator-display"><p>{calcDisplay}</p></div>
-        <CalculatorButton value="clear" text="clear" hook={clearDisplay} getHook={calcDisplay}/>
-        <CalculatorButton text="equals" value="=" hook={evaluate} getHook={calcDisplay} />
+      <div className="subgrid-cell">
+        <CalculatorButton className="equals calc-button" text="equals" value="=" hook={evaluate} getHook={calcDisplay} />
+        <CalculatorButton className="disp-clear calc-button" value="clear" text="clear" hook={clearDisplay} getHook={calcDisplay}/>
+        </div>
       {[...calculatorComponents]}
-      
       </div>
-      
     </div>
-    </div>
+
     )
 
 }
 
 function CalculatorButton({text, value, hook, getHook}){
   return (
-    <div id={text} className="calculator-number calc-button" dangerouslySetInnerHTML = {{__html:value}} onClick={() =>{
-      hook(numberParser(value, getHook))
-            
+    <div id={text} className="calculator-number calc-button"  onClick={() =>{
+      hook(numberParser(value, getHook))     
     }}>
+    <p className="button-text">{value}</p>
     </div>
   )
 }
@@ -507,6 +501,12 @@ const calculatorButtonArray = [
 function Pomodoro(props){
   const[pBreak, setPBreak] = useState(5)
   const[sessionLen, setSessionLen] = useState(25)
+  const[timeElapsed, setTimeElapsed] = useState(0)
+  const[timerRunning, setTimerRunning] = useState(false)
+
+  useEffect(() => {
+
+  },[timeElapsed])
 
   return (
     <div>
@@ -537,11 +537,19 @@ function Pomodoro(props){
 
 
         <div id="time-left">
-          3:00
+          {timeElapsed}
         </div>
 
-        <StartStop/>
-        <Reset/>
+        <StartStop timeElapsed = {timeElapsed} setTimeElapsed = {setTimeElapsed} sessionLen = {sessionLen} timerRunning = {timerRunning} setTimerRunning = {setTimerRunning}/>
+
+        <button id="reset" onClick={() =>{
+          resetTime()
+          setTimeElapsed("00:00")
+          setPBreak(5)
+          setSessionLen(25)}
+          }>
+          <i className="fas fa-redo"></i>
+        </button>
       </div>
       </div>
     </div>
@@ -557,21 +565,10 @@ const ModButton = (props) => {
     case("decrement"):
       crementer = "-"
   }
-  console.log(props.hook+parseInt(crementer+"1"))
   return (
     <button id={props.target+"-"+props.incOrDec} className = "button" onClick={() =>{props.setHook(props.hook+parseInt(crementer+"1"))}}>
     {props.target+" "+props.incOrDec}
     </button>
-  )
-}
-
-const Reset = (props) =>{
-  return(
-    <div>
-        <button id="reset">
-          <i class="fas fa-redo"></i>
-        </button>
-    </div>
   )
 }
 
@@ -580,9 +577,47 @@ const StartStop = (props)  => {
 
   return(
   <div>        
-    <button id="start_stop">
-      <i class="fas fa-play"></i>
+    <button id="start_stop" onClick={(event) =>{
+      controlTime(props.sessionLen, props.setTimeElapsed, props.timerRunning)
+      event.target.classList.remove("fa-play")
+      event.target.classList.add("fa-pause")
+      event.target.classList.add("fas")
+      props.setTimerRunning(!props.timerRunning)
+      console.log(props.timerRunning)    }}>
+      <i className="fas fa-play"></i>
     </button>
   </div>
   )
+}
+
+
+// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
+let interval
+
+const resetTime = () => {
+  clearInterval(interval)
+}
+
+// this function counts up in seconds from zero, setting the time elapsed hook every second until interrupted or the end value is achieved
+const controlTime = (offset, timeElapsed, timerRunning) => {
+  const second = 1000
+  
+  let currentMinutes = new Date().getMinutes();
+  let initialSeconds = new Date().getSeconds();
+  let endMinutes = currentMinutes+offset;
+
+    interval = setInterval(()=>{
+      console.log(timerRunning)
+      if(currentMinutes<=endMinutes && timerRunning == true){
+        currentMinutes=new Date().getMinutes();
+        let currentSeconds = new Date().getSeconds();
+        let timeElapsedObj ={"minutes": (endMinutes - currentMinutes), "seconds": (initialSeconds-currentSeconds)}
+        timeElapsed(`${timeElapsedObj.minutes}:${timeElapsedObj.seconds}`)
+      } else if (currentMinutes>endMinutes) {
+        console.log("Returning")
+        resetTime(timeElapsed)
+        return
+      }
+    }, second);
+  // }
 }
