@@ -501,12 +501,12 @@ const calculatorButtonArray = [
 function Pomodoro(props){
   const[pBreak, setPBreak] = useState(5)
   const[sessionLen, setSessionLen] = useState(25)
-  const[timeElapsed, setTimeElapsed] = useState(0)
+  const[timeElapsed, setTimeElapsed] = useState('00:00')
   const[timerRunning, setTimerRunning] = useState(false)
 
-  useEffect(() => {
-
-  },[timeElapsed])
+  // useEffect(() => {
+  //   TimeLeft(timeElapsed)
+  // },[timeElapsed])
 
   return (
     <div>
@@ -533,15 +533,28 @@ function Pomodoro(props){
         </div>
         <ModButton incOrDec="increment" target="session" hook={sessionLen} setHook = {setSessionLen}/> 
         <ModButton incOrDec="decrement" target="session" hook={sessionLen} setHook = {setSessionLen}/> 
-        
+
+        <TimeLeft timeElapsed={timeElapsed} sessionLen={sessionLen}/>
 
 
-        <div id="time-left">
-          {timeElapsed}
-        </div>
-
-        <StartStop timeElapsed = {timeElapsed} setTimeElapsed = {setTimeElapsed} sessionLen = {sessionLen} timerRunning = {timerRunning} setTimerRunning = {setTimerRunning}/>
-
+        {/* <StartStop timeElapsed = {timeElapsed} setTimeElapsed = {setTimeElapsed} sessionLen = {sessionLen} timerRunning = {timerRunning} setTimerRunning = {setTimerRunning}/> */}
+        <button id="start_stop" onClick={(event) =>{
+          console.log(`start top clicked when timerRunning: ${timerRunning}`)
+            if (timerRunning==true){      
+              event.target.classList.remove("fa-play")
+              event.target.classList.add("fa-pause")
+              
+              setTimerRunning(!timerRunning)
+              resetTime()
+            } else {
+              interval = controlTime(sessionLen, setTimeElapsed, true)
+              event.target.classList.add("fa-play")
+              event.target.classList.remove("fa-pause")
+              setTimerRunning(!timerRunning)
+            }
+          }}>
+          <i className="fas fa-play"></i>
+        </button>
         <button id="reset" onClick={() =>{
           resetTime()
           setTimeElapsed("00:00")
@@ -556,68 +569,92 @@ function Pomodoro(props){
   )
 }
 
-const ModButton = (props) => {
-  let crementer = 0
-
-  switch(props.incOrDec){
-    case("increment"):
-      crementer = "+"
-    case("decrement"):
-      crementer = "-"
-  }
-  return (
-    <button id={props.target+"-"+props.incOrDec} className = "button" onClick={() =>{props.setHook(props.hook+parseInt(crementer+"1"))}}>
-    {props.target+" "+props.incOrDec}
-    </button>
-  )
-}
-
-
-const StartStop = (props)  => {
-
+const TimeLeft = (props) => {
+  const [timeLeft, setTimeLeft] = useState(props.sessionLen)
   return(
-  <div>        
-    <button id="start_stop" onClick={(event) =>{
-      controlTime(props.sessionLen, props.setTimeElapsed, props.timerRunning)
-      event.target.classList.remove("fa-play")
-      event.target.classList.add("fa-pause")
-      event.target.classList.add("fas")
-      props.setTimerRunning(!props.timerRunning)
-      console.log(props.timerRunning)    }}>
-      <i className="fas fa-play"></i>
-    </button>
+  <div id="time-left">
+  {timeFormatter(timeLeft)}
   </div>
   )
 }
 
-
-// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
-let interval
-
-const resetTime = () => {
-  clearInterval(interval)
-}
-
-// this function counts up in seconds from zero, setting the time elapsed hook every second until interrupted or the end value is achieved
-const controlTime = (offset, timeElapsed, timerRunning) => {
-  const second = 1000
-  
-  let currentMinutes = new Date().getMinutes();
-  let initialSeconds = new Date().getSeconds();
-  let endMinutes = currentMinutes+offset;
-
-    interval = setInterval(()=>{
-      console.log(timerRunning)
-      if(currentMinutes<=endMinutes && timerRunning == true){
-        currentMinutes=new Date().getMinutes();
-        let currentSeconds = new Date().getSeconds();
-        let timeElapsedObj ={"minutes": (endMinutes - currentMinutes), "seconds": (initialSeconds-currentSeconds)}
-        timeElapsed(`${timeElapsedObj.minutes}:${timeElapsedObj.seconds}`)
-      } else if (currentMinutes>endMinutes) {
-        console.log("Returning")
-        resetTime(timeElapsed)
+const ModButton = (props) => {
+  let crementer
+  return (
+    <div>
+    <button id={props.target+"-"+props.incOrDec} className = "button" onClick={(e) =>{
+      let crementer
+      if (props.incOrDec == 'increment' && props.hook < 60 ){
+        crementer = "+"
+      } else if(props.incOrDec == 'decrement' && props.hook > 1){
+        crementer = "-"
+      } else {
         return
       }
-    }, second);
-  // }
+      props.setHook(props.hook+parseInt(`${crementer}1`))
+      }
+      }>
+    {props.target+" "+props.incOrDec}
+    </button>
+    </div>
+  )
+}
+
+
+
+
+
+// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
+// let interval
+
+// const resetTime = () => {
+//   clearInterval(interval)
+// }
+
+// // this function counts up in seconds from zero, setting the time elapsed hook every second until interrupted or the end value is achieved
+// const controlTime = (offset, timeElapsed, timerRunning) => {
+//   const second = 1000
+//   console.log(offset)
+//   let currentMinutes = new Date().getMinutes();
+//   let endMinutes = currentMinutes+offset;
+//   console.log(`control time executed current minutes:${currentMinutes} end Minutes: ${endMinutes} timerRunning: ${timerRunning}`)
+//     interval = setInterval(()=>{
+
+//       // console.log(timerRunning, currentMinutes, endMinutes)
+
+//       if(currentMinutes<endMinutes && timerRunning == true){
+//         currentMinutes=new Date().getMinutes();
+//         let currentSeconds = new Date().getSeconds();
+//         let timeElapsedObj ={"minutes": (endMinutes - currentMinutes), "seconds": (60-currentSeconds)}
+//         timeElapsed(timeFormatter(timeElapsedObj.minutes,timeElapsedObj.seconds))
+
+//       } else if (currentMinutes>endMinutes && timerRunning == true) {
+//         console.log("Returning")
+//         timerRunning=false
+//         resetTime()
+//         return
+//       }
+//     }, second);
+//     return interval;
+// }
+
+const initializeTimer=(timeElapsed, timerRunning) => {
+  let currentMinutes = new Date().getMinutes();
+  let initialSeconds = new Date().getSeconds();
+}
+
+const timeFormatter = (minutes, seconds=0) => {
+  if (minutes<10){
+    minutes = `0${minutes}`
+  }
+
+  if(seconds<10){
+    seconds = `0${seconds}`
+  }
+
+  if((seconds || minutes)<0){
+    return "00:00"
+  }
+  return `${minutes}:${seconds}`
+
 }

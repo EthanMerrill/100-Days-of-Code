@@ -462,3 +462,8 @@ Stylin'
 # dec 26
 
 Working through the timer project -- last one! 12/29 tests passing
+
+# dec 27
+
+Very little progress. If anything I deleted more code than I wrote today, this Pomodoro timer is kicking my butt!
+
