@@ -794,24 +794,19 @@ const ModButton = (props) => {
             "start_stop"
           );
           let crementer;
-          if (
-            props.incOrDec == "increment" &&
-            props.hook < 60
-          ) {
+          if (props.incOrDec == "increment" && props.hook < 60) {
             crementer = "+";
-          } else if (
-            props.incOrDec == "decrement" &&
-            props.hook > 1
-          ) {
+          } else if (props.incOrDec == "decrement" && props.hook > 1) {
             crementer = "-";
+          } else {
+            console.log("session timelength Max-ed or Min-ed")
+            return
           }
 
           // deal with the timer object
 
           if (TimerObject.getMinutes() > 0) {
-            TimerObject.setMinutes(
-              props.hook + parseInt(`${crementer}1`)
-            );
+            TimerObject.setMinutes(props.hook + parseInt(`${crementer}1`));
           }
 
           if (startStopElement.innerHTML!="Stop") {           
