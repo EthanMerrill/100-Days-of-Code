@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 
 function App(props) {
-  return (
+  return (<div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <Router>
       <div className="navbar-expand">
         <nav className="navbar">
@@ -67,6 +68,7 @@ function App(props) {
         </Switch>
       </div>
     </Router>
+    </div>
   );
 }
 
@@ -535,7 +537,7 @@ function Calculator(props) {
 
   return (
     <div className="calculator-container">
-      <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+      
 
       <div className="button-grid">
         <div id="display" className="calculator-display">
@@ -644,7 +646,7 @@ function Pomodoro(props) {
       TimerObject.setTimeWithString(timeLeft)
       const newIntervalId = setInterval(() => {
         setTimeLeft((prevTimeLeft) => {
-          console.log(`TimeLeft: ${timeLeft} prevTimeLeft: ${prevTimeLeft}`)
+          // console.log(`TimeLeft: ${timeLeft} prevTimeLeft: ${prevTimeLeft}`)
           TimerObject.subtractSeconds(1);
           if (currentSessionType === "Session" && prevTimeLeft=="00:00") {
             console.log("FLIPFROM sesh")
@@ -670,28 +672,24 @@ function Pomodoro(props) {
     }
   };
 // https://github.com/AryanJ-NYC/fcc-pomodoro-clock/blob/04-reset-button/src/App.js
-  // const handleResetButtonClick = () => {
-  //       // reset audio
-  //       // audioElement.current.load();
-  //       // clear the timeout interval
-  //       clearInterval(intervalId);
-  //       // set the intervalId null
-  //       setIntervalId(null);
-  //       // set the sessiontype to 'Session'
-  //       setCurrentSessionType('Session');
-  //       // reset the session length to 25 minutes
-  //       setSessionLength(60 * 25);
-  //       // reset the break length to 5 minutes
-  //       setBreakLength(60 * 5);
-  //       // reset the timer to 25 minutes (initial session length)
-  //       setTimeLeft(60 * 25);
-  // }
+  const handleResetButtonClick = () => {
+    audioElement.current.load();
+    if (isStarted) {
+      document.getElementById("start_stop").click();
+    } 
+    setSessionLen(25);
+    setPBreak(5);
+    setTimeLeft(sessionLen+":00");
+    TimerObject.setMinutes(sessionLen);
+    TimerObject.setSeconds(0);
+    setCurrentSessionType("Session")
+  }
 
   return (
     <div>
       <div id="pomodoro-container">
         <div className="pomodoro">
-          <div id="timer-label">Session</div>
+          {/* <div id="timer-label">Session</div> */}
           <div id="break-label" className="break-label ">
             Break Length
           </div>
@@ -705,6 +703,7 @@ function Pomodoro(props) {
             setHook={setPBreak}
             TimerObject={TimerObject}
             setTimeLeft={setTimeLeft}
+            handleRestButtonClick = {handleResetButtonClick}
           />
           <ModButton
             incOrDec="decrement"
@@ -713,6 +712,7 @@ function Pomodoro(props) {
             setHook={setPBreak}
             TimerObject={TimerObject}
             setTimeLeft={setTimeLeft}
+            handleResetButtonClick = {handleResetButtonClick}
           />
           <div id="session-label" className="session-label">
             Session Length
@@ -727,6 +727,7 @@ function Pomodoro(props) {
             setHook={setSessionLen}
             TimerObject={TimerObject}
             setTimeLeft={setTimeLeft}
+            handleResetButtonClick = {handleResetButtonClick}
           />
           <ModButton
             incOrDec="decrement"
@@ -735,6 +736,7 @@ function Pomodoro(props) {
             setHook={setSessionLen}
             TimerObject={TimerObject}
             setTimeLeft={setTimeLeft}
+            handleResetButtonClick = {handleResetButtonClick}
           />
 
           <TimeLeft
@@ -748,29 +750,7 @@ function Pomodoro(props) {
           />
           <button
             id="reset"
-            onClick={() => {
-              audioElement.current.load();
-              const startStopElement = document.getElementById(
-                "start_stop"
-              );
-              if (startStopElement.innerHTML == "Stop") {
-                setSessionLen(25);
-                setPBreak(5);
-                setTimeLeft(sessionLen+":00");
-                startStopElement.click();
-                TimerObject.setMinutes(sessionLen);
-                TimerObject.setSeconds(0);
-                setCurrentSessionType("Session")
-              } else {
-                setSessionLen(25);
-                setPBreak(5);
-                setTimeLeft(sessionLen+":00");
-                // startStopElement.click();
-                TimerObject.setMinutes(sessionLen);
-                TimerObject.setSeconds(0);
-                setCurrentSessionType("Session")
-              }
-            }}>
+            onClick={handleResetButtonClick}>
             Reset
           </button>
           <audio id="beep" ref={audioElement}>
@@ -810,6 +790,9 @@ const ModButton = (props) => {
         id={props.target + "-" + props.incOrDec}
         className="button"
         onClick={(e) => {
+          const startStopElement = document.getElementById(
+            "start_stop"
+          );
           let crementer;
           if (
             props.incOrDec == "increment" &&
@@ -829,6 +812,9 @@ const ModButton = (props) => {
             TimerObject.setMinutes(
               props.hook + parseInt(`${crementer}1`)
             );
+          }
+
+          if (startStopElement.innerHTML!="Stop") {           
             props.setHook(TimerObject.getMinutes());
           }
         }}>
