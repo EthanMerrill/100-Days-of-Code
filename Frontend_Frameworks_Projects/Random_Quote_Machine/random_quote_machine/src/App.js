@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef } from "react";
 import marked from "marked";
 import {
   BrowserRouter as Router,
@@ -607,6 +607,7 @@ function Pomodoro(props) {
     currentSessionType,
     setCurrentSessionType,
   ] = useState("Session");
+  const audioElement = useRef(null);
   const [intervalId, setIntervalId] = useState(null);
   const [sessionLen, setSessionLen] = useState(25);
   const [pBreak, setPBreak] = useState(5);
@@ -618,8 +619,19 @@ function Pomodoro(props) {
 
   useEffect(() => {
     // console.log(TimerObject.getStringTime());;
-    setTimeLeft(TimerObject.getStringTime());
+    if(currentSessionType=="Session"){
+      TimerObject.setTimeWithString(sessionLen+":00")
+      setTimeLeft(TimerObject.getStringTime());
+    }
   }, [sessionLen]);
+
+  useEffect(() => {
+    // console.log(TimerObject.getStringTime());;
+    if(currentSessionType=="Break"){
+      TimerObject.setTimeWithString(pBreak+":00")
+      setTimeLeft(TimerObject.getStringTime());
+    }
+  }, [pBreak]);
 
   const isStarted = intervalId !== null;
 
@@ -629,24 +641,27 @@ function Pomodoro(props) {
       setIntervalId(null);
     } else {
       // decrement Timeleft by one every second
+      TimerObject.setTimeWithString(timeLeft)
       const newIntervalId = setInterval(() => {
-        setTimeLeft(() => {
-          // console.log(TimerObject.getStringTime());
-          // TimerObject.setMinutes(
-          //   parseInt(timeLeft.split(":")[0])
-          // );
-          // TimerObject.setSeconds(
-          //   parseInt(timeLeft.split(":")[1])
-          // );
+        setTimeLeft((prevTimeLeft) => {
+          console.log(`TimeLeft: ${timeLeft} prevTimeLeft: ${prevTimeLeft}`)
           TimerObject.subtractSeconds(1);
-          if (currentSessionType === "Session") {
+          if (currentSessionType === "Session" && prevTimeLeft=="00:00") {
+            console.log("FLIPFROM sesh")
             setCurrentSessionType("Break");
+            TimerObject.setMinutes(pBreak)
+            TimerObject.setSeconds(0)
+            audioElement.current.play();
           }
           // if break
-          if (currentSessionType === "Break") {
+          if (currentSessionType === "Break" && prevTimeLeft=="00:00") {
+            console.log("FLIPFROM Vreak")
             setCurrentSessionType("Session");
+            TimerObject.setMinutes(sessionLen)
+            TimerObject.setSeconds(0)
+            audioElement.current.play();
           }
-
+          
           return TimerObject.getStringTime()
         });
       }, 100);
@@ -678,7 +693,7 @@ function Pomodoro(props) {
         <div className="pomodoro">
           <div id="timer-label">Session</div>
           <div id="break-label" className="break-label ">
-            “Break Length”
+            Break Length
           </div>
           <div id="break-length" className="pomo-display">
             {pBreak}
@@ -734,27 +749,33 @@ function Pomodoro(props) {
           <button
             id="reset"
             onClick={() => {
+              audioElement.current.load();
               const startStopElement = document.getElementById(
                 "start_stop"
               );
               if (startStopElement.innerHTML == "Stop") {
                 setSessionLen(25);
                 setPBreak(5);
-                setTimeLeft("00:00");
+                setTimeLeft(sessionLen+":00");
                 startStopElement.click();
                 TimerObject.setMinutes(sessionLen);
                 TimerObject.setSeconds(0);
+                setCurrentSessionType("Session")
               } else {
                 setSessionLen(25);
                 setPBreak(5);
-                setTimeLeft("00:00");
+                setTimeLeft(sessionLen+":00");
                 // startStopElement.click();
                 TimerObject.setMinutes(sessionLen);
                 TimerObject.setSeconds(0);
+                setCurrentSessionType("Session")
               }
             }}>
             Reset
           </button>
+          <audio id="beep" ref={audioElement}>
+        <source src="https://onlineclock.net/audio/options/default.mp3" type="audio/mpeg" />
+      </audio>
         </div>
       </div>
     </div>
@@ -808,7 +829,6 @@ const ModButton = (props) => {
             TimerObject.setMinutes(
               props.hook + parseInt(`${crementer}1`)
             );
-
             props.setHook(TimerObject.getMinutes());
           }
         }}>
@@ -839,6 +859,10 @@ class TimeObject {
     return `${this.minutes}:${this.seconds}`;
   }
 
+  setTimeWithString(string){
+    this.minutes = string.split(":")[0]
+    this.seconds = string.split(":")[1]
+  }
   setMinutes(minutes) {
     if (minutes > 0) {
       this.minutes = minutes;
