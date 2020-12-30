@@ -9,7 +9,7 @@ import {
 
 function App(props) {
   return (<div>
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    
     <Router>
       <div className="navbar-expand">
         <nav className="navbar">
@@ -68,6 +68,7 @@ function App(props) {
         </Switch>
       </div>
     </Router>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     </div>
   );
 }
@@ -635,6 +636,18 @@ function Pomodoro(props) {
     }
   }, [pBreak]);
 
+  useEffect(() => {
+
+    if (currentSessionType === "Session" && timeLeft=="00:00") {
+      console.log("FLIPFROM sesh")
+      setCurrentSessionType("Break");
+    }
+      if (currentSessionType === "Break" && timeLeft=="00:00") {
+      console.log("FLIPFROM Break")
+      setCurrentSessionType("Session");
+    }
+  },[timeLeft])
+
   const isStarted = intervalId !== null;
 
   const handleStartStopClick = () => {
@@ -649,16 +662,16 @@ function Pomodoro(props) {
           // console.log(`TimeLeft: ${timeLeft} prevTimeLeft: ${prevTimeLeft}`)
           TimerObject.subtractSeconds(1);
           if (currentSessionType === "Session" && prevTimeLeft=="00:00") {
-            console.log("FLIPFROM sesh")
-            setCurrentSessionType("Break");
+            // console.log("FLIPFROM sesh")
+            // setCurrentSessionType("Break");
             TimerObject.setMinutes(pBreak)
             TimerObject.setSeconds(0)
             audioElement.current.play();
           }
           // if break
           if (currentSessionType === "Break" && prevTimeLeft=="00:00") {
-            console.log("FLIPFROM Vreak")
-            setCurrentSessionType("Session");
+            // console.log("FLIPFROM Break")
+            // setCurrentSessionType("Session");
             TimerObject.setMinutes(sessionLen)
             TimerObject.setSeconds(0)
             audioElement.current.play();
@@ -666,7 +679,7 @@ function Pomodoro(props) {
           
           return TimerObject.getStringTime()
         });
-      }, 100);
+      }, 1000);
 
       setIntervalId(newIntervalId);
     }
@@ -675,7 +688,7 @@ function Pomodoro(props) {
   const handleResetButtonClick = () => {
     audioElement.current.load();
     if (isStarted) {
-      document.getElementById("start_stop").click();
+      handleStartStopClick()
     } 
     setSessionLen(25);
     setPBreak(5);
@@ -683,6 +696,9 @@ function Pomodoro(props) {
     TimerObject.setMinutes(sessionLen);
     TimerObject.setSeconds(0);
     setCurrentSessionType("Session")
+    // TEMP FOR TESTING:
+    const timerRe = new RegExp(/^(\d{2,4})[\.:,\/](\d{2})$/);
+    console.log(`RESET BUTTON CLICK |--| innerText of SessionLen: ${document.getElementById('time-left').innerText}  | What the FCC tester is finding: ${timerRe.exec(document.getElementById('time-left').innerText)[2]}`)
   }
 
   return (
@@ -738,11 +754,11 @@ function Pomodoro(props) {
             setTimeLeft={setTimeLeft}
             handleResetButtonClick = {handleResetButtonClick}
           />
-
+      
+          <TimerLabel currentSessionType = {currentSessionType}/>
           <TimeLeft
             id="start_stop"
             handleStartStopClick={handleStartStopClick}
-            timerLabel={currentSessionType}
             startStopButtonLabel={
               isStarted ? "Stop" : "Start"
             }
@@ -762,21 +778,25 @@ function Pomodoro(props) {
   );
 }
 
+
+const TimerLabel = ({currentSessionType}) =>{
+    return (<div id="timer-label">{currentSessionType}</div>)
+}
+
 const TimeLeft = ({
   handleStartStopClick,
   startStopButtonLabel,
-  timeLeft,
-  timerLabel,
+  timeLeft
 }) => {
   return (
     <div>
-      <p id="timer-label">{timerLabel}</p>
       <button
         id="start_stop"
         onClick={handleStartStopClick}>
         {startStopButtonLabel}
       </button>
       <div id="time-left">{timeLeft}</div>
+      {/* <div id="time-left">00:00</div> */}
     </div>
   );
 };
@@ -799,7 +819,7 @@ const ModButton = (props) => {
           } else if (props.incOrDec == "decrement" && props.hook > 1) {
             crementer = "-";
           } else {
-            console.log("session timelength Max-ed or Min-ed")
+            // console.log("session timelength Max-ed or Min-ed")
             return
           }
 
