@@ -467,3 +467,14 @@ Working through the timer project -- last one! 12/29 tests passing
 
 Very little progress. If anything I deleted more code than I wrote today, this Pomodoro timer is kicking my butt!
 
+# dec 28
+
+
+
+# dec 29 
+
+Made significant progress on the tests. I ended the day with all but one passing. This is the most productive I have been in many days. To end the day I made a post on the FCC forum to see if anyone else could help me pass the test. THe issue I am having *I think* is the formatting of the time object. I traced the error to a specific line of code in the test script. The error I was getting wasn't clear, but this tracing makes me think its a failure of a regex execution. A member of the FCC Discord helped me work through the problem as well, but wasn't able to figure out the issue either. It was still nice to have their assistance, and helps give a slight feeling of community.
+
+# dec 30
+
+

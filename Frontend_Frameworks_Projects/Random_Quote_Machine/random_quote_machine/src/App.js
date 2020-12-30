@@ -707,18 +707,20 @@ function Pomodoro(props) {
   }
 
   return (
-    <div>
+
       <div id="pomodoro-container">
+      <div className="background-image-container">
+        <img className="random-background" src={"https://images.unsplash.com/photo-1536060316316-2466bda904f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"}></img>
+      </div>
+      <div className="pomodoro-vert-center">
         <div className="pomodoro">
-          {/* <div id="timer-label">Session</div> */}
+          <div className="break-section card">
           <div id="break-label" className="break-label ">
             Break Length
           </div>
-          <div id="break-length" className="pomo-display">
-            {pBreak}
-          </div>
+            <div className="timer-adjustment">
           <ModButton
-            incOrDec="increment"
+                incOrDec="decrement"
             target="break"
             hook={pBreak}
             setHook={setPBreak}
@@ -726,8 +728,11 @@ function Pomodoro(props) {
             setTimeLeft={setTimeLeft}
             handleRestButtonClick = {handleResetButtonClick}
           />
+              <div id="break-length" className="pomo-display">
+                {pBreak}
+              </div>
           <ModButton
-            incOrDec="decrement"
+                incOrDec="increment"
             target="break"
             hook={pBreak}
             setHook={setPBreak}
@@ -735,73 +740,92 @@ function Pomodoro(props) {
             setTimeLeft={setTimeLeft}
             handleResetButtonClick = {handleResetButtonClick}
           />
-          <div id="session-label" className="session-label">
-            Session Length
+            </div>
           </div>
-          <div id="session-length" className="pomo-display">
-            {sessionLen}
+          <div className="session-section card">
+            <div id="session-label" className="session-label">
+              Session Length
+            </div>
+            <div className="timer-adjustment">
+            <ModButton
+                incOrDec="decrement"
+              target="session"
+              hook={sessionLen}
+              setHook={setSessionLen}
+              TimerObject={TimerObject}
+              setTimeLeft={setTimeLeft}
+              handleResetButtonClick = {handleResetButtonClick}
+            />
+              <div id="session-length" className="pomo-display">
+                {sessionLen}
+              </div>
+            <ModButton
+                incOrDec="increment"
+              target="session"
+              hook={sessionLen}
+              setHook={setSessionLen}
+              TimerObject={TimerObject}
+              setTimeLeft={setTimeLeft}
+              handleResetButtonClick = {handleResetButtonClick}
+            />
+            </div>
           </div>
-          <ModButton
-            incOrDec="increment"
-            target="session"
-            hook={sessionLen}
-            setHook={setSessionLen}
-            TimerObject={TimerObject}
-            setTimeLeft={setTimeLeft}
-            handleResetButtonClick = {handleResetButtonClick}
-          />
-          <ModButton
-            incOrDec="decrement"
-            target="session"
-            hook={sessionLen}
-            setHook={setSessionLen}
-            TimerObject={TimerObject}
-            setTimeLeft={setTimeLeft}
-            handleResetButtonClick = {handleResetButtonClick}
-          />
-      
+          <div className="timer-section">
           <TimerLabel currentSessionType = {currentSessionType}/>
-          <TimeLeft
+
+
+            <div id="time-left" className="pomo-display large">{timeLeft}
+              <div
+                id="reset"
+                onClick={handleResetButtonClick}>
+                <i class="fas fa-sync"></i>
+              </div>
+            </div>
+            <StartStop
             id="start_stop"
             handleStartStopClick={handleStartStopClick}
             startStopButtonLabel={
-              isStarted ? "Stop" : "Start"
+              isStarted ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>' 
             }
             timeLeft={timeLeft}
           />
-          <button
-            id="reset"
-            onClick={handleResetButtonClick}>
-            Reset
-          </button>
-          <audio id="beep" ref={audioElement}>
-        <source src="https://onlineclock.net/audio/options/default.mp3" type="audio/mpeg" />
-      </audio>
+          </div>
+
         </div>
       </div>
-    </div>
+
+      <div className="image-credit"><span>Photo by <a href="https://unsplash.com/@emmamatthews?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Emma Matthews Digital Content Production</a> on <a href="https://unsplash.com/s/photos/productive?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></div>
+      <audio id="beep" ref={audioElement}>
+        <source src="https://onlineclock.net/audio/options/default.mp3" type="audio/mpeg" />
+      </audio>
+    </div >
   );
 }
 
 
 const TimerLabel = ({currentSessionType}) =>{
-    return (<div id="timer-label">{currentSessionType}</div>)
+  let className
+  if (currentSessionType == "Session") {
+    className = "badge bg-success"
+  } else if (currentSessionType == "Break") {
+    className = "badge bg-secondary"
+  }
+  return (<div id="timer-label" className={className}>{currentSessionType}</div>)
 }
 
-const TimeLeft = ({
+const StartStop = ({
   handleStartStopClick,
   startStopButtonLabel,
-  timeLeft
 }) => {
   return (
-    <div>
+    <div className="start-stop-container">
       <button
+        type="button"
+        className="btn btn-primary btn-lg"
         id="start_stop"
-        onClick={handleStartStopClick}>
-        {startStopButtonLabel}
+        onClick={handleStartStopClick}
+        dangerouslySetInnerHTML={{ __html: startStopButtonLabel }}>
       </button>
-      <div id="time-left">{timeLeft}</div>
-      {/* <div id="time-left">00:00</div> */}
     </div>
   );
 };
@@ -809,25 +833,34 @@ const TimeLeft = ({
 const ModButton = (props) => {
   // console.log(props)
   let TimerObject = props.TimerObject;
+  let icon
+  if (props.incOrDec == "increment" && props.hook < 60) {
+    icon = '<i class="fas fa-plus"></i>';
+  } else if (props.incOrDec == "decrement" && props.hook > 1) {
+    icon = "<i class='fas fa-minus'></i>";
+  } else {
+    icon = "<i class='fas fa-times-circle'></i>"
+  }
+
   return (
     <div>
       <button
         id={props.target + "-" + props.incOrDec}
         className="button"
+        dangerouslySetInnerHTML={{ __html: icon }}
         onClick={(e) => {
-          const startStopElement = document.getElementById(
-            "start_stop"
-          );
+          const startStopElement = document.getElementById("start_stop");
+
           let crementer;
           if (props.incOrDec == "increment" && props.hook < 60) {
             crementer = "+";
           } else if (props.incOrDec == "decrement" && props.hook > 1) {
             crementer = "-";
+
           } else {
             // console.log("session timelength Max-ed or Min-ed")
             return
           }
-
           // deal with the timer object
 
           if (TimerObject.getMinutes() > 0) {
@@ -838,7 +871,6 @@ const ModButton = (props) => {
             props.setHook(TimerObject.getMinutes());
           }
         }}>
-        {props.target + " " + props.incOrDec}
       </button>
     </div>
   );
