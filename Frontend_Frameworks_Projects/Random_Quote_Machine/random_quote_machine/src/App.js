@@ -625,6 +625,11 @@ function Pomodoro(props) {
     if(currentSessionType=="Session"){
       TimerObject.setTimeWithString(sessionLen+":00")
       setTimeLeft(TimerObject.getStringTime());
+        // TEMP FOR TESTING:
+      // const timerRe = new RegExp(/^(\d{2,4})[\.:,\/](\d{2})$/);
+      // console.log(document.getElementById('time-left').innerText)
+      // console.log(`innerText of SessionLen: ${document.getElementById('time-left').innerText}  | What the FCC tester is finding: ${timerRe.exec(document.getElementById('time-left').innerText)[2]}`)
+
     }
   }, [sessionLen]);
 
@@ -692,13 +697,13 @@ function Pomodoro(props) {
     } 
     setSessionLen(25);
     setPBreak(5);
-    setTimeLeft(sessionLen+":00");
     TimerObject.setMinutes(sessionLen);
     TimerObject.setSeconds(0);
     setCurrentSessionType("Session")
+    setTimeLeft(TimerObject.getStringTime());
     // TEMP FOR TESTING:
-    const timerRe = new RegExp(/^(\d{2,4})[\.:,\/](\d{2})$/);
-    console.log(`RESET BUTTON CLICK |--| innerText of SessionLen: ${document.getElementById('time-left').innerText}  | What the FCC tester is finding: ${timerRe.exec(document.getElementById('time-left').innerText)[2]}`)
+    // const timerRe = new RegExp(/^(\d{2,4})[\.:,\/](\d{2})$/);
+    // console.log(`RESET BUTTON CLICK |--| innerText of SessionLen: ${document.getElementById('time-left').innerText}  | What the FCC tester is finding: ${timerRe.exec(document.getElementById('time-left').innerText)[2]}`)
   }
 
   return (
