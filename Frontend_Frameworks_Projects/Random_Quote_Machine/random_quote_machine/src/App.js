@@ -10,7 +10,7 @@ import {
 function App(props) {
   return (<div>
     
-    <Router>
+    <Router basename="./HELLO">
       <div className="navbar-expand">
         <nav className="navbar">
           <ul className="navbar-nav mr-auto">

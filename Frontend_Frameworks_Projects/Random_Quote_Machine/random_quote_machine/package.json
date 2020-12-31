@@ -1,27 +1,30 @@
 {
-  "name": "random_quote_machine",
-  "version": "0.1.0",
-  "description": "",
-  "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "bootstrap": "^4.5.3",
-    "marked": "^1.2.7",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
-  },
-  "devDependencies": {
-    "babel-preset-nano-react-app": "^0.1.0",
-    "parcel": "^2.0.0-alpha.3.2",
-    "sass": "^1.30.0"
-  },
-  "babel": {
-    "presets": [
-      "nano-react-app"
-    ]
-  }
+    "name": "random_quote_machine",
+    "version": "0.1.0",
+    "description": "",
+    "homepage": "https://ethanmerrill.github.io/100-Days-of-Code/Frontend_Frameworks_Projects",
+    "scripts": {
+        "start": "parcel index.html",
+        "build": "parcel build ./index.html --public-url ./",
+        "predeploy": "del ..dist && npm run build",
+        "deploy": "gh-pages -d dist"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "bootstrap": "^4.5.3",
+        "marked": "^1.2.7",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^5.2.0"
+    },
+    "devDependencies": {
+        "babel-preset-nano-react-app": "^0.1.0",
+        "parcel": "^2.0.0-alpha.3.2",
+        "sass": "^1.30.0"
+    },
+    "babel": {
+        "presets": [
+            "nano-react-app"
+        ]
+    }
 }
