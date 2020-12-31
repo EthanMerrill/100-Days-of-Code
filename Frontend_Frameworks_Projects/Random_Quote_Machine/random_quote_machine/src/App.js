@@ -82,7 +82,7 @@ function LandingPage(props) {
   return (
     <div id="landingPageContainer">
       <h1>Hello!</h1>
-      <p>This is A collection of projects build in React by Ethan Merrill in December of 2020</p>
+      <p>This is a collection of projects built in React by Ethan Merrill in December of 2020</p>
       <ul className="inline-nav">
         <li className="nav-item">
           <Link className="nav-link" to="/quoteMachine">
