@@ -29378,7 +29378,7 @@ try {
       className: "nav-item"
     }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       className: "nav-link",
-      to: "/landingPage"
+      to: "/"
     }, "Home")), /*#__PURE__*/_react.default.createElement("li", {
       className: "nav-item"
     }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
@@ -29405,7 +29405,8 @@ try {
       className: "nav-link",
       to: "/pomodoro"
     }, "Pomodoro Clock")))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-      path: "/landingPage"
+      exact: true,
+      path: "/"
     }, /*#__PURE__*/_react.default.createElement(LandingPage, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
       path: "/quoteMachine"
     }, /*#__PURE__*/_react.default.createElement(QuoteMachine, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -29428,7 +29429,7 @@ try {
   function LandingPage(props) {
     return /*#__PURE__*/_react.default.createElement("div", {
       id: "landingPageContainer"
-    }, /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "This is A collection of projects build in React by Ethan Merrill in December of 2020"), /*#__PURE__*/_react.default.createElement("ul", {
+    }, /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "This is a collection of projects built in React by Ethan Merrill in December of 2020"), /*#__PURE__*/_react.default.createElement("ul", {
       className: "inline-nav"
     }, /*#__PURE__*/_react.default.createElement("li", {
       className: "nav-item"

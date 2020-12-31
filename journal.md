@@ -477,4 +477,8 @@ Made significant progress on the tests. I ended the day with all but one passing
 
 # dec 30
 
+Spent most of the day improving the stylining of the pomodoro clock. At the end of the day I tried to make it work on github pages. It seems the interaction with the github pages node package and parcel is an issue. I'm so close!
 
+# dec 31
+
+Finished Frontend Frameworks!!!! Just in time too. 

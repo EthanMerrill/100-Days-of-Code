@@ -26,3 +26,14 @@ A parody landing page based on a College Humor skit for an online bowl Store. It
 <a href="https://ethanmerrill.github.io/100-Days-of-Code/Responsive_Web_Design_Projects/Build_a_Technical_Documentation_page/index.html">**Technical Documentation Page**</a> This page may not be the prettiest, but I am proud of how fast it was put together. I got most of the content from my existing notes, which are in markdown. I exported the markdown to an HTML file, made some tweaks to pass the FCC tests and its finished!
 
 <a href="https://ethanmerrill.github.io/100-Days-of-Code/Responsive_Web_Design_Projects/Build_a_Tribute_Page/TributePage.html">**Tribute Page**</a> A tribute page to Percival Baxter. This was my first time using Flexbox-grid. 
+
+<a href="https://www.freecodecamp.org/certification/ethanmerrill/responsive-web-design">Responsive Web Design Certification</a>
+
+
+# Data Structures and Algorithms
+
+<a href="https://www.freecodecamp.org/certification/ethanmerrill/javascript-algorithms-and-data-structures">Data Structures Certification</a> I successfully completed all 294 coding challenges and 5 projects to earn this certification. 
+
+# Front-End Frameworks:
+
+<a href="https://ethanmerrill.github.io/100-Days-of-Code/Frontend_Frameworks_Projects/Random_Quote_Machine/random_quote_machine/dist/index.html">All Frontend Challenges</a> A page which has all 5 frontend challenges with passing tests. I used React Router, Functional Components, and hooks to create the projects.

@@ -15,7 +15,7 @@ function App(props) {
         <nav className="navbar">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/landingPage">
+              <Link className="nav-link" to="/">
                 Home
               </Link>
             </li>
@@ -50,7 +50,7 @@ function App(props) {
         </nav>
 
         <Switch>
-          <Route path="/landingPage">
+          <Route exact path="/">
             <LandingPage />
           </Route>
           <Route path="/quoteMachine">
@@ -71,6 +71,10 @@ function App(props) {
         </Switch>
       </div>
     </Router>
+
+
+
+
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     </div>
   );
@@ -115,7 +119,6 @@ function LandingPage(props) {
     </div>
   )
 }
-
 
 
 function QuoteMachine(props) {
