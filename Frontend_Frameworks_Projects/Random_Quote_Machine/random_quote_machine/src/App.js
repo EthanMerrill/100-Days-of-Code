@@ -10,12 +10,12 @@ import {
 function App(props) {
   return (<div>
     
-    <Router basename="./HELLO">
+    <Router basename="./">
       <div className="navbar-expand">
         <nav className="navbar">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/landingPage">
                 Home
               </Link>
             </li>
@@ -50,6 +50,9 @@ function App(props) {
         </nav>
 
         <Switch>
+          <Route path="/landingPage">
+            <LandingPage />
+          </Route>
           <Route path="/quoteMachine">
             <QuoteMachine />
           </Route>
@@ -74,6 +77,46 @@ function App(props) {
 }
 
 export default App;
+
+function LandingPage(props) {
+  return (
+    <div id="landingPageContainer">
+      <h1>Hello!</h1>
+      <p>This is A collection of projects build in React by Ethan Merrill in December of 2020</p>
+      <ul className="inline-nav">
+        <li className="nav-item">
+          <Link className="nav-link" to="/quoteMachine">
+            Quote Machine
+              </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            className="nav-link"
+            to="/markdownpreviewer">
+            Markdown Previewer{" "}
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/drummachine">
+            Drum Machine
+              </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/calculator">
+            Calculator
+              </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/pomodoro">
+            Pomodoro Clock
+              </Link>
+        </li>
+      </ul>
+    </div>
+  )
+}
+
+
 
 function QuoteMachine(props) {
   const [quote, setQuote] = useState("EMPTY QUOTE");
@@ -105,12 +148,9 @@ function QuoteMachine(props) {
 
   return (
     <div>
+
       <div className="quote-project">
-        <div className="background-image-container">
-          <img
-            className="random-background"
-            src="https://source.unsplash.com/random"></img>
-        </div>
+        <BackgroundImage quote={quote} />
         <div className="quotebox-vert-center">
           <div id="quote-box" className="quote-box card">
             <div className="just-quote">
@@ -133,6 +173,25 @@ function QuoteMachine(props) {
       </div>
     </div>
   );
+}
+
+function BackgroundImage(props) {
+  // let imgsrc = "https://source.unsplash.com/random?"
+  // let key = props.quote
+  // useEffect(() => {
+  //   key = props.quote
+  //   console.log("refreshed")
+  // }, [props.quote])
+
+  return (
+    // Requires a cachebreaker: https://stackoverflow.com/questions/1077041/refresh-image-with-a-new-one-at-the-same-url
+    <div className="background-image-container">
+      <img
+        id="background"
+        // value={key}
+        className="random-background"
+        src="https://source.unsplash.com/random"></img>
+    </div >)
 }
 
 function MarkdownPreviewer(props) {

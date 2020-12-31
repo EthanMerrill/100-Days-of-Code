@@ -27,6 +27,21 @@ $theme-colors: ( "primary": #a0b8f8, "danger": #ff4136);
     background: transparent;
 }
 
+#landingPageContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    h1 {
+        margin-bottom: 50px;
+    }
+}
+
+.inline-nav {
+    // margin: auto;
+}
+
 h2 {
     font-size: 55px;
     text-align: center;
