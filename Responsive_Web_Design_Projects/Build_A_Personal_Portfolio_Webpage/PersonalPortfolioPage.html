@@ -167,12 +167,12 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 </html>
 <script>
     d3.json("graphData.json").then(function(data) {
-        // console.log(data)
+        console.log(data)
         buildNetwork(data)
     })
 
 
-    drag = simulation => {
+                                                            let drag = simulation => {
 
         function dragstarted(event) {
             if (!event.active) simulation.alphaTarget(.3).restart();
@@ -222,7 +222,7 @@ User Story #11: The navbar should always be at the top of the viewport. -->
                                     onelink.value = 20;
                                 }
                             }
-                            console.log(onelink.source)
+                            // console.log(onelink.source)
                             node_links.push(onelink)
                         })
 
@@ -234,7 +234,9 @@ User Story #11: The navbar should always be at the top of the viewport. -->
         }
 
 
-        const nodes = data.nodes.map(d => Object.create(d));
+        const nodes = data.nodes.map(d => {
+            return Object.create(d)
+        });
 
         const links = linkFinder().map(d => Object.create(d))
 
@@ -256,7 +258,6 @@ User Story #11: The navbar should always be at the top of the viewport. -->
 
         var attractForce = d3.forceManyBody().strength(1).distanceMax(200).distanceMin(10);
         var repelForce = d3.forceManyBody().strength(-250).distanceMax(800).distanceMin(1);
-
         const simulation = d3.forceSimulation(nodes)
             .force("link", d3.forceLink(linkFinder()).id(d => d.id).distance(function(d) {
                 return (d.value) ** 1.9;

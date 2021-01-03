@@ -482,3 +482,33 @@ Spent most of the day improving the stylining of the pomodoro clock. At the end 
 # dec 31
 
 Finished Frontend Frameworks!!!! Just in time too. 
+
+I would like to do a reflection on finishing this section, but I really don't know what to say.   
+
+
+# Jan 1!!
+
+New year! New... ah well same code as yesterday. However the plan for today is to write new code which integrates my d3 force directed chart into the strapi/nextjs site I cloned yesterday. I noticed that I at least *felt* more productive when I was checking off items each day, so in the spirit of productivity, what I would like to accomplish today is the following: 
+
+- [x] d3 Visualization in next.js. 
+
+This was not as harc as I thought. I went through a few different ways to make d3 and React play nice with the DOM, and eventually found the best way was a two component solution where react is a parent component and d3 handles everything in a child component. I had some issues with resizing the window, and that is still somewhat choppy, but it does seem to work ok. I even added a nice fade and blurr animation. I need to plan out how the site will actually look, but this css transition makes it look very cool. 
+
+# Jan 2
+
+Today I would like to learn more about the backend and data structure. I have the d3 working off of a hand build json file which is just saved in the local frontend directory. I need to be able to get the data from the backend and pass it to my d3 component. 
+
+I installed the GraphQL plugin. Its amazing. It just makes sense, you give the structure of what you want and the API just returns the data in exactly that format. The only issue is you have to know the exact structure of the data before making the query. I have it working in a developer mode, but implementing it in my application does seem tricky, particularly the JWT token part. A JWT token is a fancy authentication method. 
+
+- [x] Make a working GraphQL query in the frontend dev site. 
+ 
+5:15 update: The query works. I don't have the environment variables setup correctly, which will bite me in the butt when I try to setup the backend on aws...
+
+8:30 I passed the data to the d3 visualization, but it isnt structured the save way and has different variable names.
+
+# Jan 3 
+
+- [ ] Make the d3 visualization work
+- 
+9:58 finally got the vis back, links still don't work, but I think it comes down to a naming thing.
+I started work on tooltips, and wrote some minor error handling for when images don't exist in articles. I'll need to improve this in the future. I think that I am approaching minimum viable site! This means I will need to look at hosting options, I hope to go serverless (like gcloud functions or AWS lambda) and as free as possible. We'll see what the options are... But first, I need to make the links to new pages work in the Force Directed nav, and I need to make the new pages actually display.
