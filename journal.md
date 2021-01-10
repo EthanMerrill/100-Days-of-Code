@@ -512,3 +512,16 @@ I installed the GraphQL plugin. Its amazing. It just makes sense, you give the s
 - 
 9:58 finally got the vis back, links still don't work, but I think it comes down to a naming thing.
 I started work on tooltips, and wrote some minor error handling for when images don't exist in articles. I'll need to improve this in the future. I think that I am approaching minimum viable site! This means I will need to look at hosting options, I hope to go serverless (like gcloud functions or AWS lambda) and as free as possible. We'll see what the options are... But first, I need to make the links to new pages work in the Force Directed nav, and I need to make the new pages actually display.
+
+# Jan 4 
+
+Ok I Made a TODO in the Personal site. It seems like What I want to accomplish is possible in the next 5 full workdays I have left:
+- [ ] write error handling for newly optional fields such as author, image PersonalBlog2021\frontend\pages\article\[slug].js
+- [ ] force directed graph tooltips with a description of the article 
+- [ ] setup free serverless hosting on AWS or gcloud depending on which is more free
+- [ ] Routing in the force directed nav
+- [ ] Working post pages.
+
+More tasks will obviously crop up, but to get a site working in the most minimal capacity I think this is what is needed, in broad strokes. 
+
+Right off the bat today, I can't start the local server...great! This means debugging will be very difficult. The error output alludes to routing being the issue. I think that it may be because the fields I made optional do not exist in some cases. For example some posts don't have a picture now, which might make the server not work if a null condition is not handled. I handled this for images yesterday (I think) but there are other fields in the articles object that I made optional and did not include, so here we go....~15 minutes later: I forgot to use `npm run dev` instead of `npm start` ::eyeroll:: This detour just served to remind me of the fragility of my understanding! Also I have a feeling this will be another thing that will trip me up when it comes time to deploy.
